@@ -42,3 +42,15 @@ Route::get('/store/create', function() {
 Route::get('/edit/profile/1', function() {
     return view('user.edit');
 });
+
+
+// Login
+Route::get('/login', function() {
+    return view('login');
+});
+
+
+// Login
+Route::get('/register', function() {
+    return view('register');
+});
