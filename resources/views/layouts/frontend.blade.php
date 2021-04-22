@@ -21,7 +21,7 @@
     
     @stack('css')
 </head>
-<body>
+<body id="@yield('id')">
     <!-- Start Header Area -->
     <header>
 
