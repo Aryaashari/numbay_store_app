@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('no_telp');
             $table->text('alamat_rumah');
-            $table->string('foto_profile_user');
+            $table->string('foto_profile_user')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
