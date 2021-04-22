@@ -53,7 +53,7 @@
                                 <div class="card">
                                     <div class="img" style="background-image: url({{ asset('frontend/img/produk/'.$product->foto_produk) }});"></div>
                                     <div class="text-produk">
-                                        <a href="detail-produk.html"><h4>{{ $product->nama_produk }}</h4></a>
+                                        <a href="detail-produk.html"><h4>{{ Str::limit($product->nama_produk, 20, '...') }}</h4></a>
                                         <p>{{ $product->store->nama_toko }}</p>
                                         <h3>Rp {{ $product->harga_produk }}</h3>
                                     </div>
