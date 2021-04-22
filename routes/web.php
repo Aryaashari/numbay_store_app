@@ -36,3 +36,9 @@ Route::get('/order/product/slug-product1', function() {
 Route::get('/store/create', function() {
     return view('store.create');
 });
+
+
+// Edit User
+Route::get('/edit/profile/1', function() {
+    return view('user.edit');
+});
