@@ -30,3 +30,9 @@ Route::get('/wishlists', function() {
 Route::get('/order/product/slug-product1', function() {
     return view('order.form');
 });
+
+
+// Buka Toko
+Route::get('/store/create', function() {
+    return view('store.create');
+});
