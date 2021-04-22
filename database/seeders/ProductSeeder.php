@@ -40,5 +40,14 @@ class ProductSeeder extends Seeder
             'deskripsi_produk' => 'Kangkung bagus',
             'foto_produk' => 'kangkung.png'
         ]);
+
+        Product::create([
+            'store_id' => 1,
+            'category_id' => 1,
+            'nama_produk' => 'Papeda Ikan Kuah Kuning',
+            'harga_produk' => 15000,
+            'deskripsi_produk' => 'Makanan khas Papua',
+            'foto_produk' => 'papeda.jpg'
+        ]);
     }
 }
