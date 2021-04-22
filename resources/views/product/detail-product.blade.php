@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="img-card">
-                        <div class="img" style="background-image: url({{ asset('frontend/img/produk/somay.png') }});"></div>
+                        <div class="img" style="background-image: url({{ asset('frontend/img/produk/'.$products->foto_produk) }});"></div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
