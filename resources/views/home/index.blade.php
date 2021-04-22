@@ -5,7 +5,24 @@
 @endsection
 
 @section('content')
-    
+
+    <!-- Modal Jika Product Kosong  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="text-center text-danger">Pencarian <b>{{ request('search') }}</b> tidak ditemukan!</h4>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
     <!-- Start Banner Area -->
     <div class="banner">
         <div class="container">
@@ -37,7 +54,7 @@
                     <form action="{{ url('/') }}" class="form-search" method="GET">
                         <div class="search-box d-flex">
                             <button type="submit"><img src="{{ asset('frontend/img/icon/search.png') }}" class="search-icon" alt="search-icon"></button> 
-                            <input type="search" name="search" placeholder="Cari produk" autocomplete="off">
+                            <input type="search" name="search" placeholder="Cari produk atau toko" autocomplete="off">
                         </div>
                     </form>
                 </div>
@@ -45,7 +62,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row card-produk">
-
+                    
 
                     @foreach ($products as $product)
                         <div class="col-lg-3 col-6 col-md-4 mb-3 mb-md-5 d-flex justify-content-center">
@@ -84,12 +101,12 @@
 
 @endsection
 
-{{-- @push('js')
-    <script>
-        $(document).ready(function () {
-            $('.btn-search').click(function(_) {
-                $('.form-search').submit();
+@if (isset($productKosong))
+    @push('js')
+        <script>
+            $(document).ready(function () {
+                $('#exampleModal').modal('show');
             });
-        });
-    </script>
-@endpush --}}
+        </script>
+    @endpush
+@endif
