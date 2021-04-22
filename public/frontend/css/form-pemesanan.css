@@ -1,0 +1,48 @@
+#form-pemesanan main {
+    margin-top: 27px;
+}
+
+#form-pemesanan .title {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+#form-pemesanan .nama-produk {
+    font-size: 25px;
+    color: #8F8F8F;
+    margin-bottom: 29px;
+}
+
+#form-pemesanan .form .btn {
+    color: white;
+    border-radius: 13px;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 8px 12px 8px 12px;
+}
+
+#form-pemesanan .detail-pemesanan h5 {
+    color: #595959;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#form-pemesanan .detail-pemesanan h3 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+    #form-pemesanan .title {
+        font-size: 24px;
+    }
+
+    #form-pemesanan .nama-produk {
+        font-size: 20px;
+    }
+}

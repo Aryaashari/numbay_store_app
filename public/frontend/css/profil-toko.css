@@ -1,0 +1,196 @@
+#profil-toko main {
+    margin-top: 50px;
+}
+
+/* Start Card Area */
+#profil-toko .card {
+    width: 100%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 25px;
+    padding: 35px;
+}
+
+#profil-toko .detail-toko {
+    text-align: center;
+}
+
+#profil-toko .detail-toko .img-toko {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 50%;
+    background-size: cover;
+    margin: auto;
+}
+
+#profil-toko .detail-toko h4 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#profil-toko .detail-toko h5 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #8F8F8F;
+}
+
+#profil-toko .detail-toko .alamat {
+    font-size: 17px;
+}
+
+#profil-toko .detail-toko .garis {
+    width: 36px;
+    height: 6px;
+    background-color: #FFB800;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 19px;
+}
+
+#profil-toko .detail-toko .desc {
+    font-size: 14px;
+}
+
+#profil-toko .detail-toko .ig img, #profil-toko .detail-toko .wa img {
+    width: 27px;
+}
+/* End Card Area */
+
+
+
+/* Start Semua Produk Area */
+#profil-toko .semua-produk h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+#profil-toko .semua-produk .card {
+    width: 100%;
+    border-radius: 18px;
+    border: 5px solid #E9E9E9;
+    padding: 3px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+#profil-toko .semua-produk .card-produk .col-md-4 {
+    display: flex;
+}
+
+#profil-toko .semua-produk .card:hover {
+    border: 5px solid #FFB800;
+}
+
+#profil-toko .semua-produk .card .img {
+    background-size: cover;
+    height: 200px;
+    border-radius: 18px 18px 0 0;
+}
+
+#profil-toko .semua-produk .card .text-produk {
+    background-color: white;
+    border-radius: 15px;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    text-align: left;
+    padding: 10px;
+    box-shadow: -2px 2px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+#profil-toko .semua-produk .card .text-produk h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+#profil-toko .semua-produk .card .text-produk a {
+    text-decoration: none;
+}
+
+#profil-toko .semua-produk .card .text-produk p {
+    font-size: 14px;
+    color: #8F8F8F;
+    margin-top: -5px;
+}
+
+#profil-toko .semua-produk .card .text-produk h3 {
+    font-size: 25px;
+    color: #FFB800;
+    font-weight: bold;
+    margin-top: -5px;
+}
+/* End Semua Produk Area */
+
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+    #profil-toko main {
+        margin-top: 20px;
+    }
+
+
+    /* Start Semua Produk Area */
+    #profil-toko .semua-produk h2 {
+        font-size: 32px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 24px;
+    }
+
+    #profil-toko .semua-produk .card-produk .col-md-4 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #profil-toko .semua-produk .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #profil-toko .semua-produk .card .img {
+        height: 150px;
+    }
+
+    #profil-toko .semua-produk .card .text-produk {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    #profil-toko .semua-produk .card .text-produk h4 {
+        font-size: 14px;
+    }
+
+    #profil-toko .semua-produk .card .text-produk p {
+        font-size: 12px;
+        color: #8F8F8F;
+        margin-top: -5px;
+    }
+
+    #profil-toko .semua-produk .card .text-produk h3 {
+        font-size: 18px;
+        color: #FFB800;
+        font-weight: bold;
+        margin-top: -5px;
+    }
+    /* End Semua Produk Area */
+}
+
+
+
+
+
+ /* Medium devices (tablets, 768px and up) */
+ @media (min-width: 768px) and (max-width: 991.98px) {
+    #profil-toko .card {
+        padding: 50px 70px 50px 70px;
+        margin-bottom: 20px;
+    }
+ }

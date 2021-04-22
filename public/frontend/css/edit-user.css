@@ -1,0 +1,82 @@
+#edit-user main {
+    margin-top: 63px;
+    margin-bottom: 30px;
+}
+
+/* Start Title Area */
+#edit-user .title {
+    font-size: 44px;
+    font-weight: bold;
+}
+
+#edit-user .garis {
+    width: 52px;
+    height: 8px;
+    background-color: #FFDA00;
+    margin-bottom: 45px;
+    margin-top: 21px;
+}
+
+
+/* Start Img User Area */
+#edit-user main .img-user {
+    background-size: cover;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#edit-user .img-user label {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+#edit-user .img-user label img {
+    width: 45px;
+    height: 45px;
+}
+
+
+
+/* Start Form Area */
+#edit-user .form textarea {
+    border: 1px #767676 solid;
+    border-radius: 13px;
+    width: 100%;
+    padding: 5px;
+    padding-left: 12px;
+    background-color: #E5E5E5;
+}
+
+#edit-user .form textarea:focus {
+    outline: none;
+}
+
+#edit-user .form .btn {
+    width: 148px;
+    color: white;
+    border-radius: 13px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+    #edit-user main {
+        margin-top: 23px;
+    }
+
+
+
+    /* Start Title Area */
+    #edit-user .title {
+        font-size: 32px;
+    }
+}

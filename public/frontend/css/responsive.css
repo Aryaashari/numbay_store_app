@@ -1,0 +1,300 @@
+/* Extra small devices (portrait phones, less than 576px) */
+/* @media (max-width: 575.98px) {  */
+
+    /* Start Produk Area */
+    /* .produk .card-produk .col-4 {
+        padding-left: 5 !important;
+        padding-right: 5 !important;
+    }
+
+    .produk .card {
+        width: 200px;
+    }
+
+    .produk .card .img {
+        height: 100px;
+    }
+
+    .produk .card .text-produk {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .produk .card .text-produk h4 {
+        font-size: 10px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+
+    .produk .card .text-produk p {
+        font-size: 8px;
+    }
+
+    .produk .card .text-produk h3 {
+        font-size: 12px;
+    }
+    /* End Produk Area */
+
+
+/* }  */
+
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+    /* =====Utilities===== */
+
+
+        /* Pagination */
+        .pagination-card .col {
+            display: flex;
+            justify-content: center;
+        }
+        .pagination a {
+            font-size: 18px;
+        }
+
+        .pagination .arrow-next img, .pagination .arrow-back img {
+            width: 10px;
+        }
+        /* End Pagination */
+
+
+    /* =====End Utilities===== */
+
+
+    /* Start Navbar Area */
+   
+
+    .navbar .navbar-brand img {
+        width: 200px;
+    }      
+
+    .navbar .navbar-nav .nav-item {
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        margin-left: 0;
+    }
+
+    .navbar .navbar-nav .nav-link.kontak {
+        margin-right: 0;
+    }
+
+    .navbar .navbar-nav .nav-item .btn {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .user-whislist {
+        position: relative;
+        width: 13rem;
+        margin: auto;
+    }
+
+    .user-whislist .user {
+        position: static;
+    }
+
+    /* End Navbar Area */
+
+
+
+
+    /* Start Banner Area */
+    .banner {
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 400px;
+    }
+
+    .banner h2 {
+        font-size: 40px;
+        margin-top: 108px;
+    }
+
+    .banner h4 {
+        font-size: 25px;
+    }
+
+    .banner img {
+        display: none;
+    }
+    
+    /* End Banner Area */
+
+
+
+    /* Start Produk Area */
+    .produk {
+        margin-top: 35px;
+    }
+
+    .produk .title {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .produk .subtitle {
+        font-size: 15px;
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .produk .garis {
+        margin: 0 auto 20px auto;
+    }
+
+    .produk .search-box {
+        width: 85%;
+        margin: auto;
+    }
+    
+    .produk .search-box .search-icon {
+        width: 24px;
+    }
+
+    .produk .card-produk .col-6 {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    .produk .card {
+        width: 100%;
+    }
+
+    .produk .card .img {
+        height: 150px;
+    }
+
+    .produk .card .text-produk {
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-bottom: 10px;
+    }
+
+    .produk .card .text-produk h4 {
+        font-size: 15px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+
+    .produk .card .text-produk p {
+        font-size: 12px;
+    }
+
+    .produk .card .text-produk h3 {
+        font-size: 18px;
+        margin-top: -8px;
+    }
+    /* End Produk Area */
+
+
+
+
+    /* Start Footer Area */
+    .bottom-bar .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        width: 180px;
+    }
+
+    .bottom-bar .btn {
+        width: 100px;
+        font-size: 14px;
+    }
+
+    .bottom-bar .contact img {
+        width: 25px;
+    }
+
+    .copyright-text p {
+        font-size: 14px;
+    }
+    /* End Footer Area */
+}
+
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* =====Utilities===== */
+
+
+        /* Pagination */
+        .pagination-card .col {
+            display: flex;
+            justify-content: center;
+        }
+        /* End Pagination */
+
+
+    /* =====End Utilities===== */
+
+
+
+    /* Start Navbar Area */
+
+    .navbar .navbar-nav .nav-link {
+        margin-left: auto;
+    }
+
+    .navbar .navbar-nav .nav-link.kontak {
+        margin-right: 0;
+    }
+
+    .navbar .navbar-nav .nav-item .btn {
+        margin-left: auto;
+    }
+
+    .user-whislist {
+        position: relative;
+        width: 13rem;
+        margin: auto;
+    }
+
+    .user-whislist .user {
+        position: static;
+    }
+
+    .user-whislist .dropdown-menu {
+        right: 200px;
+        width: 50%;
+    }
+    /* End Navbar Area */
+
+
+    
+    /* Start Banner Area */
+    .banner h2 {
+        margin-top: 180px;
+    }
+    
+    .banner {
+        text-align: center;
+    }
+    .banner img {
+        display: none;
+    }
+    /* End Banner Area */
+}
+
+
+
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    /* Start Banner Area */
+    .banner img {
+        display: none;
+    }
+    /* End Banner Area */
+}

@@ -1,0 +1,315 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 180px;
+    position: relative;
+}
+
+
+/* =====Utilities===== */
+
+
+    /* Pagination */
+    .pagination li {
+        margin-right: 10px;
+    }
+    .pagination a {
+        font-size: 22px;
+        text-decoration: none;
+        color: #595959;
+    }
+
+    .pagination li.active a {
+        font-weight: 700;
+        color: #FFB800;
+    }
+    /* End Pagination */
+
+
+/* =====End Utilities===== */
+
+
+/* Start Navbar Area */
+
+.navbar {
+    background-color: #00288F !important;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar .navbar-toggler {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.navbar .navbar-toggler:focus {
+    outline: none !important;
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url(../img/icon/hamburger_menu.png) !important;
+}
+
+
+.navbar .navbar-brand img {
+    width: 243px;
+}
+
+.navbar .navbar-nav .nav-link.aktif {
+    color: #FFDA00 !important;
+}
+
+.navbar .navbar-nav {
+    align-items: center;
+}
+
+.navbar .navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-left: 20px;
+}
+
+.navbar .navbar-nav .nav-link.kontak {
+    margin-right: 50px;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #FFDA00;
+}
+
+.navbar .navbar-nav .nav-item .btn {
+    color: #00288F;
+    font-weight: bold;
+    width: 142px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.navbar .navbar-toggler {
+    background-color: white;
+} 
+
+.navbar .navbar-nav .nav-link.love-icon {
+    display: inline-block;
+    margin-left: 0;
+}
+
+.love-icon img {
+    width: 20px;
+}
+
+.user-whislist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-whislist .user {
+    position: relative;
+}
+
+/* End Navbar Area */
+
+
+
+/* Start Banner Area */
+.banner {
+    height: 570px;
+    background-image: url('../img/bg.png');
+    background-size: cover;
+}
+
+.banner h2 {
+    font-size: 75px;
+    color: white;
+    font-weight: bold;
+    margin-top: 140px;
+}
+
+.banner h4 {
+    font-size: 35px;
+    color: white;
+}
+
+.banner img {
+    max-width: 625px;
+    margin-top: 113px;
+    position: relative;
+    z-index: 1;
+}
+/* End Banner Area */
+
+
+
+/* Start Produk Area */
+.produk {
+    margin-top: 88px;
+    text-align: left;
+}
+
+.produk .title {
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.produk .subtitle {
+    font-size: 20px;
+    margin-bottom: 19px;
+}
+
+.produk .garis {
+    width: 52px;
+    height: 8px;
+    background-color: #FFDA00;
+}
+
+.produk .search-box {
+    width: 100%;
+    border-radius: 13px;
+    border: 2px #8F8F8F solid;
+    background-color: #ECECEC;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 13px;
+    padding-left: 13px;
+    align-items: center;
+}
+
+.produk .search-box button {
+    border: none;
+    background-color: transparent;
+}
+
+.produk .search-box button:focus {
+    outline: none;
+}
+
+.produk .search-box .search-icon {
+    width: 26px;
+}
+
+.produk .search-box input {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.produk .search-box input:focus {
+    outline: none;
+}
+
+.produk .card-produk {
+    margin-top: 50px;
+}
+
+.produk .card {
+    width: 216px;
+    border-radius: 18px;
+    border: 5px solid #E9E9E9;
+    padding: 3px;
+    justify-content: space-between;
+}
+
+.produk .card:hover {
+    border: 5px solid #FFB800;
+}
+
+.produk .card .img {
+    background-size: cover;
+    height: 200px;
+    border-radius: 18px 18px 0 0;
+}
+
+.produk .card .text-produk {
+    background-color: white;
+    border-radius: 15px;
+    width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    text-align: left;
+    padding: 10px;
+    box-shadow: -2px 2px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.produk .card .text-produk h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.produk .card .text-produk a {
+    text-decoration: none;
+}
+
+.produk .card .text-produk p {
+    font-size: 14px;
+    color: #8F8F8F;
+    margin-top: -5px;
+}
+
+.produk .card .text-produk h3 {
+    font-size: 25px;
+    color: #FFB800;
+    font-weight: bold;
+    margin-top: -5px;
+}
+
+/* End Produk Area */
+
+
+
+/* Start Footer Area */
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.bottom-bar {
+    background-color: #FFB800;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bottom-bar .row:nth-child(1) {
+    justify-content: space-between;
+}
+
+.bottom-bar .logo {
+    width: 300px;
+}
+
+.bottom-bar .btn {
+    margin-right: 50px;
+    width: 142px;
+    border: 3.5px black solid;
+    border-radius: 10px;
+    color: black;
+    font-weight: 700;
+    font-size: 19px;
+    background-color: transparent;
+}
+
+.bottom-bar .contact img {
+    width: 30px;
+}
+
+.bottom-bar .contact a {
+    margin-right: 12px;
+}
+
+.copyright-text {
+    background-color: #373737;
+    padding: 4px;
+}
+
+.copyright-text p {
+    margin-bottom: 0;
+    color: #9D9D9D;
+    font-size: 18px;
+}
+/* End Footer Area */

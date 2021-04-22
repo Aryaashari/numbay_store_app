@@ -1,0 +1,31 @@
+.form {
+    margin-bottom: 12px;
+}
+
+.form .form-control:focus {
+    box-shadow: none !important; 
+    border: 1px #767676 solid;
+    background-color: #E5E5E5;
+}
+
+.form .invalid-feedback {
+    text-align: left !important;
+    display: block;
+}
+
+.form input, .form textarea {
+    border: 1px #767676 solid;
+    border-radius: 13px;
+    width: 100%;
+    padding: 5px;
+    padding-left: 12px;
+    background-color: #E5E5E5;
+}
+
+.form textarea.is-invalid {
+    border: 1px #dc3545 solid !important;
+}
+
+.form input:focus {
+    outline: none !important;
+}

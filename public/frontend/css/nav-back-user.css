@@ -1,0 +1,27 @@
+/* Start nav Back User Area */
+.nav-back-user .arrow-back img {
+    width: 22px;
+}
+
+.nav-back-user .dropdown-toggle::after {
+    display: none;
+}
+
+.nav-back-user .container {
+    position: relative;
+}
+
+.nav-back-user .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+/* End Nav Back User Area */
+
+
+
+
+@media only screen and (max-width: 767px) {
+    .nav-back-user .arrow-back img {
+        width: 16px;
+    }
+}

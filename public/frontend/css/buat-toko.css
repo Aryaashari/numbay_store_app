@@ -1,0 +1,148 @@
+#buat-toko main {
+    margin-top: 64px;
+    margin-bottom: 20px;
+}
+
+
+#buat-toko .title {
+    font-size: 44px;
+    font-weight: bold;
+}
+
+#buat-toko .garis {
+    width: 52px;
+    height: 8px;
+    background-color: #FFDA00;
+    margin-top: 20px;
+}
+
+
+#buat-toko .img-profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-size: cover;
+    position: relative;
+}
+
+#buat-toko .img-profile .upload-icon {
+    position: absolute;
+    bottom: 10px;
+    right: -5px;
+}
+
+
+#buat-toko form {
+    margin-top: 57px;
+}
+
+
+#buat-toko .form {
+    margin-bottom: 15px;
+}
+
+#buat-toko .form .form-control:focus {
+    box-shadow: none !important; 
+    border: 1px #767676 solid;
+    background-color: #E5E5E5;
+}
+
+#buat-toko .form .invalid-feedback {
+    text-align: left !important;
+    display: block;
+}
+
+#buat-toko .form textarea.is-invalid, #buat-toko .form input.is-invalid {
+    border: 1px #dc3545 solid !important;
+}
+
+#buat-toko .form textarea.form-control {
+    border: 1px #767676 solid;
+    border-radius: 13px;
+    width: 100%;
+    padding-left: 6px;
+    padding: 4px;
+    background-color: #E5E5E5;
+}
+
+#buat-toko .form select {
+    width: 100%;
+}
+
+#buat-toko .form .select2 {
+    width: 100% !important;
+}
+
+#buat-toko .form .select2-search__field {
+    margin-top: 6px;
+    margin-bottom: 7px;
+    height: 21px;
+}
+
+#buat-toko .form .select2-selection.select2-selection--multiple {
+    border: 1px #767676 solid;
+    border-radius: 13px;
+    width: 100%;
+    padding-left: 6px;
+    padding: 4px;
+    background-color: #E5E5E5;
+}
+
+#buat-toko .form .select2-selection__choice {
+    vertical-align: 0 !important;
+    margin-top: 6px !important;
+}
+
+#buat-toko .form input, #buat-toko .form .desc-toko{
+    border: 1px #767676 solid;
+    border-radius: 13px;
+    width: 100%;
+    padding: 8px;
+    padding-left: 12px;
+    background-color: #E5E5E5;
+}
+
+#buat-toko .form input:focus, #buat-toko .form textarea:focus {
+    outline: none;
+}
+
+#buat-toko .btn.selesai {
+    width: 148px;
+    border-radius: 13px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#buat-toko .card p {
+    font-size: 14px;
+    color: #4F4F4F;
+    margin-top: 15px
+}
+
+#buat-toko .card p span a {
+    color: #00288F;
+    text-decoration: none;
+}
+
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+    #buat-toko main {
+        margin-top: 34px;
+    }
+
+
+    #buat-toko .title {
+        font-size: 32px;
+    }
+
+    #buat-toko .img-profile {
+        margin-bottom: 20px;
+        margin-top: -20px;
+    }
+}

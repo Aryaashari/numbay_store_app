@@ -1,0 +1,122 @@
+body {
+    background-color: #00288F;
+}
+
+
+/* Start Arrow Area */
+#login .arrow-back {
+    position: absolute;
+    top: -10px;
+    left: 40px;
+}
+
+#login .arrow-back img {
+    width: 18px;
+}
+/* End Arrow Area */
+
+
+
+/* Start Logo Area */
+#login .logo img {
+    width: 243px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 72px;
+    margin-bottom: 33px;
+}
+/* End Logo Area */
+
+
+
+/* Start Card Area */
+#login .card {
+    width: 700px;
+    padding: 50px;
+    background-color: white;
+    margin: auto;
+    border-radius: 30px;
+}
+
+#login .card img {
+    width: 219px;
+}
+
+#login .card h3 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 26px;
+}
+
+/* #login .form {
+    margin-bottom: 12px;
+}
+
+#login .form input {
+    border: 1px #767676 solid;
+    border-radius: 13px;
+    width: 289px;
+    padding: 5px;
+    padding-left: 12px;
+    background-color: #E5E5E5;
+} */
+
+#login .card .btn {
+    width: 147px;
+    border-radius: 13px;
+    color: white;
+    font-weight: bold;
+    margin-top: 19px;
+}
+
+#login .card p {
+    font-size: 14px;
+    color: #4F4F4F;
+    margin-top: 15px
+}
+
+#login .card p span a {
+    color: #00288F;
+    text-decoration: none;
+}
+/* End Card Area */
+
+
+
+
+
+
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+    /* Start Arrow Area */
+    #login .arrow-back {
+        top: -44px;
+        left: 30px;
+    }
+
+    #login .arrow-back img {
+        width: 14px;
+    }
+    /* End Arrow Area */
+
+
+
+    /* Start Card Area */
+    #login .card {
+        width: 100%;
+    }
+
+    #login .card img {
+        display: none;
+    }
+
+    #login .form input {
+        width: 100%;
+    }
+    /* End Card Area */
+}
