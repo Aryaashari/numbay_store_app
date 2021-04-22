@@ -12,7 +12,7 @@
 
 @section('navbar')
     <div class="fixed-top">
-        <x-navbar-frontend></x-navbar-frontend>
+        <x-navbar-frontend2></x-navbar-frontend2>
     </div>
 @endsection
 
