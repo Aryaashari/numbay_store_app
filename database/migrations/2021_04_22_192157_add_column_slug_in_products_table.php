@@ -14,7 +14,7 @@ class AddColumnSlugInProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('slug')->after('nama_produk');
+            $table->string('slug')->unique()->after('nama_produk');
         });
     }
 
