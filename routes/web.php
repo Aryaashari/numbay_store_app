@@ -18,3 +18,9 @@ Route::get('/products/1', function() {
 Route::get('/store/slug-store1', function() {
     return view('store.profile');
 });
+
+
+// Wishlist
+Route::get('/wishlists', function() {
+    return view('wishlist.index');
+});
