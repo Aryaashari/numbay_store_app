@@ -20,9 +20,10 @@ class HomeController extends Controller
             $products->appends(['search' => $request->search]);
             
             if(count($products) < 1) {
-                $products = Product::inRandomOrder()->paginate(8);
-                $productKosong = true;
-                return view('home.index', compact('products', 'productKosong'));
+                // $products = Product::inRandomOrder()->paginate(8);
+                // $productKosong = true;
+                // return view('home.index', compact('products', 'productKosong'));
+                return redirect('/')->with('productKosong', $request->search);
             }
 
         } else {
