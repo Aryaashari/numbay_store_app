@@ -2,15 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
 
 
 // Detail Produk
-Route::get('/product/slug-product1', function() {
-    return view('product.detail-product');
-});
+Route::get('/detail/product/{products:slug}', [ProductController::class, 'show']);
 
 
 // Profile Toko

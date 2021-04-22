@@ -13,10 +13,7 @@
     <script>
         $(document).ready(function () {
             $('.text-produk .selengkapnya').click(function (_) { 
-                $('.popup-deskripsi').css('display', 'flex');
-            });
-            $('.close-button a').click(function (_) { 
-                $('.popup-deskripsi').css('display', 'none');
+                $('.modal.deskripsi-produk').modal().show();
             });
         }); 
     </script>
@@ -30,18 +27,21 @@
 
 @section('id', 'detail-produk')
 @section('content')
-    <!-- Popup Deskripsi -->
-    <div class="popup-deskripsi">
-        <div class="container">
-            <div class="deskripsi-card">
-                <div class="close-button">
-                    <a href="#"><img src="{{ asset('frontend/img/icon/close.png') }}" alt="close-icon"></a>
+    <!-- Modal Deskripsi Produk -->
+    <div class="modal deskripsi-produk fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title bold" id="exampleModalLongTitle">Deskripsi Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="deskripsi-text">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        
-                    </p>
+                <div class="modal-body">
+                    {!! nl2br(e($products->deskripsi_produk)) !!}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -60,22 +60,29 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="text-produk">
-                        <h3 class="title">Siomay</h3>
-                        <h2 class="harga">Rp 5000</h2>
-                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo ultrices ipsum donec diam, mi neque orci. Fermentum euismod tellus dolor pellentesque neque scelerisque. adipiscing elit. Commodo ultrices ... <a href="#" class="selengkapnya">Selengkapnya</a></p>
+                        <h3 class="title">{{ $products->nama_produk }}</h3>
+                        <h2 class="harga">Rp {{ $products->harga_produk }}</h2>
+                        <p class="desc">
+
+                            {!! nl2br(e(Str::limit($products->deskripsi_produk, 240, '...'))) !!} 
+                            @if (strlen($products->deskripsi_produk) > 50)
+                                <a href="#" class="selengkapnya">Selengkapnya</a>
+                            @endif
+
+                        </p>
                         <div class="d-flex mb-4">
                             <a href="form-pemesanan.html" class="btn btn-warning beli">Beli</a>
                             <a href="#" class="btn btn-secondary whislist">
-                                <img src="{{ asset('frontend/img/icon/love.png') }}" alt="whislist">
+                                <img src="{{ asset('frontend/img/icon/love.png') }}" alt="wishlist">
                             </a>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="profil-toko.html" class="text-decoration-none">
                                 <div class="card-toko d-flex align-items-center">
-                                    <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/toko.png') }});"></div>
+                                    <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/'.$products->store->foto_profile_toko) }});"></div>
                                     <div class="text">
-                                        <h5>Nama toko</h5>
-                                        <p>Sentani</p>
+                                        <h5>{{ $products->store->nama_toko }}</h5>
+                                        <p>{{ Str::limit($products->store->alamat_toko, 23, '...') }}</p>
                                     </div>
                                 </div>
                             </a>
