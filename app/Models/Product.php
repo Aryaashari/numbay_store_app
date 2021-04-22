@@ -29,6 +29,6 @@ class Product extends Model
 
     // Relasi ke User
     public function users() {
-        return $this->belongsToMany(User::class)->using(Wishlist::class);
+        return $this->belongsToMany(User::class, 'wishlists', 'user_id', 'product_id');
     }
 }

@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class Wishlist extends Pivot
 {
+    private $table = 'wishlists';
     use HasFactory;
 }

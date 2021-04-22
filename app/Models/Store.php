@@ -21,4 +21,9 @@ class Store extends Model
     public function products() {
         return $this->hasMany(Product::class);
     }
+
+    // Relasi ke Category
+    public function categories() {
+        return $this->belongsToMany(Category::class);
+    }
 }

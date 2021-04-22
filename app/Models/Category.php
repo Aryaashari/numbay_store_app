@@ -16,4 +16,9 @@ class Category extends Model
     public function product() {
         return $this->belongsTo(Product::class);
     }
+
+    // Relasi ke Store
+    public function stores() {
+        return $this->belongsToMany(Store::class);
+    }
 }

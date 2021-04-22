@@ -53,11 +53,11 @@ class User extends Authenticatable
 
     // Relasi ke Order
     public function orders() {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Order::class);
     }
 
     // Relasi ke Product
     public function products() {
-        return $this->belongsToMany(Product::class)->using(Wishlist::class);
+        return $this->belongsToMany(Product::class, 'wishlists', 'product_id', 'user_id');
     }
 }
