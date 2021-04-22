@@ -26,4 +26,9 @@ class Product extends Model
     public function orders() {
         return $this->belongsToMany(Order::class);
     }
+
+    // Relasi ke User
+    public function users() {
+        return $this->belongsToMany(User::class)->using(Wishlist::class);
+    }
 }

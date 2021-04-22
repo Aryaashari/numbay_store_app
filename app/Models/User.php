@@ -55,4 +55,9 @@ class User extends Authenticatable
     public function orders() {
         return $this->hasMany(Product::class);
     }
+
+    // Relasi ke Product
+    public function products() {
+        return $this->belongsToMany(Product::class)->using(Wishlist::class);
+    }
 }
