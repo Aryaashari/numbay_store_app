@@ -34,9 +34,9 @@
                 </div>
                 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <form action=""></form>
+                    <form action="{{ url('/') }}" class="form-search" method="GET">
                         <div class="search-box d-flex">
-                            <button type="submit"><img src="{{ asset('frontend/img/icon/search.png') }}" class="search-icon" alt="search-icon"></button>
+                            <button type="submit"><img src="{{ asset('frontend/img/icon/search.png') }}" class="search-icon" alt="search-icon"></button> 
                             <input type="search" name="search" placeholder="Cari produk" autocomplete="off">
                         </div>
                     </form>
@@ -83,3 +83,13 @@
     <!-- End Produk Area -->
 
 @endsection
+
+{{-- @push('js')
+    <script>
+        $(document).ready(function () {
+            $('.btn-search').click(function(_) {
+                $('.form-search').submit();
+            });
+        });
+    </script>
+@endpush --}}
