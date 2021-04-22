@@ -20,7 +20,7 @@ class HomeController extends Controller
             $products->appends(['search' => $request->search]);
 
         } else {
-            $products = Product::inRandomOrder()->simplePaginate(2);
+            $products = Product::inRandomOrder()->paginate(1);
         }
         return view('home.index', compact('products'));
     }

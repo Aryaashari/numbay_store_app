@@ -12,6 +12,7 @@ body {
     /* Pagination */
     .pagination li {
         margin-right: 10px;
+        font-size: 22px;
     }
     .pagination a {
         font-size: 22px;
@@ -19,7 +20,7 @@ body {
         color: #595959;
     }
 
-    .pagination li.active a {
+    .pagination li.active {
         font-weight: 700;
         color: #FFB800;
     }
