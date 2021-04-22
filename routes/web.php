@@ -50,7 +50,7 @@ Route::get('/login', function() {
 });
 
 
-// Login
+// Register
 Route::get('/register', function() {
     return view('register');
 });
