@@ -15,10 +15,12 @@ class HomeController extends Controller
                 $query->where('nama_toko', 'LIKE', '%'.$request->search.'%');
             })->orWhere('nama_produk', 'LIKE', '%'.$request->search.'%')->orWhereHas('tags', function(Builder $query) use($request){
                 $query->where('tag', 'LIKE', '%'.$request->search.'%');
-            })->simplepaginate(5);
+            })->simplepaginate(8);
             
+            $products->appends(['search' => $request->search]);
+
         } else {
-            $products = Product::inRandomOrder()->simplePaginate(8);
+            $products = Product::inRandomOrder()->simplePaginate(2);
         }
         return view('home.index', compact('products'));
     }
