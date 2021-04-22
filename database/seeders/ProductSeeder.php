@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
             'nama_produk' => 'Coto Makassar',
             'harga_produk' => 30000,
             'deskripsi_produk' => 'Makanan Enak',
-            'foto_produk' => 'coto.jpg'
+            'foto_produk' => 'coto.png'
         ]);
 
         Product::create([
