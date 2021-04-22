@@ -50,4 +50,9 @@ class User extends Authenticatable
     public function store() {
         return $this->hasOne(Store::class);
     }
+
+    // Relasi ke Order
+    public function orders() {
+        return $this->hasMany(Product::class);
+    }
 }

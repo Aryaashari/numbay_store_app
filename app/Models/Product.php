@@ -21,4 +21,9 @@ class Product extends Model
     public function category() {
         return $this->hasOne(Category::class);
     }
+
+    // Relasi ke Order
+    public function orders() {
+        return $this->belongsToMany(Order::class);
+    }
 }
