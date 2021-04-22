@@ -45,29 +45,37 @@
             </div>
             <div class="container-fluid">
                 <div class="row card-produk">
-                    <div class="col-lg-3 col-6 col-md-4 mb-3 mb-md-5 d-flex justify-content-center">
-                        <a href="detail-produk.html">
-                            <div class="card">
-                                <div class="img" style="background-image: url({{ asset('frontend/img/produk/somay.png') }});"></div>
-                                <div class="text-produk">
-                                    <a href="detail-produk.html"><h4>Siomay</h4></a>
-                                    <p>Nama Toko</p>
-                                    <h3>Rp 5.000</h3>
+
+
+                    @foreach ($products as $product)
+                        <div class="col-lg-3 col-6 col-md-4 mb-3 mb-md-5 d-flex justify-content-center">
+                            <a href="detail-produk.html">
+                                <div class="card">
+                                    <div class="img" style="background-image: url({{ asset('frontend/img/produk/'.$product->foto_produk) }});"></div>
+                                    <div class="text-produk">
+                                        <a href="detail-produk.html"><h4>{{ $product->nama_produk }}</h4></a>
+                                        <p>{{ $product->store->nama_toko }}</p>
+                                        <h3>Rp {{ $product->harga_produk }}</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
+
+
+
                 </div>
             </div>
             <div class="row pagination-card">
                 <div class="col">
-                    <ul class="pagination">
+                    {{-- <ul class="pagination">
                         <li class="arrow-back"><a href="#"><img src="{{ asset('frontend/img/icon/arrow_back_sm.png') }}" alt="arrow-back"></a></li>
                         <li><a href="#">1</a></li>
                         <li class="active"><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li class="arrow-next"><a href="#"><img src="{{ asset('frontend/img/icon/arrow_sm.png') }}" alt="arrow"></a></li>
-                    </ul>
+                    </ul> --}}
+                    {{ $products->links() }}
                 </div>
             </div>
         </div>
