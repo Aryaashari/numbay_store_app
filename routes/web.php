@@ -9,13 +9,13 @@ Route::get('/', function () {
 
 
 // Detail Produk
-Route::get('/products/1', function() {
+Route::get('/product/slug-product1', function() {
     return view('product.detail-product');
 });
 
 
 // Profile Toko
-Route::get('/store/slug-store1', function() {
+Route::get('/profile/store/slug-store1', function() {
     return view('store.profile');
 });
 
@@ -23,4 +23,10 @@ Route::get('/store/slug-store1', function() {
 // Wishlist
 Route::get('/wishlists', function() {
     return view('wishlist.index');
+});
+
+
+// Form Pemesanan
+Route::get('/order/product/slug-product1', function() {
+    return view('order.form');
 });
