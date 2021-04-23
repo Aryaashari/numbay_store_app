@@ -2,7 +2,7 @@
 <nav class="navbar nav-back-user">
     <div class="container">
         <div class="arrow-back">
-            <a href="index.html"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="tombol-kembali"></a>
+            <a href="#" onclick="window.history.back();"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="tombol-kembali"></a>
         </div>
         <div class="user">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
