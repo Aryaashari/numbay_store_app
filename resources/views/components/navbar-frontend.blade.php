@@ -53,7 +53,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item user-menu" href="edit-user.html"><img src="{{ asset('frontend/img/icon/user_icon.png') }}" class="icon" alt="user-icon"> Edit Profile</a>
                             <a class="dropdown-item toko-menu" href="buat-toko.html"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
-                            <a class="dropdown-item logout-menu" href="index.html" data-toggle="modal" data-target="#exampleModal"><img src="{{ asset('frontend/img/icon/log-out.png') }}" class="icon" alt="logout-icon"> Keluar</a>
+                            <a class="dropdown-item logout-menu" href="index.html" data-toggle="modal" data-target="#modalKeluar"><img src="{{ asset('frontend/img/icon/log-out.png') }}" class="icon" alt="logout-icon"> Keluar</a>
 
                             
                         </div>
@@ -67,7 +67,7 @@
 </nav>
 
 <!-- Modal Konfirmasi Log-out -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalKeluar" tabindex="-1" role="dialog" aria-labelledby="modalKeluarLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-body">
