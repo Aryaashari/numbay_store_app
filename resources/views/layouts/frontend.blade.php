@@ -15,6 +15,11 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 
+    @auth
+        <!-- Utilities CSS -->
+        <link rel="stylesheet" href="{{ asset('frontend/css/dropdown-user.css') }}">
+    @endauth
+
     <!-- Google Fonts (Noto Sans) -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
