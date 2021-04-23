@@ -52,8 +52,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, 
             [
-                'nama_depan' => ['required', 'alpha', 'max:20'],
-                'nama_belakang' => ['required', 'alpha', 'max:20'],
+                'nama_depan' => ['required', 'alpha', 'min:3' , 'max:20'],
+                'nama_belakang' => ['required', 'alpha', 'min:3' , 'max:20'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'no_telp' => ['required', 'numeric', 'digits_between:10,12'],
@@ -63,10 +63,12 @@ class RegisterController extends Controller
                 'nama_depan.required' => 'Anda belum memasukkan nama depan!',
                 'nama_depan.alpha' => 'Anda harus memasukkan huruf!',
                 'nama_depan.max' => 'Nama depan tidak boleh lebih 20 huruf!',
+                'nama_depan.min' => 'Anda harus memasukkan minimal 3 huruf!',
 
                 'nama_belakang.required' => 'Anda belum memasukkan nama belakang!',
                 'nama_belakang.alpha' => 'Anda harus memasukkan huruf!',
                 'nama_belakang.max' => 'Nama belakang tidak boleh lebih 20 huruf!',
+                'nama_belakang.min' => 'Anda harus memasukkan minimal 3 huruf!',
 
                 'email.required' => 'Anda belum memasukkan email!',
                 'email.email' => 'Anda memasukkan email yang tidak valid!',
