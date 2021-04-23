@@ -73,8 +73,13 @@
                         <div class="d-flex mb-4">
                             <a href="form-pemesanan.html" class="btn btn-warning beli">Beli</a>
                             <a href="{{ url('wishlists') }}" class="btn btn-secondary whislist">
-                                <img src="{{ asset('frontend/img/icon/love.png') }}" class="love-icon-white" alt="wishlist">
-                                <img src="{{ asset('frontend/img/icon/love_red.png') }}" class="love-icon-red d-none" alt="wishlist-active">
+
+                                {{-- Cek jika product disukai user atau tidak --}}
+                                @if ($isLike)
+                                    <img src="{{ asset('frontend/img/icon/love_red.png') }}" class="love-icon-red" alt="wishlist-active">
+                                @else
+                                    <img src="{{ asset('frontend/img/icon/love.png') }}" class="love-icon-white" alt="wishlist">
+                                @endif
                             </a>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">

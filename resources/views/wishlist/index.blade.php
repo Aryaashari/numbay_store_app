@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Numbay Store - Wishlist')
+@section('title', 'Numbay Store - Wishlists')
 
 
 @push('css')
@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="title">Wishlist</h1>
+                    <h1 class="title">Wishlists</h1>
                     <div class="garis mx-auto"></div>
                 </div>
             </div>
