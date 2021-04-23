@@ -81,7 +81,7 @@
                                 <div class="card-toko d-flex align-items-center">
                                     <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/'.$products->store->foto_profile_toko) }});"></div>
                                     <div class="text">
-                                        <h5>{{ $products->store->nama_toko }}</h5>
+                                        <h5>{{ Str::limit($products->store->nama_toko, 12, '...') }}</h5>
                                         <p>{{ Str::limit($products->store->alamat_toko, 23, '...') }}</p>
                                     </div>
                                 </div>
