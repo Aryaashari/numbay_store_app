@@ -56,6 +56,10 @@
 #profil-toko .detail-toko .ig img, #profil-toko .detail-toko .wa img {
     width: 27px;
 }
+
+#profil-toko .detail-toko .fb img {
+    width: 37px;
+}
 /* End Card Area */
 
 

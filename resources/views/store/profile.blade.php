@@ -26,15 +26,18 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="card detail-toko">
-                <div class="img-toko" style="background-image: url({{ asset('frontend/img/produk/kangkung.png') }});"></div>
-                <h4>Nama Toko</h4>
-                <h5>Produk makanan/minuman</h5>
-                <p class="alamat">Sentani</p>
+                <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/'.$stores->foto_profile_toko) }});"></div>
+                <h4>{{ $stores->nama_toko }}</h4>
+                
+                <h5>{{ implode(', ',$categoryStores) }}</h5>
+
+                <p class="alamat">{{ $stores->alamat_toko }}</p>
                 <div class="garis"></div>
-                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo ultrices ipsum donec diam</p>
-                <div class="sosial-media d-flex justify-content-center">
-                    <a href="#" class="wa mr-4"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
-                    <a href="#" class="ig"><img src="{{ asset('frontend/img/icon/ig.png') }}" alt="instagram"></a>
+                <p class="desc">{{ $stores->deskripsi_toko }}</p>
+                <div class="sosial-media d-flex justify-content-center align-items-center">
+                    <a href="https://wa.me/62{{ substr($stores->no_telp_toko,1,15) }}" target="_blank" class="wa mr-4"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
+                    {{-- <a href="#" target="_blank" class="fb mr-4"><img src="{{ asset('frontend/img/icon/facebook.png') }}" alt="facebook"></a> --}}
+                    <a href="https://www.instagram.com/{{ $stores->akun_instagram }}" target="_blank" class="ig"><img src="{{ asset('frontend/img/icon/ig.png') }}" alt="instagram"></a>
                 </div>
             </div>
         </div>
@@ -46,18 +49,21 @@
                     </div>
                 </div>
                 <div class="row card-produk">
-                    <div class="col-md-4 col-6">
-                        <a href="detail-produk.html">
-                            <div class="card">
-                                <div class="img" style="background-image: url({{ asset('frontend/img/produk/somay.png') }});"></div>
-                                <div class="text-produk">
-                                    <a href="detail-produk.html"><h4>Siomay sfdsf sadasdsada</h4></a>
-                                    <p>Nama Toko</p>
-                                    <h3>Rp 5.000</h3>
+                    
+                    @foreach ($stores->products as $stores->product)
+                        <div class="col-md-4 col-6">
+                            <a href="{{ url('/detail/product/'.$stores->product->slug) }}">
+                                <div class="card">
+                                    <div class="img" style="background-image: url({{ asset('frontend/img/produk/'.$stores->product->foto_produk) }});"></div>
+                                    <div class="text-produk">
+                                        <a href="{{ url('/detail/product/'.$stores->product->slug) }}"><h4>{{ Str::limit($stores->product->nama_produk, 20, '...') }}</h4></a>
+                                        <h3 class="mt-2">{{ $stores->product->harga_produk }}</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

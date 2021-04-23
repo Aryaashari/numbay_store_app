@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StoreController;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
@@ -13,9 +14,7 @@ Route::get('/detail/product/{products:slug}', [ProductController::class, 'show']
 
 
 // Profile Toko
-Route::get('/profile/store/slug-store1', function() {
-    return view('store.profile');
-});
+Route::get('/profile/store/{stores:slug}', [StoreController::class, 'show']);
 
 
 // Wishlist

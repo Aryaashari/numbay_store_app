@@ -77,7 +77,7 @@
                             </a>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="profil-toko.html" class="text-decoration-none">
+                            <a href="{{ url('profile/store/'.$products->store->slug) }}" class="text-decoration-none">
                                 <div class="card-toko d-flex align-items-center">
                                     <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/'.$products->store->foto_profile_toko) }});"></div>
                                     <div class="text">
