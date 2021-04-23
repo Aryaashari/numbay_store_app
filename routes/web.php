@@ -40,17 +40,4 @@ Route::get('/edit/profile/1', function() {
     return view('user.edit');
 });
 
-
-// Login
-Route::get('/login', function() {
-    return view('login');
-});
-
-
-// Register
-Route::get('/register', function() {
-    return view('register');
-});
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes(['verify' => true]);

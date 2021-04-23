@@ -102,4 +102,11 @@ class RegisterController extends Controller
             'alamat_rumah' => $data['alamat']
         ]);
     }
+
+
+    protected function registered()
+    {
+        $this->guard()->logout();
+        return redirect('/login')->with('status', 'Selamat anda telah berhasil daftar, silahkan verifikasi email anda segera!');
+    }
 }

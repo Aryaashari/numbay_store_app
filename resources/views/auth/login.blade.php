@@ -114,10 +114,33 @@
     <!-- End Footer Area -->
 
 
+    <!-- Modal Success Register -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="{{ asset('frontend/img/icon/success.png') }}" width="150" class="img-fluid">
+                <h5 class="mt-3 text-black font-weight-bold">Selamat anda telah berhasil daftar, silahkan verifikasi email anda segera!
+            <div class="modal-footer mt-2">
+                <button type="button" class="btn btn-success" style="background-color: #34DA94; border: none" data-dismiss="modal">Oke</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
 
     <script src="{{ asset('frontend/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js') }}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
+
+    @if (session('status'))
+        <script>
+            $(document).ready(function () {
+                $('#exampleModalCenter').modal().show();
+            });
+        </script>
+    @endif
     
 </body>
 </html>
