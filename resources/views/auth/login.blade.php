@@ -52,20 +52,27 @@
                     </div>
                     <div class="col-md-6 col-12 text-center">
                         <h3>Login</h3>
-                        <div class="form">
-                            <input type="email" name="email" class="form-control" placeholder="E-mail">
-                            <!-- <div class="invalid-feedback d-block">
-                                pesan error
-                            </div> -->
-                        </div>
-                        <div class="form">
-                            <input type="password" name="password" class="form-control" placeholder="Password">
-                            <!-- <div class="invalid-feedback d-block">
-                                pesan error
-                            </div> -->
-                        </div>
-                        <a href="#" class="btn btn-warning">Login</a>
-                        <p>Belum punya akun? <span><a href="{{ url('/register') }}">Daftar</a></span></p>
+                        <form action="" method="post">
+                            @csrf
+                            <div class="form">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form">
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
+                                @error('password')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
+                            </div>
+                            <button type="submit" class="btn btn-warning">Login</button>
+                            <p>Belum punya akun? <span><a href="{{ url('/register') }}">Daftar</a></span></p>
+                        </form>
                     </div>
                 </div>
             </div>

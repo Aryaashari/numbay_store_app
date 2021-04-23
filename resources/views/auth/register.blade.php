@@ -54,7 +54,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10 col-md-5">
                                     <div class="form">
-                                        <input type="text" name="nama_depan" class="form-control @error('nama_depan') is-invalid @enderror" placeholder="Nama Depan">
+                                        <input type="text" name="nama_depan" class="form-control @error('nama_depan') is-invalid @enderror" placeholder="Nama Depan" value="{{ old('nama_depan') }}">
                                         @error('nama_depan')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-10 col-md-5">
                                     <div class="form">
-                                        <input class="form-control @error('nama_belakang') is-invalid @enderror" type="text" name="nama_belakang" placeholder="Nama Belakang">
+                                        <input class="form-control @error('nama_belakang') is-invalid @enderror" type="text" name="nama_belakang" placeholder="Nama Belakang" value="{{ old('nama_belakang') }}">
                                         @error('nama_belakang')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
@@ -76,7 +76,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10">
                                     <div class="form">
-                                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="E-mail">
+                                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="E-mail" value="{{ old('email') }}">
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
@@ -107,7 +107,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10">
                                     <div class="form">
-                                        <input class="form-control @error('no_telp') is-invalid @enderror" type="text" name="no_telp" placeholder="No. Whatsapp">
+                                        <input class="form-control @error('no_telp') is-invalid @enderror" type="text" name="no_telp" placeholder="No. Whatsapp" value="{{ old('no_telp') }}">
                                         @error('no_telp')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
@@ -119,7 +119,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-10">
                                     <div class="form">
-                                        <textarea name="alamat" rows="4" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Rumah"></textarea>
+                                        <textarea name="alamat" rows="4" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Rumah">{{ old('alamat') }}</textarea>
                                         @error('alamat')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
