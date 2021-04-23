@@ -19,7 +19,7 @@
                         <a class="nav-link" href="#">Kontak</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/login') }}" class="btn btn-light">Login</a>
+                        <a href="{{ url('/login') }}" class="btn btn-light login">Login</a>
                     </li>
                 </ul>
             @else
@@ -40,7 +40,7 @@
                     </div>
                     <div class="user">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ asset('frontend/img/icon/user_sm.png') }}" width="40" alt="user-profile">
+                            <img src="{{ asset('frontend/img/icon/'.Auth::user()->foto_profile_user) }}" width="40" alt="user-profile">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="user-profile d-flex dropdown-item align-items-center">

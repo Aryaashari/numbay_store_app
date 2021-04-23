@@ -79,7 +79,7 @@ body {
     color: #FFDA00;
 }
 
-.navbar .navbar-nav .nav-item .btn {
+.navbar .btn.login {
     color: #00288F;
     font-weight: bold;
     width: 142px;

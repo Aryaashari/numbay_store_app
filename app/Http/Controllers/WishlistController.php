@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 class WishlistController extends Controller
 {
     public function show() {
-        dd(auth()->user()->products);
-        $products = auth()->products;
-        return view('wishlist.index');
+        $products = auth()->user()->products;
+        return view('wishlist.index', compact('products'));
     }
 }
