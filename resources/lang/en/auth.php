@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Password yang anda masukkan salah!',
+    'failed' => 'Password atau username salah!',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
