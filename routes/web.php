@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\WishlistController;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
@@ -17,10 +18,9 @@ Route::get('/detail/product/{products:slug}', [ProductController::class, 'show']
 Route::get('/profile/store/{stores:slug}', [StoreController::class, 'show']);
 
 
+// Middleware Auth
 // Wishlist
-Route::get('/wishlists', function() {
-    return view('wishlist.index');
-});
+Route::get('/wishlists', [WishlistController::class, 'show']);
 
 
 // Form Pemesanan

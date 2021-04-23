@@ -72,8 +72,9 @@
                         </p>
                         <div class="d-flex mb-4">
                             <a href="form-pemesanan.html" class="btn btn-warning beli">Beli</a>
-                            <a href="#" class="btn btn-secondary whislist">
-                                <img src="{{ asset('frontend/img/icon/love.png') }}" alt="wishlist">
+                            <a href="{{ url('wishlists') }}" class="btn btn-secondary whislist">
+                                <img src="{{ asset('frontend/img/icon/love.png') }}" class="love-icon-white" alt="wishlist">
+                                <img src="{{ asset('frontend/img/icon/love_red.png') }}" class="love-icon-red d-none" alt="wishlist-active">
                             </a>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -98,3 +99,14 @@
     </div>
     <!-- End Card Produk -->
 @endsection
+
+{{-- @push('js')
+    <script>
+        $(document).ready(function () {
+            $('.btn.whislist').click(function (_) { 
+                $('.love-icon-white').addClass('d-none');
+                $('.love-icon-red').removeClass('d-none');
+            });
+        });
+    </script>
+@endpush --}}
