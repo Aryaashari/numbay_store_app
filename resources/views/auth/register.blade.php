@@ -76,11 +76,14 @@
                             <div class="row justify-content-center">
                                 <div class="col-10">
                                     <div class="form">
+                                        
                                         <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="E-mail" value="{{ old('email') }}">
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
                                             </div>
+                                        @else
+                                            <p class="text-left text-pemberitahuan"><i>*Pastikan email anda valid dan aktif!</i></p>
                                         @enderror
                                     </div>
                                 </div>
