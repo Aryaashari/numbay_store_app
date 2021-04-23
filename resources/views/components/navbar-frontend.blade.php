@@ -17,7 +17,7 @@
                     <a class="nav-link" href="#">Kontak</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login.html" class="btn btn-light">Login</a>
+                    <a href="{{ url('/login') }}" class="btn btn-light">Login</a>
                 </li>
             </ul>
         </div>

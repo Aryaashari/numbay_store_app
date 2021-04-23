@@ -49,11 +49,39 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return Validator::make($data, 
+            [
+                'nama_depan' => ['required', 'alpha', 'max:20'],
+                'nama_belakang' => ['required', 'alpha', 'max:20'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'no_telp' => ['required', 'numeric', 'digits_between:10,12'],
+                'alamat' => ['required']
+            ],
+            [
+                'nama_depan.required' => 'Anda belum memasukkan nama depan!',
+                'nama_depan.alpha' => 'Anda harus memasukkan huruf!',
+                'nama_depan.max' => 'Nama depan tidak boleh lebih 20 huruf!',
+
+                'nama_belakang.required' => 'Anda belum memasukkan nama belakang!',
+                'nama_belakang.alpha' => 'Anda harus memasukkan huruf!',
+                'nama_belakang.max' => 'Nama belakang tidak boleh lebih 20 huruf!',
+
+                'email.required' => 'Anda belum memasukkan email!',
+                'email.email' => 'Anda memasukkan email yang tidak valid!',
+                'email.unique' => 'Email yang anda masukkan telah terdaftar!',
+
+                'password.required' => 'Anda belum memasukkan password',
+                'password.min' => 'Anda harus memasukkan minimal 8 karakter!',
+                'password.confirmed' => 'Konfirmasi password tidak sesuai!',
+
+                'no_telp.required' => 'Anda belum memasukkan no whatsapp!',
+                'no_telp.numeric' => 'Anda harus memasukkang angka!',
+                'no_telp.digits_between' => 'Anda harus memasukkan 10-12 karakter!',
+
+                'alamat.required' => 'Anda belum memasukkan alamat rumah!',
+            ]
+        );
     }
 
     /**
@@ -65,9 +93,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nama_depan' => $data['nama_depan'],
+            'nama_belakang' => $data['nama_belakang'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'no_telp' => $data['no_telp'],
+            'alamat_rumah' => $data['alamat']
         ]);
     }
 }
