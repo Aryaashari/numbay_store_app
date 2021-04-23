@@ -44,9 +44,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="user-profile d-flex dropdown-item align-items-center">
-                                <div class="img-user" style="background-image: url({{ asset('frontend/img/icon/user_lg.png')}} );"></div>
+                                <div class="img-user" style="background-image: url({{ asset('frontend/img/icon/'.Auth::user()->foto_profile_user)}} );"></div>
                                 <div class="text-user">
-                                    <h4>Arya <br> Ashari</h4>
+                                    <h4>{{ Auth::user()->nama_depan }} <br> {{ Auth::user()->nama_belakang }}</h4>
                                     <!-- <p>Btn.Pemda doyo baru blok G5 No 18</p> -->
                                 </div>
                             </div>
@@ -54,6 +54,8 @@
                             <a class="dropdown-item user-menu" href="edit-user.html"><img src="{{ asset('frontend/img/icon/user_icon.png') }}" class="icon" alt="user-icon"> Edit Profile</a>
                             <a class="dropdown-item toko-menu" href="buat-toko.html"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
                             <a class="dropdown-item logout-menu" href="index.html" data-toggle="modal" data-target="#exampleModal"><img src="{{ asset('frontend/img/icon/log-out.png') }}" class="icon" alt="logout-icon"> Keluar</a>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -63,4 +65,22 @@
         </div>
     </div>
 </nav>
+
+<!-- Modal Konfirmasi Log-out -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <h4>Yakin anda ingin keluar ?</h4>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-danger">Keluar</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
 <!-- End Navbar Area -->
