@@ -58,6 +58,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // Relasi ke Product
     public function products() {
-        return $this->belongsToMany(Product::class, 'wishlists', 'product_id', 'user_id');
+        return $this->belongsToMany(Product::class);
     }
 }

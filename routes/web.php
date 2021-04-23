@@ -19,8 +19,15 @@ Route::get('/profile/store/{stores:slug}', [StoreController::class, 'show']);
 
 
 // Middleware Auth
-// Wishlist
-Route::get('/wishlists', [WishlistController::class, 'show']);
+
+Route::middleware(['auth'])->group(function () {
+    
+    
+    // Wishlist
+    Route::get('/wishlists', [WishlistController::class, 'show']);
+
+
+});
 
 
 // Form Pemesanan

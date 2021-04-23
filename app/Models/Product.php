@@ -29,7 +29,7 @@ class Product extends Model
 
     // Relasi ke User
     public function users() {
-        return $this->belongsToMany(User::class, 'wishlists', 'user_id', 'product_id');
+        return $this->belongsToMany(User::class);
     }
 
     // Relasi ke Tag
