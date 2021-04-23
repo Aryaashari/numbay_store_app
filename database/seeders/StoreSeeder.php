@@ -17,6 +17,7 @@ class StoreSeeder extends Seeder
         Store::create([
             'user_id' => 1,
             'nama_toko' => 'Toko Arya',
+            'slug' => 'toko-arya1',
             'no_telp_toko' => '08123456788',
             'akun_instagram' => 'aryyashari',
             'alamat_toko' => 'Jl.pasar lama sentani',
