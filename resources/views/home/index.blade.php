@@ -12,9 +12,10 @@
         <div class="modal-content">
             <div class="modal-body">
                 <h4 class="text-center text-danger">Kata kunci <b>{{ session('productKosong') }}</b> tidak ditemukan!</h4>
+                
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
             </div>
         </div>
         </div>
@@ -106,6 +107,10 @@
         <script>
             $(document).ready(function () {
                 $('#exampleModal').modal('show');
+
+                $('.modal-footer button').click(function (_) { 
+                    location.reload();
+                });
             });
         </script>
     @endpush
