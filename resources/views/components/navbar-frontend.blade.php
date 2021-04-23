@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link aktif" href="#">Beranda</a>
+                    <a class="nav-link {{ (request()->is('/') ? 'aktif' : '') }}" href="#">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index2.html">Tentang</a>
