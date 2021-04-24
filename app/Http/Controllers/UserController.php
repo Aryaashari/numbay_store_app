@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -18,6 +19,9 @@ class UserController extends Controller
 
 
         if ($request->file('img_user')) {
+            if (!($user->foto_profile_user == 'user.png')) {
+                Storage::disk('public')->delete('uploads/user/'.$user->foto_profile_user);
+            }
             $file = $request->file('img_user');
             $fileName = time(). '-' .$user->nama_depan.$user->nama_belakang. '-'. $user->id .'.'. $file->getClientOriginalExtension();
             $path = storage_path('app/public/uploads/user');

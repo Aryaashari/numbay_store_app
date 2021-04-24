@@ -8,11 +8,11 @@
 
             <div class="user">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('frontend/img/icon/'.Auth::user()->foto_profile_user) }}" width="40" alt="user-profile">
+                    <img src="{{ asset('storage/uploads/user/'.Auth::user()->foto_profile_user) }}" width="40" alt="user-profile">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <div class="user-profile d-flex dropdown-item align-items-center">
-                        <div class="img-user" style="background-image: url({{ asset('frontend/img/icon/'.Auth::user()->foto_profile_user) }});"></div>
+                        <div class="img-user" style="background-image: url({{ asset('storage/uploads/user/'.Auth::user()->foto_profile_user) }});"></div>
                         <div class="text-user">
                             <h4>{{ Auth::user()->nama_depan }} <br> {{ Auth::user()->nama_belakang }}</h4>
                             <!-- <p>Btn.Pemda doyo baru blok G5 No 18</p> -->

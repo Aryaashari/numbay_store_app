@@ -11,7 +11,7 @@
 
 
 @section('navbar')
-    <x-navbar-frontend2></x-navbar-frontend2>
+    <x-navbar-frontend></x-navbar-frontend>
 @endsection
 
 

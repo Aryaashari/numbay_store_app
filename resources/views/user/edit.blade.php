@@ -11,7 +11,7 @@
 
 
 @section('navbar')
-    <x-navbar-frontend2></x-navbar-frontend2>
+    <x-navbar-frontend></x-navbar-frontend>
 @endsection
 
 
@@ -31,7 +31,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-12">
-                            <div class="img-user" style="background-image: url({{ asset('frontend/img/icon/'.$user->foto_profile_user) }});">
+                            <div class="img-user" style="background-image: url({{ asset('storage/uploads/user/'.$user->foto_profile_user) }});">
                                 <label for="upload-img"><img src="{{ asset('frontend/img/icon/edit.png') }}" alt="upload-icon"></label>
                                 <input type="file" class="d-none input-img" name="img_user" id="upload-img" accept=".jpg, .png, .jpeg">
                             </div>
@@ -146,7 +146,7 @@
                         fileUploadPathOld = fileUploadPath;
 
                     } else {
-                        fileUploadPath = fileUploadPathOld;
+                        inputFile.val(fileUploadPathOld);
                         $('#imgUserModal').modal().show();
                     }
                 }

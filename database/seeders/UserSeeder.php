@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'no_telp' => '081215750405',
             'alamat_rumah' => 'Doyo baru',
-            'foto_profile_user' => 'user_lg.png'
+            'foto_profile_user' => 'user.png'
         ]);
 
         User::create([
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'no_telp' => '08123456789',
             'alamat_rumah' => 'Doyo baru',
-            'foto_profile_user' => 'user_lg.png'
+            'foto_profile_user' => 'user.png'
         ]);
 
         User::create([
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'no_telp' => '08123456780',
             'alamat_rumah' => 'Doyo baru',
-            'foto_profile_user' => 'user_lg.png'
+            'foto_profile_user' => 'user.png'
         ]);
     }
 }
