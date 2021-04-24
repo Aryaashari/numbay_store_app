@@ -23,7 +23,9 @@ Route::get('/profile/store/{stores:slug}', [StoreController::class, 'show']);
 Route::middleware(['auth'])->group(function () {
     
     
-    // Wishlist
+    // Wishlists
+    Route::post('/wishlist/add/product/{product:slug}', [WishlistController::class, 'addWishlist']);
+    Route::post('/wishlist/remove/product/{product:slug}', [WishlistController::class, 'removeWishlist']);
     Route::get('/wishlists', [WishlistController::class, 'show']);
 
 

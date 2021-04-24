@@ -28,11 +28,11 @@
 @section('id', 'detail-produk')
 @section('content')
     <!-- Modal Deskripsi Produk -->
-    <div class="modal deskripsi-produk fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal deskripsi-produk fade" id="modalDeskripsi" tabindex="-1" role="dialog" aria-labelledby="modalDeskripsiTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title bold" id="exampleModalLongTitle">Deskripsi Produk</h5>
+                    <h5 class="modal-title bold" id="modalDeskripsiTitle">Deskripsi Produk</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -46,6 +46,25 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Modal Status -->
+    @if (session('status'))
+        <div class="modal fade" id="modalStatus" tabindex="-1" role="dialog" aria-labelledby="modalStatusLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5>{{ session('status') }}</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="location.reload();" class="btn btn-primary" data-dismiss="modal">Oke</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 
 
 
@@ -66,21 +85,22 @@
 
                             {!! nl2br(e(Str::limit($products->deskripsi_produk, 240, '...'))) !!} 
                             @if (strlen($products->deskripsi_produk) > 50)
-                                <a href="#" class="selengkapnya">Selengkapnya</a>
+                                <a class="selengkapnya">Selengkapnya</a>
                             @endif
 
                         </p>
                         <div class="d-flex mb-4">
                             <a href="form-pemesanan.html" class="btn btn-warning beli">Beli</a>
-                            <a href="{{ url('wishlists') }}" class="btn btn-secondary whislist">
+
+                            <a class="btn btn-secondary whislist" onclick="$('.form-wishlist').submit();">
 
                                 {{-- Cek jika product disukai user atau tidak --}}
-                                @if ($isLike)
-                                    <img src="{{ asset('frontend/img/icon/love_red.png') }}" class="love-icon-red" alt="wishlist-active">
-                                @else
-                                    <img src="{{ asset('frontend/img/icon/love.png') }}" class="love-icon-white" alt="wishlist">
-                                @endif
+                                <img src="{{ ($isLike) ? asset('frontend/img/icon/love_red.png') : asset('frontend/img/icon/love.png') }}" class="love-icon-red" alt="wishlist">
+                                
                             </a>
+                            <form action="{{ ($isLike) ? url('/wishlist/remove/product/'.$products->slug) : url('/wishlist/add/product/'.$products->slug) }}" method="POST" class="d-none form-wishlist">@csrf</form>
+
+
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="{{ url('profile/store/'.$products->store->slug) }}" class="text-decoration-none">
@@ -105,13 +125,10 @@
     <!-- End Card Produk -->
 @endsection
 
-{{-- @push('js')
-    <script>
-        $(document).ready(function () {
-            $('.btn.whislist').click(function (_) { 
-                $('.love-icon-white').addClass('d-none');
-                $('.love-icon-red').removeClass('d-none');
-            });
-        });
-    </script>
-@endpush --}}
+@push('js')
+    @if (session('status'))
+        <script>
+            $('#modalStatus').modal().show();
+        </script>
+    @endif
+@endpush
