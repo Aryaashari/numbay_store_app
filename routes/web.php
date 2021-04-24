@@ -29,6 +29,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/wishlists', [WishlistController::class, 'show']);
 
 
+    // User
+    Route::get('/myProfile/edit', function() {
+        return view('user.edit');
+    });
+
 });
 
 
@@ -43,10 +48,5 @@ Route::get('/store/create', function() {
     return view('store.create');
 });
 
-
-// Edit User
-Route::get('/edit/profile/1', function() {
-    return view('user.edit');
-});
 
 Auth::routes(['verify' => true]);
