@@ -33,18 +33,16 @@ Route::middleware(['auth'])->group(function () {
     // User
     Route::get('/user/profile/edit', [UserController::class, 'editUser']);
     Route::post('/user/profile/edit', [UserController::class, 'updateUser']);
+
+    // Buka Toko
+    Route::get('/store/create', [StoreController::class, 'create']);
+    Route::post('/store/create', [StoreController::class, 'store']);
     
 });
 
 // Form Pemesanan
 Route::get('/order/product/slug-product1', function() {
     return view('order.form');
-});
-
-
-// Buka Toko
-Route::get('/store/create', function() {
-    return view('store.create');
 });
 
 
