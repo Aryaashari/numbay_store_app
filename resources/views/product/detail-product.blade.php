@@ -5,8 +5,6 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('frontend/css/detail-produk.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/dropdown-user.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/nav-back-user.css') }}">
 @endpush
 
 @push('js')
@@ -21,7 +19,7 @@
 
 
 @section('navbar')
-    <x-navbar-frontend2></x-navbar-frontend2>
+    <x-navbar-frontend></x-navbar-frontend>
 @endsection
 
 
