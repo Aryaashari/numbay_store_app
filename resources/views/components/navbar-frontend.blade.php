@@ -40,7 +40,8 @@
                     </div>
                     <div class="user">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ asset('storage/uploads/user/'.Auth::user()->foto_profile_user) }}" width="40" alt="user-profile">
+                            <div class="rounded-circle" style="width: 45px; height: 45px; background-image: url({{ asset('storage/uploads/user/'.Auth::user()->foto_profile_user) }}); background-size: cover">
+                            </div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <div class="user-profile d-flex dropdown-item align-items-center">
