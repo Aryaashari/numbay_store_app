@@ -101,7 +101,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'no_telp' => $data['no_telp'],
-            'alamat_rumah' => $data['alamat']
+            'alamat_rumah' => $data['alamat'],
+            'foto_profile_user' => 'user.png'
         ]);
     }
 

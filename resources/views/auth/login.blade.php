@@ -120,7 +120,7 @@
         <div class="modal-content">
             <div class="modal-body text-center">
                 <img src="{{ asset('frontend/img/icon/success.png') }}" width="150" class="img-fluid">
-                <h5 class="mt-3 text-black font-weight-bold">Selamat anda telah berhasil daftar, silahkan verifikasi email anda segera!
+                <h5 class="mt-3 text-black font-weight-bold">Selamat anda telah berhasil daftar, silahkan verifikasi email anda!
             <div class="modal-footer mt-2">
                 <button type="button" class="btn btn-success" style="background-color: #34DA94; border: none" data-dismiss="modal">Oke</button>
             </div>
