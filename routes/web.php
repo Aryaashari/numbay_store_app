@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\UserController;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
@@ -30,12 +31,9 @@ Route::middleware(['auth'])->group(function () {
 
 
     // User
-    Route::get('/myProfile/edit', function() {
-        return view('user.edit');
-    });
-
+    Route::get('/user/profile/edit', [UserController::class, 'editUser']);
+    
 });
-
 
 // Form Pemesanan
 Route::get('/order/product/slug-product1', function() {
