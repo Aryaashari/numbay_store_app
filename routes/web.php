@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
     // User
     Route::get('/user/profile/edit', [UserController::class, 'editUser']);
+    Route::post('/user/profile/edit', [UserController::class, 'updateUser']);
     
 });
 
