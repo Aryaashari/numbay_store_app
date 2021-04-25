@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Store;
+use App\Models\Category;
 use Illuminate\Support\Str;
 
 class StoreController extends Controller
@@ -18,7 +19,8 @@ class StoreController extends Controller
     }
 
     public function create() {
-        return view('store.create');
+        $categories = Category::all();
+        return view('store.create', compact('categories'));
     }
 
     public function store(Request $request) {
@@ -67,6 +69,8 @@ class StoreController extends Controller
             'deskripsi_toko' => $request->deskripsi_toko,
             'foto_profile_toko' => $fileName
         ]);
+
+        $store->categories()->attach($request->categories);
         
 
         return back();

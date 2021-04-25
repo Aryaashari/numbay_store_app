@@ -61,9 +61,10 @@
 
                             </div>
                             <div class="form">
-                                <select name="kategori" multiple>
-                                    <option value="kuliner">Kuliner</option>
-                                    <option value="lainnya">Lainnya</option>
+                                <select multiple name="categories[]">
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->kategori }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
