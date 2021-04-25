@@ -15,7 +15,7 @@
     <nav class="navbar nav-back-user py-3">
         <div class="container">
             <div class="arrow-back">
-                <a href="index.html"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="tombol-kembali"></a>
+                <a href="{{ url('detail/product/'.$product->slug) }}"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="tombol-kembali"></a>
             </div>
         </div>
     </nav>
@@ -57,19 +57,20 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12">
+                        {{-- <div class="col-12">
                             <div class="form">
-                                <input type="text" name="jumlah_pesanan" class="form-control @error('jumlah_pesanan') is-invalid @enderror" value="{{ old('jumlah_pesanan') }}" placeholder="Jumlah Pesanan">
+                                <input type="text" name="jumlah_pesanan" id="jumlah-pesanan" class="form-control @error('jumlah_pesanan') is-invalid @enderror" value="{{ old('jumlah_pesanan') ?? 1 }}" data-harga="{{ $product->harga_produk }}" placeholder="Jumlah Pesanan (minimal 1)">
+                                
                                 @error('jumlah_pesanan')
                                     <div class="invalid-feedback d-block">
                                         <b>{{ $message }}</b>
                                     </div>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-12">
                             <div class="form">
-                                <textarea name="alamat_pengantaran" placeholder="Alamat Lengkap Pengantaran" class="form-control @error('alamat_pengantaran') is-invalid @enderror" value="{{ old('alamat_pengantaran') }}" rows="3"></textarea>
+                                <textarea name="alamat_pengantaran" placeholder="Alamat Lengkap Pengantaran" class="form-control @error('alamat_pengantaran') is-invalid @enderror" rows="3">{{ old('alamat_pengantaran') }}</textarea>
                                 @error('alamat_pengantaran')
                                     <div class="invalid-feedback d-block">
                                         <b>{{ $message }}</b>
@@ -79,12 +80,7 @@
                         </div>
                         <div class="col-12 mb-4">
                             <div class="form">
-                                <textarea name="keterangan_tambahan" placeholder="Keterangan Tambahan" class="form-control @error('keterangan_tambahan') is-invalid @enderror" rows="3">{{ old('keterangan_tambahan') }}</textarea>
-                                @error('keterangan_tambahan')
-                                    <div class="invalid-feedback d-block">
-                                        <b>{{ $message }}</b>
-                                    </div>
-                                @enderror
+                                <textarea name="keterangan_tambahan" placeholder="Keterangan Tambahan" class="form-control @error('keterangan_tambahan') is-invalid @enderror" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6 col-12 text-md-left text-center">
@@ -104,3 +100,24 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    {{-- <script>
+        $(document).ready(function () {
+            const valueJumlahPesanan = $('#jumlah-pesanan').val();
+            const formJumlahPesanan = $('#jumlah-pesanan');
+            const totalHarga = $('.detail-pemesanan h3');
+
+            formJumlahPesanan.keyup(function (e) { 
+                let jumlahPesanan = formJumlahPesanan.data('harga')*formJumlahPesanan.text(this).val();
+                if (jumlahPesanan < 10000) {
+                    totalHarga.text('Rp '+formJumlahPesanan.data('harga'));
+                } else if(jumlahPesanan >= 1000000) {
+                    totalHarga.text('Rp '+(jumlahPesanan/1000000).toFixed(3)+'.000');
+                } else {
+                    totalHarga.text('Rp '+(jumlahPesanan/1000).toFixed(3));
+                }
+            });
+        });
+    </script> --}}
+@endpush
