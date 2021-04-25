@@ -9,16 +9,6 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/nav-back-user.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endpush
-@push('js')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('select').select2({
-                placeholder: 'Kategori toko',
-            })
-        });
-    </script>
-@endpush
 
 
 @section('navbar')
@@ -160,13 +150,24 @@
 @endsection
 
 @push('js')
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').select2({
+                placeholder: 'Kategori toko',
+            })
+        });
+    </script>
+
+    
     <script>
         $(document).ready(function () {
             const imgPreview = $('.img-profile');
             const inputFile = $('#upload');
-            
+            const imgPreviewUrl = imgPreview.css('background-image');
 
-            let fileUploadPathOld = '';
+
             inputFile.change(function(e) {
                 if(e.target.files[0]) {
                     let fileUploadPath = this.value;
@@ -175,10 +176,10 @@
                     const extension = fileUploadPath.substring(fileUploadPath.lastIndexOf('.') + 1).toLowerCase();
                     if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
                         imgPreview.css('background-image', 'url('+ file +')');
-                        fileUploadPathOld = fileUploadPath;
 
                     } else {
-                        inputFile.val(fileUploadPathOld);
+                        imgPreview.css('background-image', imgPreviewUrl);
+                        inputFile.val('');
                         $('#imgUserModal').modal().show();
                     }
                 }

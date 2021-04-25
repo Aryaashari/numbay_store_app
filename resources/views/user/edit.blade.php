@@ -132,6 +132,7 @@
         $(document).ready(function () {
             const imgPreview = $('.img-user');
             const inputFile = $('.input-img');
+            const imgPreviewUrl = imgPreview.css('background-image');
             
 
             let fileUploadPathOld = '';
@@ -146,12 +147,35 @@
                         fileUploadPathOld = fileUploadPath;
 
                     } else {
-                        inputFile.val(fileUploadPathOld);
+                        imgPreview.css('background-image', imgPreviewUrl);
+                        inputFile.val('');
                         $('#imgUserModal').modal().show();
                     }
                 }
             });
         });
+
+        // const imgPreview = document.getElementsByClassName('img-user')[0];
+        // const inputFile = document.getElementsByClassName('input-img')[0];
+        // const userModal = document.getElementById('imgUserModal');
+
+        // let fileUploadPathOld = '';
+        // inputFile.addEventListener('change', function(event) {
+        //     if (event.target.files[0]) {
+        //         const fileUploadPath = this.value;
+        //         const file = URL.createObjectURL(event.target.files[0]);
+
+        //         const extension = fileUploadPath.substring(fileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+        //         if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
+        //             console.log(fileUploadPath);
+        //             imgPreview.style.backgroundImage = "url(file)";
+        //             fileUploadPathOld = fileUploadPath;
+        //         } else {
+        //             inputFile.value = fileUploadPathOld;
+        //             userModal.modal().show();
+        //         }
+        //     }
+        // });
     </script>
 
     @if (session('status'))

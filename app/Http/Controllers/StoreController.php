@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Store;
+use Illuminate\Support\Str;
 
 class StoreController extends Controller
 {
@@ -25,7 +26,8 @@ class StoreController extends Controller
             [
                 'nama_toko' => ['required', 'string', 'min:5' , 'max:30'],
                 'no_telp_toko' => ['required', 'numeric', 'digits_between:10,12'],
-                'alamat_toko' => ['required']
+                'alamat_toko' => ['required'],
+                'foto_profile_toko' => ['mimes:jpg,jpeg,png']
             ],
             [
                 'nama_toko.required' => 'Anda belum memasukkan nama toko!',
@@ -39,5 +41,36 @@ class StoreController extends Controller
                 'alamat_toko.required' => 'Anda belum memasukkan alamat toko!',
             ]
         );
+
+
+
+        if ($request->file('foto_profile_toko')) {
+
+            $file = $request->file('foto_profile_toko');
+            $fileName = time(). '-'. $request->nama_toko .'-'. auth()->user()->id .'-'.$file->getClientOriginalName();
+            $path = storage_path('app/public/uploads/store');
+            $file->move($path, $fileName);
+
+        } else {
+            $fileName = 'store.png';
+        }
+
+
+        $store = Store::create([
+            'user_id' => auth()->user()->id,
+            'nama_toko' => $request->nama_toko,
+            'slug' => Str::lower(Str::random(10)).'-'.Str::slug($request->nama_toko),
+            'no_telp_toko' => $request->no_telp_toko,
+            'akun_instagram' => $request->akun_ig,
+            'akun_facebook' => $request->akun_facebook,
+            'alamat_toko' => $request->alamat_toko,
+            'deskripsi_toko' => $request->deskripsi_toko,
+            'foto_profile_toko' => $fileName
+        ]);
+        
+
+        return back();
+        
+        
     }
 }
