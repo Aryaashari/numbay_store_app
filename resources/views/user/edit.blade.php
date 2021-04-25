@@ -132,9 +132,9 @@
         $(document).ready(function () {
             const imgPreview = $('.img-user');
             const inputFile = $('.input-img');
+            const imgPreviewUrl = imgPreview.css('background-image');
             
 
-            let fileUploadPathOld = '';
             inputFile.change(function(e) {
                 if(e.target.files[0]) {
                     let fileUploadPath = this.value;
@@ -143,10 +143,10 @@
                     const extension = fileUploadPath.substring(fileUploadPath.lastIndexOf('.') + 1).toLowerCase();
                     if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
                         imgPreview.css('background-image', 'url('+ file +')');
-                        fileUploadPathOld = fileUploadPath;
 
                     } else {
-                        inputFile.val(fileUploadPathOld);
+                        imgPreview.css('background-image', imgPreviewUrl);
+                        inputFile.val('');
                         $('#imgUserModal').modal().show();
                     }
                 }

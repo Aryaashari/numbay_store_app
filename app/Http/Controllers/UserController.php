@@ -19,7 +19,7 @@ class UserController extends Controller
 
 
         if ($request->file('img_user')) {
-            if (!($user->foto_profile_user == 'user.png')) {
+            if ($user->foto_profile_user != 'user.png') {
                 Storage::disk('public')->delete('uploads/user/'.$user->foto_profile_user);
             }
             $file = $request->file('img_user');
