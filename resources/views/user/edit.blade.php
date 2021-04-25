@@ -124,6 +124,22 @@
         </div>
     </div>
 
+
+
+    <!-- Modal Validasi Ukuran Img -->
+    <div class="modal fade" id="fileSizeModal" tabindex="-1" role="dialog" aria-labelledby="fileSizeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p class="text-danger"><b>Ukuran file terlalu besar, maksimal 2 MB</b></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 
@@ -142,7 +158,13 @@
 
                     const extension = fileUploadPath.substring(fileUploadPath.lastIndexOf('.') + 1).toLowerCase();
                     if (extension == 'jpg' || extension == 'jpeg' || extension == 'png') {
-                        imgPreview.css('background-image', 'url('+ file +')');
+                        if (e.target.files[0].size > 2000000) {
+                            imgPreview.css('background-image', imgPreviewUrl);
+                            inputFile.val('');
+                            $('#fileSizeModal').modal().show();
+                        } else {
+                            imgPreview.css('background-image', 'url('+ file +')');
+                        }
 
                     } else {
                         imgPreview.css('background-image', imgPreviewUrl);
