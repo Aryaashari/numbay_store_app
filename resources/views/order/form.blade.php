@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Numbay Store - Order Product')
+@section('title', 'Numbay Store - Order '.$product->nama_produk)
 
 
 @push('css')
@@ -31,55 +31,66 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <h1 class="title">Form Pemesanan Produk</h1>
-                        <p class="nama-produk">Siomay</p>
+                        <p class="nama-produk">{{ $product->nama_produk }}</p>
                     </div>
                 </div>
-                <form action="">
+                <form action="{{ url('/product/'.$product->slug.'/order') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-12">
                             <div class="form">
-                                <input type="text" name="nama_penerima" class="form-control" placeholder="Nama Penerima">
-                                <!-- <div class="invalid-feedback d-block">
-                                    pesan error
-                                </div> -->
+                                <input type="text" name="nama_penerima" class="form-control @error('nama_penerima') is-invalid @enderror" value="{{ old('nama_penerima') }}" placeholder="Nama Penerima">
+                                @error('nama_penerima')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form">
-                                <input type="text" name="no_telp" class="form-control" placeholder="No. Telepon Penerima">
-                                <!-- <div class="invalid-feedback d-block">
-                                    pesan error
-                                </div> -->
+                                <input type="text" name="no_telp_penerima" class="form-control @error('no_telp_penerima') is-invalid @enderror" value="{{ old('no_telp_penerima') }}" placeholder="No. Telepon Penerima">
+                                @error('no_telp_penerima')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form">
-                                <input type="text" name="jumlah_pesanan" class="form-control" placeholder="Jumlah Pesanan">
-                                <!-- <div class="invalid-feedback d-block">
-                                    pesan error
-                                </div> -->
+                                <input type="text" name="jumlah_pesanan" class="form-control @error('jumlah_pesanan') is-invalid @enderror" value="{{ old('jumlah_pesanan') }}" placeholder="Jumlah Pesanan">
+                                @error('jumlah_pesanan')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form">
-                                <textarea name="alamat_pengantaran" placeholder="Alamat Lengkap Pengantaran" class="form-control" rows="3"></textarea>
-                                <!-- <div class="invalid-feedback d-block">
-                                    pesan error
-                                </div> -->
+                                <textarea name="alamat_pengantaran" placeholder="Alamat Lengkap Pengantaran" class="form-control @error('alamat_pengantaran') is-invalid @enderror" value="{{ old('alamat_pengantaran') }}" rows="3"></textarea>
+                                @error('alamat_pengantaran')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <div class="form">
-                                <textarea name="keterangan_tambahan" placeholder="Keterangan Tambahan" class="form-control" rows="3"></textarea>
-                                <!-- <div class="invalid-feedback d-block">
-                                    pesan error
-                                </div> -->
+                                <textarea name="keterangan_tambahan" placeholder="Keterangan Tambahan" class="form-control @error('keterangan_tambahan') is-invalid @enderror" rows="3">{{ old('keterangan_tambahan') }}</textarea>
+                                @error('keterangan_tambahan')
+                                    <div class="invalid-feedback d-block">
+                                        <b>{{ $message }}</b>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 col-12 text-md-left text-center">
                             <div class="detail-pemesanan">
                                 <h5>Jumlah pemesanan</h5>
-                                <h3>Rp 5.000</h3>
+                                <h3>Rp {{ $product->harga_produk }}</h3>
                             </div>
                         </div>
                         <div class="col-md-6 col-12 text-md-right text-center">

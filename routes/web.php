@@ -37,6 +37,11 @@ Route::middleware(['auth'])->group(function () {
     // Buka Toko
     Route::get('/store/create', [StoreController::class, 'create']);
     Route::post('/store/create', [StoreController::class, 'store']);
+
+
+    // Order Produk
+    Route::get('/product/{product:slug}/order', [ProductController::class, 'orderView']);
+    Route::post('/product/{product:slug}/order', [ProductController::class, 'orderProduct']);
     
 });
 

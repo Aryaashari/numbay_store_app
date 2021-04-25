@@ -88,7 +88,7 @@
 
                         </p>
                         <div class="d-flex mb-4">
-                            <a href="form-pemesanan.html" class="btn btn-warning beli">Beli</a>
+                            <a href="{{ url('product/'.$products->slug.'/order') }}" class="btn btn-warning beli">Beli</a>
 
                             <a class="btn btn-secondary whislist" onclick="$('.form-wishlist').submit();">
 
