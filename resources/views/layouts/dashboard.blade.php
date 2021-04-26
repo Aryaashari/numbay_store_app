@@ -60,7 +60,6 @@
                                 <img src="{{ asset('dashboard/img/90x90.jpg') }}" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
                                     <h5>Nama Toko</h5>
-                                    <p>Jl. pasar lama sentani, bagian utara</p>
                                 </div>
                             </div>
                         </div>
