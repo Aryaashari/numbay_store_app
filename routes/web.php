@@ -49,13 +49,16 @@ Route::middleware(['auth'])->group(function () {
     // Order Produk
     Route::get('/product/{product:slug}/order', [ProductController::class, 'orderView']);
     Route::post('/product/{product:slug}/order', [ProductController::class, 'orderProduct']);
+
+
+    Route::get('/store/dashboard', function() {
+        return view('layouts.dashboard');
+    });
     
 });
 
 
-Route::get('/store/dashboard', function() {
-    return view('layouts.dashboard');
-});
+
 
 
 Auth::routes(['verify' => true]);
