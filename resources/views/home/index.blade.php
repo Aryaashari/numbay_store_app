@@ -6,24 +6,6 @@
 
 @section('content')
 
-    <!-- Modal Jika Product Kosong  -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h4 class="text-center text-danger">Kata kunci <b>{{ session('productKosong') }}</b> tidak ditemukan!</h4>
-                
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
-            </div>
-        </div>
-        </div>
-    </div>
-
-
-
-
     <!-- Start Banner Area -->
     <div class="banner">
         <div class="container">
@@ -105,13 +87,12 @@
 @if (session('productKosong'))
     @push('js')
         <script>
-            $(document).ready(function () {
-                $('#exampleModal').modal('show');
-
-                $('.modal-footer button').click(function (_) { 
-                    location.reload();
-                });
-            });
+            swal({
+                text: 'Kata kunci '+ '<?php echo session('productKosong'); ?>' +' tidak ditemukan!',
+                icon: 'error'
+            }).then((_) => {
+                location.reload();
+            })
         </script>
     @endpush
 @endif
