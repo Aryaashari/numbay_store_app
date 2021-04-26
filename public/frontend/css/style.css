@@ -27,6 +27,13 @@ body {
     /* End Pagination */
 
 
+
+    /* Swal Modal */
+    .swal-modal .swal-text {
+        text-align: center;
+    }
+
+
 /* =====End Utilities===== */
 
 
