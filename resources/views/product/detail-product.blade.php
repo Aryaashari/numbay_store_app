@@ -47,25 +47,6 @@
 
 
 
-    <!-- Modal Status -->
-    {{-- @if (session('status'))
-        <div class="modal fade" id="modalStatus" tabindex="-1" role="dialog" aria-labelledby="modalStatusLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h5>{{ session('status') }}</h5>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" onclick="location.reload();" class="btn btn-primary" data-dismiss="modal">Oke</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif --}}
-
-
-
-
     <!-- Start Card Produk -->
     <div class="card">
         <div class="container">
@@ -126,7 +107,6 @@
 @push('js')
     @if (session('status'))
         <script>
-            // $('#modalStatus').modal().show();
             swal({
                 icon: 'success',
                 text: '<?php echo session('status') ?>',

@@ -88,57 +88,7 @@
             </div>
         </div>
     </div>
-
-
-
-
-    @if (session('status'))
-        <!-- Modal Status -->
-        <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h5 class="text-center"><b>{{ session('status') }}</b></h5>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-
-
-    <!-- Modal Validasi Img User -->
-    <div class="modal fade" id="imgUserModal" tabindex="-1" role="dialog" aria-labelledby="imgUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p class="text-danger"><b>File yang diupload harus berupa jpg, jpeg, atau png</b></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Modal Validasi Ukuran Img -->
-    <div class="modal fade" id="fileSizeModal" tabindex="-1" role="dialog" aria-labelledby="fileSizeModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p class="text-danger"><b>Ukuran file terlalu besar, maksimal 2 MB</b></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 @endsection
 
@@ -161,7 +111,10 @@
                         if (e.target.files[0].size > 2000000) {
                             imgPreview.css('background-image', imgPreviewUrl);
                             inputFile.val('');
-                            $('#fileSizeModal').modal().show();
+                            swal({
+                                icon: 'warning',
+                                text: 'Ukuran file terlalu besar, maksimal 2 MB'
+                            });
                         } else {
                             imgPreview.css('background-image', 'url('+ file +')');
                         }
@@ -169,7 +122,10 @@
                     } else {
                         imgPreview.css('background-image', imgPreviewUrl);
                         inputFile.val('');
-                        $('#imgUserModal').modal().show();
+                        swal({
+                            icon: 'warning',
+                            text: 'File yang diupload harus berupa jpg, jpeg, atau png'
+                        });
                     }
                 }
             });
@@ -178,8 +134,9 @@
 
     @if (session('status'))
         <script>
-            $(document).ready(function () {
-                $('#statusModal').modal().show();
+            swal({
+                icon: 'success',
+                title: 'Profile berhasil diubah!',
             });
         </script>
     @endif
