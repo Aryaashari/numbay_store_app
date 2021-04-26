@@ -54,7 +54,15 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item user-menu" href="{{ url('/user/profile/edit') }}"><img src="{{ asset('frontend/img/icon/user_icon.png') }}" class="icon" alt="user-icon"> Edit Profile</a>
 
-                            <a class="dropdown-item toko-menu" href="{{ url('/store/create') }}"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
+                            @role('user')
+                                <a class="dropdown-item toko-menu" href="{{ url('/store/create') }}"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
+                            @elseif ('merchant')
+                                <a class="dropdown-item toko-menu" href="#"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Kelola Toko</a>
+                            @endrole
+
+                            @role('admin')
+                                <a class="dropdown-item toko-menu" href="#"><img src="{{ asset('frontend/img/icon/dashboard.png') }}" class="icon" alt="toko-icon"> Admin Dashboard</a>
+                            @endrole
 
                             <a class="dropdown-item logout-menu" href="#" onclick="validationExit();"><img src="{{ asset('frontend/img/icon/log-out.png') }}"  class="icon" alt="logout-icon"> Keluar</a>
                             <form action="{{ route('logout') }}" class="d-none" id="form-exit" method="POST">

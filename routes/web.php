@@ -34,20 +34,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/profile/edit', [UserController::class, 'editUser']);
     Route::post('/user/profile/edit', [UserController::class, 'updateUser']);
 
-    // Buka Toko
-    Route::get('/store/create', [StoreController::class, 'create']);
-    Route::post('/store/create', [StoreController::class, 'store']);
+
+    // Role user
+    Route::middleware('permission:create-store')->group(function() {
+
+        // Buka Toko
+        Route::get('/store/create', [StoreController::class, 'create']);
+        Route::post('/store/create', [StoreController::class, 'store']);
+        
+    });
+    
 
 
     // Order Produk
     Route::get('/product/{product:slug}/order', [ProductController::class, 'orderView']);
     Route::post('/product/{product:slug}/order', [ProductController::class, 'orderProduct']);
     
-});
-
-// Form Pemesanan
-Route::get('/order/product/slug-product1', function() {
-    return view('order.form');
 });
 
 
