@@ -53,4 +53,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+Route::get('/store/dashboard', function() {
+    return view('layouts.dashboard');
+});
+
+
 Auth::routes(['verify' => true]);
