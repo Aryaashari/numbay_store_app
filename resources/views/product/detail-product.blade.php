@@ -48,7 +48,7 @@
 
 
     <!-- Modal Status -->
-    @if (session('status'))
+    {{-- @if (session('status'))
         <div class="modal fade" id="modalStatus" tabindex="-1" role="dialog" aria-labelledby="modalStatusLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
 
 
 
@@ -126,7 +126,13 @@
 @push('js')
     @if (session('status'))
         <script>
-            $('#modalStatus').modal().show();
+            // $('#modalStatus').modal().show();
+            swal({
+                icon: 'success',
+                text: '<?php echo session('status') ?>',
+            }).then((_) => {
+                location.reload();
+            });
         </script>
     @endif
 @endpush
