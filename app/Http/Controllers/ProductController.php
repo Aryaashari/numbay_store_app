@@ -8,19 +8,19 @@ use App\Models\Order;
 
 class ProductController extends Controller
 {
-    public function show(Product $products) {
+    public function show(Product $product) {
 
         $isLike = false;
 
         if(auth()->user()) {
             $userProducts = auth()->user()->products;
-            foreach($userProducts as $product) {
-                if($products->id == $product->id) {
+            foreach($userProducts as $p) {
+                if($product->id == $p->id) {
                     $isLike = true;
                 }
             }
         }
-        return view('product.detail-product', compact('products', 'isLike'));
+        return view('product.detail-product', compact('product', 'isLike'));
     }
 
     public function orderView(Product $product) {

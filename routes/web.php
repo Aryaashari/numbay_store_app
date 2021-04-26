@@ -12,7 +12,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 // Detail Produk
-Route::get('/detail/product/{products:slug}', [ProductController::class, 'show']);
+Route::get('/detail/product/{product:slug}', [ProductController::class, 'show']);
 
 
 // Profile Toko

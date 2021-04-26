@@ -36,7 +36,7 @@
                                     <div class="text-produk">
                                         <a href="{{ url('detail/product/'.$product->slug) }}"><h4>{{ Str::limit($product->nama_produk, 20, '...') }}</h4></a>
                                         <p>{{ $product->store->nama_toko }}</p>
-                                        <h3>Rp {{ $product->harga_produk }}</h3>
+                                        <h3>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</h3>
                                     </div>
                                 </div>
                             </a>
