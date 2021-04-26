@@ -54,11 +54,11 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item user-menu" href="{{ url('/user/profile/edit') }}"><img src="{{ asset('frontend/img/icon/user_icon.png') }}" class="icon" alt="user-icon"> Edit Profile</a>
 
-                            @role('user')
+                            @can('create-store')
                                 <a class="dropdown-item toko-menu" href="{{ url('/store/create') }}"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
-                            @elseif ('merchant')
+                            @else
                                 <a class="dropdown-item toko-menu" href="#"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Kelola Toko</a>
-                            @endrole
+                            @endcan 
 
                             @role('admin')
                                 <a class="dropdown-item toko-menu" href="#"><img src="{{ asset('frontend/img/icon/dashboard.png') }}" class="icon" alt="toko-icon"> Admin Dashboard</a>

@@ -71,7 +71,8 @@ class StoreController extends Controller
         ]);
 
         $store->categories()->attach($request->categories);
-
+        
+        auth()->user()->removeRole('user');
         auth()->user()->assignRole('merchant');
 
         return back();

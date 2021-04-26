@@ -19,7 +19,6 @@ class PermissionSeeder extends Seeder
             'name' => 'create-store'
         ]);
         
-        Role::find(1)->givePermissionTo('create-store');
         Role::find(3)->givePermissionTo('create-store');
 
     }
