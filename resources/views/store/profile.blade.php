@@ -57,7 +57,7 @@
                                     <div class="img" style="background-image: url({{ asset('frontend/img/produk/'.$stores->product->foto_produk) }});"></div>
                                     <div class="text-produk">
                                         <a href="{{ url('/detail/product/'.$stores->product->slug) }}"><h4>{{ Str::limit($stores->product->nama_produk, 20, '...') }}</h4></a>
-                                        <h3 class="mt-2">{{ $stores->product->harga_produk }}</h3>
+                                        <h3 class="mt-2">Rp {{ $stores->product->harga_produk }}</h3>
                                     </div>
                                 </div>
                             </a>
