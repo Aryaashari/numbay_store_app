@@ -68,13 +68,6 @@
             </div>
             <div class="row pagination-card">
                 <div class="col">
-                    {{-- <ul class="pagination">
-                        <li class="arrow-back"><a href="#"><img src="{{ asset('frontend/img/icon/arrow_back_sm.png') }}" alt="arrow-back"></a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li class="arrow-next"><a href="#"><img src="{{ asset('frontend/img/icon/arrow_sm.png') }}" alt="arrow"></a></li>
-                    </ul> --}}
                     {{ $products->links() }}
                 </div>
             </div>

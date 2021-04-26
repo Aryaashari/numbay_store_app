@@ -22,7 +22,10 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item user-menu" href="{{ url('/user/profile/edit') }}"><img src="{{ asset('frontend/img/icon/user_icon.png') }}" class="icon" alt="user-icon"> Edit Profil</a>
                     <a class="dropdown-item toko-menu" href="{{ url('/store/create') }}"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
-                    <a class="dropdown-item logout-menu" href="index.html" data-toggle="modal" data-target="#modalKeluar"><img src="{{ asset('frontend/img/icon/log-out.png') }}" class="icon" alt="logout-icon"> Keluar</a>
+                    <a class="dropdown-item logout-menu" href="#" onclick="validationExit();"><img src="{{ asset('frontend/img/icon/log-out.png') }}" class="icon" alt="logout-icon"> Keluar</a>
+                    <form action="{{ route('logout') }}" class="d-none" id="form-exit" method="POST">
+                        @csrf
+                    </form>
                 </div>
             </div>
 
@@ -34,23 +37,22 @@
     </div>
 </nav>
 
+<!-- End Navbar Area -->
 
-<!-- Modal Konfirmasi Log-out -->
-<div class="modal fade" id="modalKeluar" tabindex="-1" role="dialog" aria-labelledby="modalKeluarLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h4>Yakin anda ingin keluar ?</h4>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-danger">Keluar</button>
-        </form>
-        </div>
-    </div>
-    </div>
-</div>
-<!-- End Navbar Area -->
-<!-- End Navbar Area -->
+
+@push('js')
+    <script>
+        function validationExit() {
+            swal({
+                icon: 'warning',
+                title: 'Yakin anda ingin keluar ?',
+                buttons: ['Batal', true],
+                dangerMode: true
+            }).then((keluar) => {
+                if(keluar) {
+                    document.getElementById('form-exit').submit();
+                }
+            });
+        }
+    </script>
+@endpush
