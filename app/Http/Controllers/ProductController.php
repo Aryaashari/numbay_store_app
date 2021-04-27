@@ -30,6 +30,12 @@ class ProductController extends Controller
         return view('product.detail-product', compact('product', 'isLike'));
     }
 
+
+    public function create() {
+        return view();
+    }
+
+
     public function orderView(Product $product) {
         return view('order.form', compact('product'));
     }
