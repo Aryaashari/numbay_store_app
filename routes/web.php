@@ -50,7 +50,11 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:merchant')->prefix('store')->group(function () {
         
 
+        // Dashboard
         Route::get('/dashboard', [StoreDashboardController::class, 'index']);
+
+        // Products
+        Route::get('/products', [StoreProductController::class, 'index']);
 
 
     });
