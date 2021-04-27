@@ -473,7 +473,7 @@ var App = function() {
             inBuiltfunctionality.subCatScroll();
             inBuiltfunctionality.preventScrollBody();
             inBuiltfunctionality.languageDropdown();
-            inBuiltfunctionality.onSidebarHover();
+            // inBuiltfunctionality.onSidebarHover();
 
 
             colorPallet.createPallet();
