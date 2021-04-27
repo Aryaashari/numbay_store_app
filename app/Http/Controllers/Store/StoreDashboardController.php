@@ -28,6 +28,6 @@ class StoreDashboardController extends Controller
         // dd($productLikes);
         
 
-        return view('dashboard.store-dashboard', compact('store', 'productLikes'));
+        return view('dashboard.store-dashboard', compact('productLikes', 'store'));
     }
 }

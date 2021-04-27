@@ -52,14 +52,14 @@
 
                 <li class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('storage/uploads/store/'.$store->foto_profile_toko) }}" alt="admin-profile" class="img-fluid">
+                        <img src="{{ (Auth::user()->hasRole('merchant')) ? asset('storage/uploads/store/'.Auth::user()->store->foto_profile_toko) : '' }}" alt="admin-profile" class="img-fluid">
                     </a>
                     <div class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-                                <img src="{{ asset('storage/uploads/store/'.$store->foto_profile_toko) }}" class="img-fluid mr-2" alt="avatar">
+                                <img src="{{ (Auth::user()->hasRole('merchant')) ? asset('storage/uploads/store/'.Auth::user()->store->foto_profile_toko) : '' }}" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
-                                    <h5>{{ $store->nama_toko }}</h5>
+                                    <h5>{{ (Auth::user()->hasRole('merchant')) ? Auth::user()->store->nama_toko : '' }}</h5>
                                 </div>
                             </div>
                         </div>
