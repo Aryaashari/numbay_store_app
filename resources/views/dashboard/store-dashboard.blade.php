@@ -48,7 +48,7 @@
         <div class="col-12 col-md-8">
             <div class="widget-four widget">
                 <div class="widget-heading">
-                    <h5 class="">Top 3 Produk Paling Banyak Dijangkau</h5>
+                    <h5 class="">Top 3 Produk Paling Diminati</h5>
                 </div>
                 <div class="widget-content">
                     <div class="vistorsBrowser">
