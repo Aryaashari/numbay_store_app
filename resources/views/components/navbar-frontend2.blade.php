@@ -25,7 +25,7 @@
                     @can('create-store')
                         <a class="dropdown-item toko-menu" href="{{ url('/store/create') }}"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Buka Toko</a>
                     @else
-                        <a class="dropdown-item toko-menu" href="#"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Kelola Toko</a>
+                        <a class="dropdown-item toko-menu" href="{{ url('store/dashboard') }}"><img src="{{ asset('frontend/img/icon/toko_icon.png') }}" class="icon" alt="toko-icon"> Kelola Toko</a>
                     @endcan 
 
                     @role('admin')

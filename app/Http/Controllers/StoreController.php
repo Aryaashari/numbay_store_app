@@ -75,7 +75,7 @@ class StoreController extends Controller
         auth()->user()->removeRole('user');
         auth()->user()->assignRole('merchant');
 
-        return back();
+        return redirect('/store/dashboard');
         
         
     }
