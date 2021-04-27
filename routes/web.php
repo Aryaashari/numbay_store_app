@@ -11,6 +11,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Store\StoreDashboardController;
 use App\Http\Controllers\Store\StoreProductController;
 
+
+
 // Home
 Route::get('/', [HomeController::class, 'index']);
 
@@ -21,6 +23,7 @@ Route::get('/detail/product/{product:slug}', [ProductController::class, 'show'])
 
 // Profile Toko
 Route::get('/profile/store/{stores:slug}', [StoreController::class, 'show']);
+
 
 
 // Middleware Auth
@@ -58,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Products
         Route::get('/products', [StoreProductController::class, 'index']);
+        Route::get('/products/{product}', [StoreProductController::class, 'show']);
 
 
     });
@@ -73,3 +77,4 @@ Route::middleware(['auth'])->group(function () {
 
 
 Auth::routes(['verify' => true]);
+

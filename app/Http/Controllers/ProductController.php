@@ -20,6 +20,12 @@ class ProductController extends Controller
                 }
             }
         }
+
+        if (request()->is('store/*')) {
+            return view('dashboard.product.detail', compact('product'));
+        }
+        
+        
         return view('product.detail-product', compact('product', 'isLike'));
     }
 
