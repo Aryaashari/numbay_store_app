@@ -22,7 +22,8 @@ class ProductController extends Controller
         }
 
         if (request()->is('store/*')) {
-            return view('dashboard.product.detail', compact('product'));
+            $store = auth()->user()->store;
+            return view('dashboard.product.detail', compact('product', 'store'));
         }
         
         
