@@ -36,10 +36,10 @@
 
                     <div class="w-content">
                         <div class="">                                            
-                            <p class="task-left">{{ ($store->products == null) ? 0 : count($store->products) }}</p>
+                            <p class="task-left">{{ count($store->products) }}</p>
                         </div>
                         <div class="tm-action-btn">
-                            <button class="btn">Lihat Produk</button>
+                            <a href="#" class="btn">Lihat Produk</a>
                         </div>
                     </div>
                 </div>

@@ -1208,7 +1208,7 @@ body.minimal .widget-three {
 .widget-activity-one .tm-action-btn {
   text-align: center;
   padding-top: 20px; }
-  .widget-activity-one .tm-action-btn button {
+  .widget-activity-one .tm-action-btn button, .widget-activity-one .tm-action-btn a {
     background: transparent;
     box-shadow: none;
     padding: 0;
