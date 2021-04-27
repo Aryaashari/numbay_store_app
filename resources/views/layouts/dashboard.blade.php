@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>@yield('content')</title>
+    <title>@yield('title')</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('dashboard/img/favicon.ico') }}"/>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
@@ -52,14 +52,14 @@
 
                 <li class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
                     <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('dashboard/img/90x90.jpg') }}" alt="admin-profile" class="img-fluid">
+                        <img src="{{ asset('storage/uploads/store/'.$store->foto_profile_toko) }}" alt="admin-profile" class="img-fluid">
                     </a>
                     <div class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-                                <img src="{{ asset('dashboard/img/90x90.jpg') }}" class="img-fluid mr-2" alt="avatar">
+                                <img src="{{ asset('storage/uploads/store/'.$store->foto_profile_toko) }}" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
-                                    <h5>Nama Toko</h5>
+                                    <h5>{{ $store->nama_toko }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +149,17 @@
         <div id="content" class="main-content">
             
 
-            @yield('content')
+            <div class="layout-px-spacing">
+
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>@yield('title-page')</h3>
+                    </div>
+                </div>
+
+                @yield('content')
+
+            </div>
 
 
         </div>
