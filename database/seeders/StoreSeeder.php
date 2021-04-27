@@ -26,7 +26,7 @@ class StoreSeeder extends Seeder
         ]);
 
         Store::create([
-            'user_id' => 2,
+            'user_id' => 3,
             'nama_toko' => 'Toko Vicky',
             'slug' => 'toko-vicky',
             'no_telp_toko' => '08123456789',
