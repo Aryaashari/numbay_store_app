@@ -49,9 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:merchant')->prefix('store')->group(function () {
         
 
-        Route::get('/dashboard', function() {
-            return view('layouts.dashboard');
-        });
+        Route::get('/dashboard', [StoreDashboardController::class, 'index']);
 
 
     });
