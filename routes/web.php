@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Store\StoreDashboardController;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
