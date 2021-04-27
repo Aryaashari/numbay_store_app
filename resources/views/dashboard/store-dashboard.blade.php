@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="w-browser-stats">
                                     <div class="progress">
-                                        <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 65%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 100%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
