@@ -35,13 +35,25 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/user/profile/edit', [UserController::class, 'updateUser']);
 
 
-    // Role user
+    // Permission create store
     Route::middleware('permission:create-store')->group(function() {
 
         // Buka Toko
         Route::get('/store/create', [StoreController::class, 'create']);
         Route::post('/store/create', [StoreController::class, 'store']);
         
+    });
+
+
+    // Dashboard store
+    Route::middleware('role:merchant')->prefix('store')->group(function () {
+        
+
+        Route::get('/dashboard', function() {
+            return view('layouts.dashboard');
+        });
+
+
     });
     
 
@@ -51,14 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/product/{product:slug}/order', [ProductController::class, 'orderProduct']);
 
 
-    Route::get('/store/dashboard', function() {
-        return view('layouts.dashboard');
-    });
-    
 });
-
-
-
 
 
 Auth::routes(['verify' => true]);
