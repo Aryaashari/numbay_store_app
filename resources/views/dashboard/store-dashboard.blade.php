@@ -24,14 +24,14 @@
                         <div class="header-body">
                             <h6>Total Produk</h6>
                         </div>
-                        <div class="activity-selector">
+                        {{-- <div class="activity-selector">
                             <select class="form-control mb-0 text-right">
                                 <option>Semua</option>
                                 <option>Kemarin</option>
                                 <option>Hari Ini</option>
                                 <option>1 Bulan</option>
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="w-content">
