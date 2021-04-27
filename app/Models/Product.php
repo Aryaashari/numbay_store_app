@@ -19,7 +19,7 @@ class Product extends Model
 
     // Relasi ke Category
     public function category() {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     // Relasi ke Order
