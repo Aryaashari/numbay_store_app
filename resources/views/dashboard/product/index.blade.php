@@ -68,6 +68,7 @@
                             <th>Nama</th>
                             <th>Harga</th>
                             <th>Kategori</th>
+                            <th>Tag</th>
                             <th>Tampil Produk</th>
                             <th>Foto Produk</th>
                             <th>Aksi</th>
@@ -82,6 +83,13 @@
                                 <td>{{ $product->nama_produk }}</td>
                                 <td>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</td>
                                 <td>{{ $product->category->kategori ?? 'Tidak ada' }}</td>
+                                <td>
+                                    @foreach ($product->tags as $tag)
+                                        <ul>
+                                            <li>{{ $tag->tag }}</li>
+                                        </ul>
+                                    @endforeach
+                                </td>
                                 <td>{{ $product->tampilkan_produk }}</td>
                                 <td>
                                     <div class="avatar avatar-lg">
