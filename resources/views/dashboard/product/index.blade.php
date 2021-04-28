@@ -62,7 +62,7 @@
                             <tr>
                                 <td>{{ $product->nama_produk }}</td>
                                 <td>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</td>
-                                <td>{{ $product->category->kategori }}</td>
+                                <td>{{ $product->category->kategori ?? 'Tidak ada' }}</td>
                                 <td>{{ $product->tampilkan_produk }}</td>
                                 <td>
                                     <div class="avatar avatar-lg">

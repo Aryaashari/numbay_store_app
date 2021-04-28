@@ -55,7 +55,7 @@
                                 Harga: Rp {{ number_format($product->harga_produk, 0, '.', '.') }}
                             </li>
                             <li class="contacts-block__item text-center" style="font-size: 16px">
-                                Kategori: {{ $product->category->kategori }}
+                                Kategori: {{ $product->category->kategori ?? 'Tidak ada' }}
                             </li>
                             <li class="contacts-block__item text-center" style="font-size: 16px">
                                 Tampilkan Produk: {{ $product->tampilkan_produk }}
