@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class StoreProductController extends ProductController
 {
