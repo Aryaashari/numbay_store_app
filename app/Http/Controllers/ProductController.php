@@ -102,6 +102,14 @@ class ProductController extends Controller
     }
 
 
+    public function edit(Product $product) {
+        $categories = Category::all();
+        return view('dashboard.product.edit', compact('product', 'categories'));
+    }
+
+    public function update(Product $product, Request $request) {}
+
+
     public function destroy(Product $product) {
         Product::destroy($product->id);
         Storage::disk('public')->delete('uploads/product/'.$product->foto_produk);
