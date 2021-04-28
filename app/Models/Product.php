@@ -34,6 +34,6 @@ class Product extends Model
 
     // Relasi ke Tag
     public function tags() {
-        return $this->belongsToMany(Tag::class);
+        return $this->hasMany(Tag::class);
     }
 }
