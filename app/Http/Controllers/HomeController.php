@@ -15,7 +15,7 @@ class HomeController extends Controller
                 $query->where('nama_toko', 'LIKE', '%'.$request->search.'%');
             })->orWhere('nama_produk', 'LIKE', '%'.$request->search.'%')->orWhereHas('tags', function(Builder $query) use($request){
                 $query->where('tag', 'LIKE', '%'.$request->search.'%');
-            })->paginate(8);
+            })->inRandomOrder()->paginate(8);
             
             $products->appends(['search' => $request->search]);
             
