@@ -44,7 +44,7 @@ class ProductController extends Controller
             [
                 'nama_produk' => 'required|string',
                 'harga_produk' => 'required|numeric',
-                'foto_produk' => 'required|mimes:jpg,jpeg,png|size:5000'
+                'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
             ],
             [
                 'nama_produk.required' => 'Anda belum memasukkan nama produk!',
@@ -54,7 +54,7 @@ class ProductController extends Controller
 
                 'foto_produk.required' => 'Anda belum memasukkan foto produk!',
                 'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
-                'foto_produk.size' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
+                'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
             ]
         );
 
