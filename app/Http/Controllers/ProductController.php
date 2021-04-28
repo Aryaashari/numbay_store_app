@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -37,6 +38,7 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('dashboard.product.create', compact('categories'));
     }
+
 
 
     public function store(Request $request) {
@@ -97,6 +99,16 @@ class ProductController extends Controller
             return redirect('/store/products')->with('status', 'Produk berhasil ditambahkan!');
         }
 
+    }
+
+
+    public function destroy(Product $product) {
+        Product::destroy($product->id);
+        Storage::disk('public')->delete('uploads/product/'.$product->foto_produk);
+
+        if(request()->is('store/*')) {
+            return redirect('store/products')->with('status', 'Produk berhasil dihapus!');
+        }
     }
 
 
