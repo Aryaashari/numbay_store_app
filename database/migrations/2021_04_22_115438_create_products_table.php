@@ -17,11 +17,11 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('store_id');
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('nama_produk');
             $table->integer('harga_produk');
-            $table->text('deskripsi_produk');
+            $table->text('deskripsi_produk')->nullable();
             $table->string('foto_produk');
             $table->enum('tampilkan_produk', ['ya', 'tidak']);
             $table->timestamps();
