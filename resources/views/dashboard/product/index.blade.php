@@ -104,11 +104,15 @@
                                 <td>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</td>
                                 <td>{{ $product->category->kategori ?? 'Tidak ada' }}</td>
                                 <td>
-                                    @foreach ($product->tags as $tag)
-                                        <ul>
-                                            <li>{{ $tag->tag }}</li>
-                                        </ul>
-                                    @endforeach
+                                    @if (count($product->tags) < 1)
+                                        Kosong
+                                    @else
+                                        @foreach ($product->tags as $tag)
+                                            <ul>
+                                                <li>{{ $tag->tag }}</li>
+                                            </ul>
+                                        @endforeach
+                                    @endif
                                 </td>
                                 <td>{{ $product->tampilkan_produk }}</td>
                                 <td>
