@@ -50,14 +50,14 @@
                 </div>
                 <div class="row card-produk">
                     
-                    @foreach ($stores->products as $stores->product)
+                    @foreach ($stores->products as $product)
                         <div class="col-md-4 col-6">
-                            <a href="{{ url('/detail/product/'.$stores->product->slug) }}">
+                            <a href="{{ url('/detail/product/'.$product->slug) }}">
                                 <div class="card">
-                                    <div class="img" style="background-image: url({{ asset('frontend/img/produk/'.$stores->product->foto_produk) }});"></div>
+                                    <div class="img" style="background-image: url({{ asset('storage/uploads/product/'.$product->foto_produk) }});"></div>
                                     <div class="text-produk">
-                                        <a href="{{ url('/detail/product/'.$stores->product->slug) }}"><h4>{{ Str::limit($stores->product->nama_produk, 20, '...') }}</h4></a>
-                                        <h3 class="mt-2">Rp {{ number_format($stores->product->harga_produk, 0, '.', '.') }}</h3>
+                                        <a href="{{ url('/detail/product/'.$product->slug) }}"><h4>{{ Str::limit($product->nama_produk, 20, '...') }}</h4></a>
+                                        <h3 class="mt-2">Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</h3>
                                     </div>
                                 </div>
                             </a>
