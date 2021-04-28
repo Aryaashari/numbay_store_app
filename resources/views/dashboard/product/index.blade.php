@@ -85,7 +85,7 @@
                                 <td>{{ $product->tampilkan_produk }}</td>
                                 <td>
                                     <div class="avatar avatar-lg">
-                                        <img alt="avatar" src="{{ asset('frontend/img/produk/'.$product->foto_produk) }}" class="rounded">
+                                        <img alt="avatar" src="{{ asset('storage/uploads/product/'.$product->foto_produk) }}" class="rounded">
                                     </div>
                                 </td>
                                 <td class="text-center">

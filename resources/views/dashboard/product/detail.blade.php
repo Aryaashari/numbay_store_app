@@ -44,7 +44,7 @@
                     <h3 class="" after>Info Produk</h3>
                 </div>
                 <div class="text-center user-info">
-                    <img src="{{ asset('frontend/img/produk/'.$product->foto_produk) }}" width="250" alt="avatar">
+                    <img src="{{ asset('storage/uploads/product/'.$product->foto_produk) }}" width="250" alt="avatar">
                     <p class="">{{ $product->nama_produk }}</p>
                 </div>
                 <div class="user-info-list">
