@@ -37,6 +37,28 @@ class ProductController extends Controller
     }
 
 
+    public function store(Request $request) {
+
+        $request->validate(
+            [
+                'nama_produk' => 'required|string',
+                'harga_produk' => 'required|numeric',
+                'foto_produk' => 'required|mimes:jpg,jpeg,png'
+            ],
+            [
+                'nama_produk.required' => 'Anda belum memasukkan nama produk!',
+
+                'harga_produk.required' => 'Anda belum memasukkan harga produk!',
+                'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+
+                'foto_produk.required' => 'Anda belum memasukkan foto produk!',
+                'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
+            ]
+        );
+
+    }
+
+
     public function orderView(Product $product) {
         return view('order.form', compact('product'));
     }
