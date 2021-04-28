@@ -10,6 +10,7 @@
     <link href="{{ asset('plugins/file-upload/file-upload-with-preview.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/css/forms/switches.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-select/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
 @endpush
 
 
@@ -80,6 +81,12 @@
                                                 </div>
                                             @enderror
                                         </div>
+
+                                        <div class="form-group mt-4 mb-3">
+                                            <label>Tag (Masukkan kata-kata yang berkaitan dengan produk anda lalu tekan enter)</label>
+                                            <select class="form-control tagging" multiple="multiple">
+                                            </select>
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Tambah</button>
                                         <a href="{{ url('/store/products') }}" class="btn btn-danger">Kembali</a>
                                     </div>
@@ -98,7 +105,14 @@
 @push('js')
     <script src="{{ asset('plugins/file-upload/file-upload-with-preview.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap-select/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
+    {{-- <script src="{{ asset('plugins/select2/custom-select2.js') }}"></script> --}}
     <script>
         var firstUpload = new FileUploadWithPreview('foto_produk')
+    </script>
+    <script>
+        $(".tagging").select2({
+            tags: true
+        });
     </script>
 @endpush
