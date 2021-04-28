@@ -49,7 +49,7 @@ class StoreController extends Controller
         if ($request->file('foto_profile_toko')) {
 
             $file = $request->file('foto_profile_toko');
-            $fileName = time(). '-'. $request->nama_toko .'-'. auth()->user()->id .'-'.$file->getClientOriginalName();
+            $fileName = time(). '-'. Str::slug($request->nama_toko) .'-'. auth()->user()->id .'-'.$file->getClientOriginalName();
             $path = storage_path('app/public/uploads/store');
             $file->move($path, $fileName);
 

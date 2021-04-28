@@ -65,7 +65,7 @@ class ProductController extends Controller
 
 
         $file = $request->file('foto_produk');
-        $fileName = time() .'-'. $request->nama_produk .'-userId='. $user->id .'.'. $file->getClientOriginalExtension();
+        $fileName = time() .'-'. Str::slug($request->nama_produk) .'-userId='. $user->id .'.'. $file->getClientOriginalExtension();
         $path = storage_path('app/public/uploads/product');
         $file->move($path, $fileName);
 
