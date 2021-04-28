@@ -38,12 +38,13 @@ class ProductController extends Controller
 
 
     public function store(Request $request) {
+        // dd($request->file('foto_produk'));
 
         $request->validate(
             [
                 'nama_produk' => 'required|string',
                 'harga_produk' => 'required|numeric',
-                'foto_produk' => 'required|mimes:jpg,jpeg,png'
+                'foto_produk' => 'required|mimes:jpg,jpeg,png|size:5000'
             ],
             [
                 'nama_produk.required' => 'Anda belum memasukkan nama produk!',
@@ -53,6 +54,7 @@ class ProductController extends Controller
 
                 'foto_produk.required' => 'Anda belum memasukkan foto produk!',
                 'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
+                'foto_produk.size' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
             ]
         );
 
