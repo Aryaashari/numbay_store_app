@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/dt-global_style.css') }}">
     <link href="{{ asset('dashboard/css/tables/table-basic.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('dashboard/css/elements/avatar.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css') }}" rel="stylesheet" type="text/css">
 @endpush
 
 @push('js')
@@ -31,6 +32,24 @@
         checkall('todoAll', 'todochkbox');
         $('[data-toggle="tooltip"]').tooltip()
     </script>
+    <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
+    <script src="{{ asset('dashboard/js/components/notification/custom-snackbar.js') }}"></script>
+    
+    @if (session('status'))
+        <script>
+            Snackbar.show({
+                text: '<?php echo session('status') ?>',
+                pos: 'top-center',
+                actionTextColor: '#fff',
+                backgroundColor: '#8dbf42',
+                actionText: 'Oke',
+                onActionClick: function(_) {
+                    location.reload();
+                }
+            });
+        </script>
+    @endif
+
 @endpush
 
 
