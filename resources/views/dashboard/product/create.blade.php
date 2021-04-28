@@ -83,8 +83,8 @@
                                         </div>
 
                                         <div class="form-group mt-4 mb-3">
-                                            <label>Tag (Masukkan kata-kata yang berkaitan dengan produk anda lalu tekan enter)</label>
-                                            <select class="form-control tagging" multiple="multiple">
+                                            <label>Tag (Ketikkan beberapa kata yang berkaitan dengan produk anda, lalu tekan enter)</label>
+                                            <select class="form-control tagging" name="tags[]" multiple="multiple">
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Tambah</button>

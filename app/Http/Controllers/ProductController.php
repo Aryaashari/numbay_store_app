@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -40,23 +41,23 @@ class ProductController extends Controller
 
     public function store(Request $request) {
 
-        // $request->validate(
-        //     [
-        //         'nama_produk' => 'required|string',
-        //         'harga_produk' => 'required|numeric',
-        //         'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
-        //     ],
-        //     [
-        //         'nama_produk.required' => 'Anda belum memasukkan nama produk!',
+        $request->validate(
+            [
+                'nama_produk' => 'required|string',
+                'harga_produk' => 'required|numeric',
+                'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
+            ],
+            [
+                'nama_produk.required' => 'Anda belum memasukkan nama produk!',
 
-        //         'harga_produk.required' => 'Anda belum memasukkan harga produk!',
-        //         'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+                'harga_produk.required' => 'Anda belum memasukkan harga produk!',
+                'harga_produk.numeric' => 'Anda harus memasukkan angka!',
 
-        //         'foto_produk.required' => 'Anda belum memasukkan foto produk!',
-        //         'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
-        //         'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
-        //     ]
-        // );
+                'foto_produk.required' => 'Anda belum memasukkan foto produk!',
+                'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
+                'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
+            ]
+        );
 
         $user = auth()->user();
         $store = $user->store;
@@ -70,7 +71,7 @@ class ProductController extends Controller
         $file->move($path, $fileName);
 
 
-        Product::create([
+        $product = Product::create([
             'store_id' => $store->id,
             'category_id' => $request->kategori,
             'nama_produk' => $request->nama_produk,
@@ -80,6 +81,17 @@ class ProductController extends Controller
             'foto_produk' => $fileName,
             'tampilkan_produk' => ($request->tampilkan_produk == 'on') ? 'ya' : 'tidak'
         ]);
+
+
+        if ($request->tags) {
+            foreach($request->tags as $tag) {
+                Tag::create([
+                    'product_id' => $product->id,
+                    'tag' => $tag
+                ]);
+            }
+        }
+
 
         if($request->is('store/*')) {
             return redirect('/store/products')->with('status', 'Produk berhasil ditambahkan!');
