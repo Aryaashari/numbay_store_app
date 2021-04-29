@@ -68,6 +68,9 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/products/{product}', [StoreProductController::class, 'destroy']);
         Route::get('/products/{product}', [StoreProductController::class, 'show']);
 
+        // Store
+        Route::get('/profile', [StoreController::class, 'show']);
+
 
     });
     

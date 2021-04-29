@@ -10,18 +10,30 @@ use Illuminate\Support\Str;
 class StoreController extends Controller
 {
     public function show(Store $store) {
-        $categoryStores = [];
-        foreach($store->categories as $category) {
-            $categoryStores[] = $category->kategori;
-        }
+        if(request()->is('store/*')) {
+            $store = auth()->user()->store;
+            $categoryStores = [];
+            foreach($store->categories as $category) {
+                $categoryStores[] = $category->kategori;
+            }
 
-        return view('store.profile', compact('store', 'categoryStores'));
+            return view('dashboard.store.profile', compact('store', 'categoryStores'));
+        } else {
+            $categoryStores = [];
+            foreach($store->categories as $category) {
+                $categoryStores[] = $category->kategori;
+            }
+
+            return view('store.profile', compact('store', 'categoryStores'));
+        }
     }
+
 
     public function create() {
         $categories = Category::all();
         return view('store.create', compact('categories'));
     }
+
 
     public function store(Request $request) {
         $request->validate(
