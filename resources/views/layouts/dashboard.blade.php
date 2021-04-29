@@ -33,6 +33,16 @@
             display: none;
         }
 
+        .page-title::before {
+            content: '';
+            height: 2px;
+            width: 100%;
+            background: #1b55e2;
+            position: absolute;
+            border-radius: 50px;
+            bottom: -8px;
+        }
+
     </style>
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
