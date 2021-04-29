@@ -6,10 +6,25 @@
 
 @push('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/css/widgets/modules-widgets.css') }}">
+    <link href="{{ asset('plugins/sweetalerts/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
 @endpush
 
 @push('js')
-    <script src="{{ asset('dashboard/js/widgets/modules-widgets.js') }}"></script>    
+    <script src="{{ asset('dashboard/js/widgets/modules-widgets.js') }}"></script> 
+    <script src="{{ asset('plugins/sweetalerts/sweetalert2.min.js') }}"></script>   
+
+    @if (session('statusStore'))
+        <script>
+            swal({
+                title: 'Selamat!',
+                text: '<?php echo session('statusStore') ?>',
+                type: 'success',
+                padding: '2em'
+            }).then(function(_) {
+                location.reload();
+            });
+        </script>
+    @endif
 @endpush
 
 

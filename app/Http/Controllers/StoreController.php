@@ -75,7 +75,7 @@ class StoreController extends Controller
         auth()->user()->removeRole('user');
         auth()->user()->assignRole('merchant');
 
-        return redirect('/store/dashboard');
+        return redirect('/store/dashboard')->with('statusStore', 'Anda telah berhasil membuat toko!');
         
         
     }
