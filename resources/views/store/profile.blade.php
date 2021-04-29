@@ -33,7 +33,7 @@
 
                 <p class="alamat">{{ $store->alamat_toko }}</p>
                 <div class="garis"></div>
-                <p class="desc">{{ $store->deskripsi_toko }}</p>
+                <p class="desc">{{ $store->deskripsi_toko ?? 'Tidak ada deskripsi' }}</p>
                 <div class="sosial-media d-flex justify-content-center align-items-center">
                     <a href="https://wa.me/62{{ substr($store->no_telp_toko,1,15) }}" target="_blank" class="wa mr-4"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
                     {{-- <a href="#" target="_blank" class="fb mr-4"><img src="{{ asset('frontend/img/icon/facebook.png') }}" alt="facebook"></a> --}}

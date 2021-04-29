@@ -11,8 +11,8 @@ class StoreController extends Controller
 {
     public function show(Store $store) {
         $categoryStores = [];
-        foreach($store->categories as $stores->category) {
-            $categoryStores[] = $stores->category->kategori;
+        foreach($store->categories as $category) {
+            $categoryStores[] = $category->kategori;
         }
 
         return view('store.profile', compact('store', 'categoryStores'));
