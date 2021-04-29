@@ -107,4 +107,8 @@ class StoreController extends Controller
         return view('dashboard.store.edit-profile', compact('store', 'categories', 'storeCategories'));
     }
 
+
+    public function update(Request $request) {
+    }
+
 }
