@@ -2,7 +2,7 @@
 
 
 @section('title', 'Numbay Store - Tambah Produk')
-@section('title-page', 'Tambah Produk')
+@section('title-page', 'Edit Produk')
 
 
 
@@ -11,11 +11,24 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/css/forms/switches.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-select/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
+    <link href="{{ asset('dashboard/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css">
 @endpush
 
 
 @section('content')
-    
+
+    <div class="row">
+        <div class="col-12 mt-2">
+            <div class="breadcrumb-five">
+                <ul class="breadcrumb">
+                    <li class="mb-2"><a href="{{ (request()->is('store/*') ? url('/store/products') : url('/admin/products')) }}">Produk</a>
+                    </li>
+                    <li class="active mb-2"><a href="javscript:void(0);">Edit Produk</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid mt-4 mb-4 pl-0 pr-0">
         <div class="row">
             <div class="col-12">
@@ -98,7 +111,7 @@
                                                 @endif
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
                                         <a href="{{ url('/store/products') }}" class="btn btn-danger">Kembali</a>
                                     </div>
                                 </form>
