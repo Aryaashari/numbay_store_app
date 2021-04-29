@@ -65,10 +65,12 @@
                                                     @if ($product->category)
                                                         @if ($category->id == $product->category->id)
                                                             <option value="{{ $category->id }}" selected>{{ $category->kategori }}</option>
+                                                        @else
+                                                            <option value="{{ $category->id }}">{{ $category->kategori }}</option>
                                                         @endif
+                                                    @else
+                                                        <option value="{{ $category->id }}">{{ $category->kategori }}</option>
                                                     @endif
-                                                    
-                                                    <option value="{{ $category->id }}">{{ $category->kategori }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

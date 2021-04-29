@@ -107,7 +107,74 @@ class ProductController extends Controller
         return view('dashboard.product.edit', compact('product', 'categories'));
     }
 
-    public function update(Product $product, Request $request) {}
+    public function update(Product $product, Request $request) {
+        $user = auth()->user();
+        $store = $user->store;
+
+
+        $request->validate(
+            [
+                'nama_produk' => 'required|string',
+                'harga_produk' => 'required|numeric',
+                'foto_produk' => 'mimes:jpg,jpeg,png|file|max:5000'
+            ],
+            [
+                'nama_produk.required' => 'Anda belum memasukkan nama produk!',
+
+                'harga_produk.required' => 'Anda belum memasukkan harga produk!',
+                'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+
+                'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
+                'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
+            ]
+        );
+
+
+        if ($request->file('foto_produk')) {
+            Storage::disk('public')->delete('uploads/product/'.$product->foto_produk);
+            $file = $request->file('foto_produk');
+            $fileName = time() .'-'. Str::slug($request->nama_produk) .'-userId='. $user->id .'.'. $file->getClientOriginalExtension();
+            $path = storage_path('app/public/uploads/product');
+            $file->move($path, $fileName);
+        } else {
+            $fileName = $product->foto_produk;
+        }
+
+
+        Product::find($product->id)->update([
+            'store_id' => $store->id,
+            'category_id' => $request->kategori,
+            'nama_produk' => $request->nama_produk,
+            'slug' => $product->slug,
+            'harga_produk' => $request->harga_produk,
+            'deskripsi_produk' => $request->deskripsi_produk,
+            'foto_produk' => $fileName,
+            'tampilkan_produk' => ($request->tampilkan_produk) ? 'ya' : 'tidak'
+        ]);
+
+        
+        // Hapus semua tag yang dimiliki produk
+        for($i = 0; $i < count($product->tags); $i++) {
+            Tag::where('product_id', $product->id)->delete();
+        }
+
+
+        // Tambahkan semua tag yang dimiliki produk
+        if ($request->tags) {
+            foreach($request->tags as $tag) {
+                Tag::create([
+                    'product_id' => $product->id,
+                    'tag' => $tag
+                ]);
+            }
+        }
+
+        
+        if (request()->is('store/*')) {
+            return redirect('store/products')->with('status', 'Produk berhasil diedit!');
+        }
+
+    }
 
 
     public function destroy(Product $product) {
