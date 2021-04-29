@@ -8,6 +8,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/dropify/dropify.min.css') }}">
     <link href="{{ asset('dashboard/css/users/account-setting.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
+    @error('foto_profile_toko')
+        <style>
+            .general-info .info .dropify-wrapper {
+                border: 1.5px red solid;
+            }
+        </style>
+    @enderror
 @endpush
 @push('js')
     <script src="{{ asset('plugins/dropify/dropify.min.js') }}"></script>
@@ -40,8 +47,13 @@
                                     <div class="row">
                                         <div class="col-xl-2 col-lg-12 col-md-4">
                                             <div class="upload mt-4 pr-md-4">
-                                                <input type="file" id="input-file-max-fs" class="dropify" data-default-file="{{ asset('storage/uploads/store/'.$store->foto_profile_toko) }}" name="foto_profile_toko" accept=".jpg, .jpeg, .png" data-max-file-size="5M" />
+                                                <input type="file" id="input-file-max-fs" class="dropify is-invalid" data-default-file="{{ asset('storage/uploads/store/'.$store->foto_profile_toko) }}" name="foto_profile_toko" accept=".jpg, .jpeg, .png" data-max-file-size="5M" />
                                                 <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Upload Picture</p>
+                                                @error('foto_profile_toko')
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
@@ -50,13 +62,23 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="namaToko">Nama Toko</label>
-                                                            <input type="text" class="form-control mb-4" id="namaToko" name="nama_toko" placeholder="Masukkan nama toko" value="{{ old('nama_toko') ?? $store->nama_toko }}">
+                                                            <input type="text" class="form-control mb-4 @error('nama_toko') is-invalid @enderror" id="namaToko" name="nama_toko" placeholder="Masukkan nama toko" value="{{ old('nama_toko') ?? $store->nama_toko }}">
+                                                            @error('nama_toko')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="noTelp">No Whatsapp</label>
-                                                            <input type="text" class="form-control mb-4" id="noTelp" name="no_telp_toko" placeholder="Masukkan no whatsapp toko" value="{{ old('no_telp_toko') ?? $store->no_telp_toko }}">
+                                                            <input type="text" class="form-control mb-4 @error('no_telp_toko') is-invalid @enderror" id="noTelp" name="no_telp_toko" placeholder="Masukkan no whatsapp toko" value="{{ old('no_telp_toko') ?? $store->no_telp_toko }}">
+                                                            @error('no_telp_toko')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -98,13 +120,18 @@
                                                     <div class="col-12">
                                                         <div class="form-group">
                                                             <label for="alamat_toko">Alamat Toko</label>
-                                                            <textarea name="alamat_toko" id="alamat_toko" rows="3" class="form-control">{{ old('alamat_toko') ?? $store->alamat_toko }}</textarea>
+                                                            <textarea name="alamat_toko" id="alamat_toko" rows="3" class="form-control @error('alamat_toko') is-invalid @enderror">{{ old('alamat_toko') ?? $store->alamat_toko }}</textarea>
+                                                            @error('alamat_toko')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-5">
                                                         <div class="form-group">
                                                             <label for="deskripsi_toko">Deskripsi Toko</label>
-                                                            <textarea name="deskripsi_toko" id="alamat_toko" rows="5" class="form-control">{{ old('deskripsi_toko') ?? $store->deskripsi_toko }}</textarea>
+                                                            <textarea name="deskripsi_toko" id="deskripsi_toko" rows="5" class="form-control">{{ old('deskripsi_toko') ?? $store->deskripsi_toko }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>

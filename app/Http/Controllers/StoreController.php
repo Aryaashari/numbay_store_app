@@ -109,6 +109,59 @@ class StoreController extends Controller
 
 
     public function update(Request $request) {
+        $user = auth()->user();
+        $store = $user->store;
+
+        $request->validate(
+            [
+                'nama_toko' => ['required', 'string', 'min:5' , 'max:30'],
+                'no_telp_toko' => ['required', 'numeric', 'digits_between:10,12'],
+                'alamat_toko' => ['required'],
+                'foto_profile_toko' => ['mimes:jpg,jpeg,png', 'max:5000']
+            ],
+            [
+                'nama_toko.required' => 'Anda belum memasukkan nama toko!',
+                'nama_toko.max' => 'Nama toko tidak boleh lebih 30 huruf!',
+                'nama_toko.min' => 'Anda harus memasukkan minimal 5 huruf!',
+
+                'no_telp_toko.required' => 'Anda belum memasukkan no whatsapp!',
+                'no_telp_toko.numeric' => 'Anda harus memasukkan angka!',
+                'no_telp_toko.digits_between' => 'Anda harus memasukkan 10-12 karakter!',
+
+                'alamat_toko.required' => 'Anda belum memasukkan alamat toko!',
+
+                'foto_profile_toko.mimes' => 'File yang diupload harus berekstensi jpg, jpeg, atau png',
+                'foto_profile_toko.max' => 'Ukuran file yang diupload maksimal 5 MB',
+            ]
+        );
+
+
+        if ($request->file('foto_profile_toko')) {
+            if($store->foto_profile_toko != 'profile_toko.png') {
+                Storage::disk('public')->delete('uploads/store/'.$store->foto_profile_toko);
+            }
+            $file = $request->file('foto_profile_toko');
+            $fileName = time(). '-'. Str::slug($request->nama_toko) .'-'. $user->id .'-'.$file->getClientOriginalName();
+            $path = storage_path('app/public/uploads/store');
+            $file->move($path, $fileName);
+
+        } else {
+            $fileName = $store->foto_profile_toko;
+        }
+
+
+        $storeUpdate = Store::find($store->id)->update([
+            'user_id' => $user->id,
+            'nama_toko' => $request->nama_toko,
+            'slug' => $store->slug,
+            'no_telp_toko' => $request->no_telp_toko,
+            'akun_instagram' => $request->akun_instagram,
+            'akun_facebook' => $request->akun_facebook,
+            'alamat_toko' => $request->alamat_toko,
+            'deskripsi_toko' => $request->deskripsi_toko,
+            'foto_profile_toko' => $fileName
+        ]);
+        
     }
 
 }
