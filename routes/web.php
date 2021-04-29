@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Store
         Route::get('/profile', [StoreController::class, 'show']);
+        Route::get('/profile/edit', [StoreController::class, 'edit']);
 
 
     });

@@ -91,4 +91,20 @@ class StoreController extends Controller
         
         
     }
+
+
+    public function edit() {
+        $store = auth()->user()->store;
+        $categories = Category::all();
+        $storeCategories = [];
+
+        if (count($store->categories) > 0) {
+            foreach($store->categories as $category) {
+                $storeCategories[] = $category->kategori;
+            }
+        }
+
+        return view('dashboard.store.edit-profile', compact('store', 'categories', 'storeCategories'));
+    }
+
 }
