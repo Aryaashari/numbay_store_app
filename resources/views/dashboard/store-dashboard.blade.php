@@ -31,7 +31,7 @@
 @section('content')
 
     <div class="row mt-3">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-4 mb-3">
             <div class="widget widget-five widget-activity-one">
                 <div class="widget-content">
 
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-8 mb-3">
             <div class="widget-four widget">
                 <div class="widget-heading">
                     <h5 class="">Top 3 Produk Paling Diminati</h5>
