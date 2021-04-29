@@ -22,7 +22,7 @@ Route::get('/detail/product/{product:slug}', [ProductController::class, 'show'])
 
 
 // Profile Toko
-Route::get('/profile/store/{stores:slug}', [StoreController::class, 'show']);
+Route::get('/profile/store/{store:slug}', [StoreController::class, 'show']);
 
 
 

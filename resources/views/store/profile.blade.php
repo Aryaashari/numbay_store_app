@@ -26,18 +26,18 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="card detail-toko">
-                <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/'.$stores->foto_profile_toko) }});"></div>
-                <h4>{{ $stores->nama_toko }}</h4>
+                <div class="img-toko" style="background-image: url({{ asset('storage/uploads/store/'.$store->foto_profile_toko) }});"></div>
+                <h4>{{ $store->nama_toko }}</h4>
                 
                 <h5>{{ implode(', ',$categoryStores) }}</h5>
 
-                <p class="alamat">{{ $stores->alamat_toko }}</p>
+                <p class="alamat">{{ $store->alamat_toko }}</p>
                 <div class="garis"></div>
-                <p class="desc">{{ $stores->deskripsi_toko }}</p>
+                <p class="desc">{{ $store->deskripsi_toko }}</p>
                 <div class="sosial-media d-flex justify-content-center align-items-center">
-                    <a href="https://wa.me/62{{ substr($stores->no_telp_toko,1,15) }}" target="_blank" class="wa mr-4"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
+                    <a href="https://wa.me/62{{ substr($store->no_telp_toko,1,15) }}" target="_blank" class="wa mr-4"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
                     {{-- <a href="#" target="_blank" class="fb mr-4"><img src="{{ asset('frontend/img/icon/facebook.png') }}" alt="facebook"></a> --}}
-                    <a href="https://www.instagram.com/{{ $stores->akun_instagram }}" target="_blank" class="ig"><img src="{{ asset('frontend/img/icon/ig.png') }}" alt="instagram"></a>
+                    <a href="https://www.instagram.com/{{ $store->akun_instagram }}" target="_blank" class="ig"><img src="{{ asset('frontend/img/icon/ig.png') }}" alt="instagram"></a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="row card-produk">
                     
-                    @foreach ($stores->products as $product)
+                    @foreach ($store->products as $product)
                         <div class="col-md-4 col-6">
                             <a href="{{ url('/detail/product/'.$product->slug) }}">
                                 <div class="card">

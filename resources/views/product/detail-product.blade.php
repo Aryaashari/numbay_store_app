@@ -84,7 +84,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="{{ url('profile/store/'.$product->store->slug) }}" class="text-decoration-none">
                                 <div class="card-toko d-flex align-items-center">
-                                    <div class="img-toko" style="background-image: url({{ asset('frontend/img/icon/'.$product->store->foto_profile_toko) }});"></div>
+                                    <div class="img-toko" style="background-image: url({{ asset('storage/uploads/store/'.$product->store->foto_profile_toko) }});"></div>
                                     <div class="text">
                                         <h5>{{ Str::limit($product->store->nama_toko, 12, '...') }}</h5>
                                         <p>{{ Str::limit($product->store->alamat_toko, 23, '...') }}</p>

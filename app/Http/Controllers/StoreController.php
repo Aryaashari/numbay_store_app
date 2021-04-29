@@ -9,13 +9,13 @@ use Illuminate\Support\Str;
 
 class StoreController extends Controller
 {
-    public function show(Store $stores) {
+    public function show(Store $store) {
         $categoryStores = [];
-        foreach($stores->categories as $stores->category) {
+        foreach($store->categories as $stores->category) {
             $categoryStores[] = $stores->category->kategori;
         }
 
-        return view('store.profile', compact('stores', 'categoryStores'));
+        return view('store.profile', compact('store', 'categoryStores'));
     }
 
     public function create() {
@@ -54,7 +54,7 @@ class StoreController extends Controller
             $file->move($path, $fileName);
 
         } else {
-            $fileName = 'store.png';
+            $fileName = 'profile_toko.png';
         }
 
 
