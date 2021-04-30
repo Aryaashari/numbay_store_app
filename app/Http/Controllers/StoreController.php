@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -150,18 +151,22 @@ class StoreController extends Controller
         }
 
 
-        $storeUpdate = Store::find($store->id)->update([
+        Store::find($store->id)->update([
             'user_id' => $user->id,
             'nama_toko' => $request->nama_toko,
             'slug' => $store->slug,
             'no_telp_toko' => $request->no_telp_toko,
-            'akun_instagram' => $request->akun_instagram,
-            'akun_facebook' => $request->akun_facebook,
+            'akun_instagram' => $request->akun_ig,
+            'akun_facebook' => $request->akun_fb,
             'alamat_toko' => $request->alamat_toko,
             'deskripsi_toko' => $request->deskripsi_toko,
             'foto_profile_toko' => $fileName
         ]);
         
+        $store->categories()->detach();
+        $store->categories()->attach($request->categories);
+
+        return back();
     }
 
 }
