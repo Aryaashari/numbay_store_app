@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/dropify/dropify.min.css') }}">
     <link href="{{ asset('dashboard/css/users/account-setting.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
+    <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css') }}" rel="stylesheet" type="text/css">
     @error('foto_profile_toko')
         <style>
             .general-info .info .dropify-wrapper {
@@ -21,11 +22,26 @@
     <script src="{{ asset('plugins/blockui/jquery.blockUI.min.js') }}"></script>
     <script src="{{ asset('dashboard/js/users/account-settings.js') }}"></script>
     <script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
     <script>
         $(".kategori").select2({
             tags: false
         });
     </script>
+    @if (session('status'))
+    <script>
+        Snackbar.show({
+            text: '<?php echo session('status') ?>',
+            pos: 'top-center',
+            actionTextColor: '#fff',
+            backgroundColor: '#8dbf42',
+            actionText: 'Oke',
+            onActionClick: function(_) {
+                location.reload();
+            }
+        });
+    </script>
+@endif
 @endpush
 
 

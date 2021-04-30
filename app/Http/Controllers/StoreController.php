@@ -166,7 +166,7 @@ class StoreController extends Controller
         $store->categories()->detach();
         $store->categories()->attach($request->categories);
 
-        return back();
+        return back()->with('status', 'Profile toko berhasil diedit!');
     }
 
 }
