@@ -14,7 +14,7 @@ class AddColumnProductIdToTagsTable extends Migration
     public function up()
     {
         Schema::table('tags', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_id')->after('id')->nullable();
+            $table->unsignedBigInteger('product_id')->first()->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }

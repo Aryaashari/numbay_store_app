@@ -14,10 +14,8 @@ class CreateCategoryStoreTable extends Migration
     public function up()
     {
         Schema::create('category_store', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('store_id');
-            $table->timestamps();
         });
     }
 
