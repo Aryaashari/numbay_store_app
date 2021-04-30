@@ -32,7 +32,7 @@
         <div class="user-profile layout-spacing">
             <div class="widget-content widget-content-area">
                 <div class="d-flex justify-content-between">
-                    <h3 class="" after>Profile Toko</h3>
+                    <h3 class="" after>Info Toko</h3>
                 </div>
                 <div class="text-center user-info">
                     <div class="avatar avatar-xl" style="width: 10.125rem; height: 10.125rem;">
