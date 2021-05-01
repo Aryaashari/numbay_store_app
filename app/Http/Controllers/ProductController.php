@@ -149,7 +149,7 @@ class ProductController extends Controller
             'harga_produk' => $request->harga_produk,
             'deskripsi_produk' => $request->deskripsi_produk,
             'foto_produk' => $fileName,
-            'tampilkan_produk' => ($request->tampilkan_produk) ? 'ya' : 'tidak'
+            'tampilkan_produk' => 'ya'
         ]);
 
         

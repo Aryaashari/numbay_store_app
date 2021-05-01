@@ -8,7 +8,7 @@
 
 @push('css')
     <link href="{{ asset('plugins/file-upload/file-upload-with-preview.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/css/forms/switches.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/css/forms/switches.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-select/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
     <link href="{{ asset('dashboard/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css">
@@ -75,13 +75,13 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-gropu mt-4 mb-3">
+                                        {{-- <div class="form-gropu mt-4 mb-3">
                                             <label class="d-block">Tampilkan Produk</label>
                                             <label class="switch s-primary mr-2">
                                                 <input type="checkbox" {{ ($product->tampilkan_produk == 'ya') ? 'checked' : '' }} name="tampilkan_produk">
                                                 <span class="slider round"></span>
                                             </label>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="form-group mt-4 mb-3">
                                             <div class="custom-file-container" data-upload-id="foto_produk">
