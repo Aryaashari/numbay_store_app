@@ -90,7 +90,7 @@
                             <th>Harga</th>
                             <th>Kategori</th>
                             <th>Tag</th>
-                            <th>Tampil Produk</th>
+                            {{-- <th>Tampil Produk</th> --}}
                             <th>Foto Produk</th>
                             <th>Aksi</th>
                         </tr>
@@ -115,7 +115,7 @@
                                         @endforeach
                                     @endif
                                 </td>
-                                <td>{{ $product->tampilkan_produk }}</td>
+                                {{-- <td>{{ $product->tampilkan_produk }}</td> --}}
                                 <td>
                                     <div class="avatar avatar-lg">
                                         <img alt="avatar" src="{{ asset('storage/uploads/product/'.$product->foto_produk) }}" class="rounded">
