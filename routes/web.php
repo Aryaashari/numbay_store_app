@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 
 // Store
 use App\Http\Controllers\Store\StoreDashboardController;
@@ -79,8 +80,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Order Produk
-    Route::get('/product/{product:slug}/order', [ProductController::class, 'orderView']);
-    Route::post('/product/{product:slug}/order', [ProductController::class, 'orderProduct']);
+    Route::get('/product/{product:slug}/order', [OrderController::class, 'orderView']);
+    Route::post('/product/{product:slug}/order', [OrderController::class, 'orderProduct']);
 
 
 });
