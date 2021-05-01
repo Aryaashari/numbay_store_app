@@ -85,7 +85,7 @@
                         </div>
                         <div class="col-md-6 col-12 text-md-left text-center">
                             <div class="detail-pemesanan">
-                                <h5>Jumlah pemesanan</h5>
+                                <h5>Harga produk</h5>
                                 <h3>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</h3>
                             </div>
                         </div>
