@@ -11,6 +11,12 @@
     <link href="{{ asset('dashboard/css/elements/avatar.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('plugins/sweetalerts/sweetalert.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        div.dataTables_wrapper div.dataTables_filter input {
+            width: 200px;
+            margin-left: 0;
+        }
+    </style>
 @endpush
 
 @push('js')
