@@ -35,4 +35,9 @@ class CategoryController extends Controller
 
         return redirect('/admin/categories')->with('status', 'Kategori berhasil ditambahkan!');
     }
+
+
+    public function destroy($id) {
+        dd($id);
+    }
 }
