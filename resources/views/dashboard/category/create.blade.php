@@ -31,17 +31,16 @@
                             <div class="col-lg-8 col-xl-6 col-12 mx-auto">
                                 <form method="post" action="{{ url('/admin/categories') }}">
                                     @csrf
-                                    <div class="form-group">
-                                        <input type="text" name="kategori" placeholder="Kategori" class="form-control mb-3 @error('kategori') is-invalid @enderror" value="{{ old('kategori') }}">
+                                    <div class="form-group mb-3">
+                                        <input type="text" name="kategori" placeholder="Kategori" class="form-control @error('kategori') is-invalid @enderror" value="{{ old('kategori') }}">
                                         @error('kategori')
                                             <div class="invalid-feedback d-block">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
-                                        <a href="{{ url('/admin/categories') }}" class="btn btn-danger">Kembali</a>
                                     </div>
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <a href="{{ url('/admin/categories') }}" class="btn btn-danger">Kembali</a>
                                 </form>
                             </div>                                        
                         </div>
