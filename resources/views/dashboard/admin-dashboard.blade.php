@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 
-@section('title', 'Numbay Store - Admin|Dashboard')
+@section('title', 'Numbay Store - Admin | Dashboard')
 @section('title-page', 'Dashboard')
 
 
