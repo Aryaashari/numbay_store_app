@@ -14,6 +14,7 @@ use App\Http\Controllers\Store\StoreProductController;
 
 // Admin
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 
@@ -87,6 +88,9 @@ Route::middleware(['auth'])->group(function () {
 
         // Dashboard
         Route::get('/dashboard', [AdminDashboardController::class, 'index']);
+
+        // Category
+        Route::get('/categories', [CategoryController::class, 'index']);
 
     });
     
