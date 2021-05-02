@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
 
 
-@section('title', 'Numbay Store - Admin | Tambah Kategori')
-@section('title-page', 'Tambah Kategori')
+@section('title', 'Numbay Store - Admin | Edit Kategori')
+@section('title-page', 'Edit Kategori')
 
 
 @push('css')
@@ -17,7 +17,7 @@
                 <ul class="breadcrumb">
                     <li class="mb-2"><a href="{{ url('admin/categories') }}">Kategori</a>
                     </li>
-                    <li class="active mb-2"><a href="javscript:void(0);">Tambah Kategori</a></li>
+                    <li class="active mb-2"><a href="javscript:void(0);">Edit Kategori</a></li>
                 </ul>
             </div>
         </div>
@@ -29,17 +29,18 @@
                     <div class="widget-content widget-content-area">
                         <div class="row">
                             <div class="col-lg-8 col-xl-6 col-12 mx-auto">
-                                <form method="post" action="{{ url('/admin/categories') }}">
+                                <form method="post" action="{{ url('/admin/categories/'.$category->id) }}">
                                     @csrf
+                                    @method('put')
                                     <div class="form-group mb-3">
-                                        <input type="text" name="kategori" placeholder="Kategori" class="form-control @error('kategori') is-invalid @enderror" value="{{ old('kategori') }}">
+                                        <input type="text" name="kategori" placeholder="Kategori" class="form-control @error('kategori') is-invalid @enderror" value="{{ old('kategori') ?? $category->kategori }}">
                                         @error('kategori')
                                             <div class="invalid-feedback d-block">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <button type="submit" class="btn btn-primary">Edit</button>
                                     <a href="{{ url('/admin/categories') }}" class="btn btn-danger">Kembali</a>
                                 </form>
                             </div>                                        
