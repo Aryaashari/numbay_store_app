@@ -61,7 +61,7 @@
                             @endcan 
 
                             @role('admin')
-                                <a class="dropdown-item toko-menu" href="#"><img src="{{ asset('frontend/img/icon/dashboard.png') }}" class="icon" alt="toko-icon"> Admin Dashboard</a>
+                                <a class="dropdown-item toko-menu" href="{{ url('admin/dashboard') }}"><img src="{{ asset('frontend/img/icon/dashboard.png') }}" class="icon" alt="toko-icon"> Admin Dashboard</a>
                             @endrole
 
                             <a class="dropdown-item logout-menu" href="#" onclick="validationExit();"><img src="{{ asset('frontend/img/icon/log-out.png') }}"  class="icon" alt="logout-icon"> Keluar</a>

@@ -86,7 +86,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:admin')->prefix('admin')->group(function() {
 
         // Dashboard
-        Route::get('/dashboard', AdminDashboardController::class, 'index');
+        Route::get('/dashboard', [AdminDashboardController::class, 'index']);
 
     });
     
