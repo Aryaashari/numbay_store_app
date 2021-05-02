@@ -37,6 +37,16 @@ class CategoryController extends Controller
     }
 
 
+    public function edit(Category $category) {
+        dd($category);
+    }
+
+
+    public function update(Category $category) {
+        dd($category);
+    }
+
+
     public function destroy($id) {
         Category::destroy($id);
         
