@@ -12,6 +12,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Store\StoreDashboardController;
 use App\Http\Controllers\Store\StoreProductController;
 
+// Admin
+use App\Http\Controllers\Admin\AdminDashboardController;
+
 
 
 // Home
@@ -74,6 +77,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/profile/edit', [StoreController::class, 'edit']);
         Route::put('/profile/edit', [StoreController::class, 'update']);
 
+
+    });
+
+
+
+    // Dashboard Admin
+    Route::middleware('role:admin')->prefix('admin')->group(function() {
+
+        // Dashboard
+        Route::get('/dashboard', AdminDashboardController::class, 'index');
 
     });
     
