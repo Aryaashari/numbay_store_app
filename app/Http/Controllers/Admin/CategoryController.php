@@ -42,8 +42,22 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Category $category) {
-        dd($category);
+    public function update(Category $category, Request $request) {
+        $request->validate(
+            [
+                'kategori' => 'required|regex:/^[\pL\s\-]+$/u'
+            ],
+            [
+                'kategori.required' => 'Anda belum memasukkan kategori!',
+                'kategori.regex' => 'Anda harus memasukkan huruf!'
+            ]
+        );
+
+        Category::find($category->id)->update([
+            'kategori' => $request->kategori
+        ]);
+
+        return redirect('/admin/categories')->with('status', 'Kategori berhasil diedit!');
     }
 
 
