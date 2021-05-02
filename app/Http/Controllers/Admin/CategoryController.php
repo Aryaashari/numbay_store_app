@@ -38,6 +38,8 @@ class CategoryController extends Controller
 
 
     public function destroy($id) {
-        dd($id);
+        Category::destroy($id);
+        
+        return redirect('/admin/categories')->with('status', 'Kategori berhasil dihapus!');
     }
 }
