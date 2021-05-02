@@ -30,7 +30,7 @@
 
                 <div class="w-content">
                     <div class="">                                            
-                        <p class="task-left">12</p>
+                        <p class="task-left">{{ count($users) }}</p>
                     </div>
                     <div class="tm-action-btn">
                         <a href="#" class="btn">Lihat User</a>
@@ -52,7 +52,7 @@
 
                 <div class="w-content">
                     <div class="">                                            
-                        <p class="task-left">12</p>
+                        <p class="task-left">{{ count($stores) }}</p>
                     </div>
                     <div class="tm-action-btn">
                         <a href="#" class="btn">Lihat Toko</a>
@@ -74,7 +74,7 @@
 
                 <div class="w-content">
                     <div class="">                                            
-                        <p class="task-left">12</p>
+                        <p class="task-left">{{ count($products) }}</p>
                     </div>
                     <div class="tm-action-btn">
                         <a href="#" class="btn">Lihat Produk</a>
