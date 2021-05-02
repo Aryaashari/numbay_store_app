@@ -87,7 +87,7 @@
                 
     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
         <div class="widget-content widget-content-area br-6">
-            <a href="{{ url('#') }}" class="btn btn-primary">Tambah Kategori</a>
+            <a href="{{ url('admin/categories/create') }}" class="btn btn-primary">Tambah Kategori</a>
             <div class="table-responsive mb-4 mt-4">
                 <table id="zero-config" class="table table-hover" style="width:100%">
                     <thead>
