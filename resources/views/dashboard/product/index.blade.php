@@ -93,6 +93,9 @@
                     <thead>
                         <tr>
                             <th>Nama</th>
+                            @if (request()->is('admin*'))
+                                <th>Nama Toko</th>
+                            @endif
                             <th>Harga</th>
                             <th>Kategori</th>
                             <th>Tag</th>
@@ -108,6 +111,9 @@
 
                             <tr>
                                 <td>{{ $product->nama_produk }}</td>
+                                @if (request()->is('admin*'))
+                                    <td>{{ $product->store->nama_toko }}</td>
+                                @endif
                                 <td>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</td>
                                 <td>{{ $product->category->kategori ?? 'Tidak ada' }}</td>
                                 <td>
