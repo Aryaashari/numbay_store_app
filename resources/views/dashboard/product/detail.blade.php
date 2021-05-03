@@ -51,6 +51,13 @@
 
                     <div class="">
                         <ul class="contacts-block list-unstyled">
+                            
+                            @if (request()->is('admin/*'))
+                                <li class="contacts-block__item text-center" style="font-size: 16px">
+                                    Toko: {{ $product->store->nama_toko }}
+                                </li>
+                            @endif
+
                             <li class="contacts-block__item text-center" style="font-size: 16px">
                                 Harga: Rp {{ number_format($product->harga_produk, 0, '.', '.') }}
                             </li>
