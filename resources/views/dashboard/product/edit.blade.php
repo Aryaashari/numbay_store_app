@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-select/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
     <link href="{{ asset('dashboard/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+            width: 100%;
+        }
+    </style>
 @endpush
 
 
