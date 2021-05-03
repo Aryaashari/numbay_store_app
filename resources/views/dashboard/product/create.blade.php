@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap-select/bootstrap-select.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
     <link href="{{ asset('dashboard/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+            width: 100%;
+        }
+    </style>
 @endpush
 
 
@@ -37,6 +42,19 @@
                                 <form method="post" action="{{ url('/store/products') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
+
+                                        @if (request()->is('admin/*'))
+                                            <div class="form-group mt-3">
+                                                <label class="d-block">Toko</label>
+                                                <select class="selectpicker" name="store_id">
+                                                    <option value="">Pilih Toko...</option>
+                                                    @foreach ($stores as $store)
+                                                        <option value="{{ $store->id }}">{{ $store->nama_toko .' - '. $store->user->nama_depan .' '. $store->user->nama_belakang }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        @endif
+
                                         <input type="text" name="nama_produk" placeholder="Nama Produk" class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') }}">
                                         @error('nama_produk')
                                             <div class="invalid-feedback d-block">
