@@ -94,7 +94,7 @@
                                             <select class="selectpicker" name="kategori">
                                                 <option value="">Pilih Kategori...</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->kategori }}</option>
+                                                    <option value="{{ $category->id }}" {{ old('kategori') == $category->id ? 'selected' : '' }}>{{ $category->kategori }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -127,6 +127,11 @@
                                         <div class="form-group mt-4 mb-3">
                                             <label>Tag (Ketikkan beberapa kata yang berkaitan dengan produk anda, lalu tekan enter)</label>
                                             <select class="form-control tagging" name="tags[]" multiple="multiple">
+                                                @if (old('tags'))
+                                                    @foreach (old('tags') as $tag)
+                                                        <option value="{{ $tag }}" selected>{{ $tag }}</option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Tambah</button>
