@@ -93,6 +93,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Product
         Route::get('/products', [AdminProductController::class, 'index']);
+        Route::get('/products/create', [AdminProductController::class, 'create']);
         Route::get('/products/{product}', [AdminProductController::class, 'show']);
 
 
