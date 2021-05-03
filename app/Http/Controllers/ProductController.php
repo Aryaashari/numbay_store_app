@@ -35,7 +35,25 @@ class ProductController extends Controller
 
 
     public function create() {
-        $categories = Category::all();
+        $categories = [];
+        $kategoriLainnya;
+
+        // Looping semua kategori
+        foreach (Category::all() as $category) {
+
+            // Jika kategori merupakan kategori Lainnya, maka masukkan ke variable kategoriLainnya
+            if ($category->kategori == 'Lainnya') {
+                $kategoriLainnya = $category;
+
+            // Jika bukan masukkan ke dalam array categories 
+            } else {
+                $categories[] = $category;
+            }
+        }
+
+        // Masukkan kategoriLainnya kedalam array categories, supaya kategoriLainnya berada selalu paling terakhir
+        $categories[] = $kategoriLainnya;
+
         return view('dashboard.product.create', compact('categories'));
     }
 
