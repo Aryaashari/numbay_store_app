@@ -25,7 +25,7 @@ class ProductController extends Controller
             }
         }
 
-        if (request()->is('store/*')) {
+        if (request()->is('store/*') || request()->is('admin/*')) {
             return view('dashboard.product.detail', compact('product'));
         }
         
