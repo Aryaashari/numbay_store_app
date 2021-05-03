@@ -117,7 +117,7 @@ class ProductController extends Controller
 
 
         $product = Product::create([
-            'store_id' => $store->id,
+            'store_id' => (request()->is('store/*') ? $store->id : $request->store_id ),
             'category_id' => $request->kategori,
             'nama_produk' => $request->nama_produk,
             'slug' => $slug,
@@ -140,6 +140,8 @@ class ProductController extends Controller
 
         if($request->is('store/*')) {
             return redirect('/store/products')->with('status', 'Produk berhasil ditambahkan!');
+        } else {
+            return redirect('/admin/products')->with('status', 'Produk berhasil ditambahkan!');
         }
 
     }
