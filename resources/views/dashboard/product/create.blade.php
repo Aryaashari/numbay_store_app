@@ -47,7 +47,7 @@
                     <div class="widget-content widget-content-area">
                         <div class="row">
                             <div class="col-lg-8 col-xl-6 col-12 mx-auto">
-                                <form method="post" action="{{ url('/store/products') }}" enctype="multipart/form-data">
+                                <form method="post" action="{{ request()->is('store/*') ? url('/store/products') : url('/admin/products') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
 
@@ -57,7 +57,7 @@
                                                 <select class="selectpicker" name="store_id">
                                                     <option value="">Pilih Toko...</option>
                                                     @foreach ($stores as $store)
-                                                        <option value="{{ $store->id }}">{{ $store->nama_toko .' - '. $store->user->nama_depan .' '. $store->user->nama_belakang }}</option>
+                                                        <option value="{{ $store->id }}" {{ old('store_id') == $store->id ? 'selected' : '' }} >{{ $store->nama_toko .' - '. $store->user->nama_depan .' '. $store->user->nama_belakang }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('store_id')

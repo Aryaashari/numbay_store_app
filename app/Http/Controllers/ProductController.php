@@ -62,24 +62,47 @@ class ProductController extends Controller
 
 
     public function store(Request $request) {
+        if (request()->is('admin/*')) {
+            $request->validate(
+                [
+                    'store_id' => 'required',
+                    'nama_produk' => 'required|string',
+                    'harga_produk' => 'required|numeric',
+                    'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
+                ],
+                [
+                    'store_id.required' => 'Anda belum memasukkan toko!',
+    
+                    'nama_produk.required' => 'Anda belum memasukkan nama produk!',
+    
+                    'harga_produk.required' => 'Anda belum memasukkan harga produk!',
+                    'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+    
+                    'foto_produk.required' => 'Anda belum memasukkan foto produk!',
+                    'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
+                    'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
+                ]
+            );
+        } else {
+            $request->validate(
+                [
+                    'nama_produk' => 'required|string',
+                    'harga_produk' => 'required|numeric',
+                    'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
+                ],
+                [
+                    'nama_produk.required' => 'Anda belum memasukkan nama produk!',
+    
+                    'harga_produk.required' => 'Anda belum memasukkan harga produk!',
+                    'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+    
+                    'foto_produk.required' => 'Anda belum memasukkan foto produk!',
+                    'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
+                    'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
+                ]
+            );
+        }
 
-        $request->validate(
-            [
-                'nama_produk' => 'required|string',
-                'harga_produk' => 'required|numeric',
-                'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
-            ],
-            [
-                'nama_produk.required' => 'Anda belum memasukkan nama produk!',
-
-                'harga_produk.required' => 'Anda belum memasukkan harga produk!',
-                'harga_produk.numeric' => 'Anda harus memasukkan angka!',
-
-                'foto_produk.required' => 'Anda belum memasukkan foto produk!',
-                'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
-                'foto_produk.max' => 'Ukuran file yang anda upload terlalu besar, maksimal 5 MB!',
-            ]
-        );
 
         $user = auth()->user();
         $store = $user->store;
