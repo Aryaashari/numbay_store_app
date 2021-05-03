@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Store;
 use App\Models\Order;
 use App\Models\Category;
 use App\Models\Tag;
@@ -35,6 +36,7 @@ class ProductController extends Controller
 
 
     public function create() {
+        $stores = Store::all();
         $categories = [];
         $kategoriLainnya;
 
@@ -54,7 +56,7 @@ class ProductController extends Controller
         // Masukkan kategoriLainnya kedalam array categories, supaya kategoriLainnya berada selalu paling terakhir
         $categories[] = $kategoriLainnya;
 
-        return view('dashboard.product.create', compact('categories'));
+        return view('dashboard.product.create', compact('categories', 'stores'));
     }
 
 
