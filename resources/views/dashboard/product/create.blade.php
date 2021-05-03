@@ -17,6 +17,14 @@
             width: 100%;
         }
     </style>
+
+    @error('store_id')
+    <style>
+        .pilihToko .bootstrap-select.btn-group > .dropdown-toggle {
+            border: 1px solid red !important;
+        }
+    </style>
+    @enderror
 @endpush
 
 
@@ -44,7 +52,7 @@
                                     <div class="form-group">
 
                                         @if (request()->is('admin/*'))
-                                            <div class="form-group mt-3">
+                                            <div class="form-group mt-3 pilihToko">
                                                 <label class="d-block">Toko</label>
                                                 <select class="selectpicker" name="store_id">
                                                     <option value="">Pilih Toko...</option>
@@ -52,6 +60,11 @@
                                                         <option value="{{ $store->id }}">{{ $store->nama_toko .' - '. $store->user->nama_depan .' '. $store->user->nama_belakang }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('store_id')
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         @endif
 
