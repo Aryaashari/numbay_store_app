@@ -93,6 +93,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Product
         Route::get('/products', [AdminProductController::class, 'index']);
+        Route::get('/products/{product}', [AdminProductController::class, 'show']);
 
 
         // Category
