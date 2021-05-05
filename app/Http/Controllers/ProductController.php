@@ -246,6 +246,8 @@ class ProductController extends Controller
 
         if(request()->is('store/*')) {
             return redirect('store/products')->with('status', 'Produk berhasil dihapus!');
+        } else {
+            return redirect('admin/products')->with('status', 'Produk berhasil dihapus!');
         }
     }
 }

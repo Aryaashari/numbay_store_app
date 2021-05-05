@@ -95,6 +95,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/products', [AdminProductController::class, 'index']);
         Route::get('/products/create', [AdminProductController::class, 'create']);
         Route::post('/products', [AdminProductController::class, 'store']);
+        Route::delete('/products/{product}', [AdminProductController::class, 'destroy']);
         Route::get('/products/{product}', [AdminProductController::class, 'show']);
 
 
