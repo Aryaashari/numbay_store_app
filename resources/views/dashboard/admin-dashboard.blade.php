@@ -77,7 +77,7 @@
                         <p class="task-left">{{ count($products) }}</p>
                     </div>
                     <div class="tm-action-btn">
-                        <a href="#" class="btn">Lihat Produk</a>
+                        <a href="{{ url('admin/products') }}" class="btn">Lihat Produk</a>
                     </div>
                 </div>
             </div>
