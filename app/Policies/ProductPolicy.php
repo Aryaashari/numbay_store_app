@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProductPolicy
@@ -17,5 +18,9 @@ class ProductPolicy
     public function __construct()
     {
         //
+    }
+
+    public function show(User $user, Product $product) {
+        return $user->id == $product->store->user_id;
     }
 }

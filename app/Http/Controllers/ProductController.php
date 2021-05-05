@@ -15,6 +15,8 @@ class ProductController extends Controller
 {
     public function show(Product $product) {
 
+        $this->authorize('show', $product);
+
         $isLike = false;
 
         if(auth()->user()) {
