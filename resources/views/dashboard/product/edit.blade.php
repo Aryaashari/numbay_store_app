@@ -41,9 +41,25 @@
                     <div class="widget-content widget-content-area">
                         <div class="row">
                             <div class="col-lg-8 col-xl-6 col-12 mx-auto">
-                                <form method="post" action="{{ url('/store/products/'.$product->id) }}" enctype="multipart/form-data">
+                                <form method="post" action="{{ (request()->is('store/*') ? url('/store/products/'.$product->id) : url('/admin/products/'.$product->id)) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
+
+                                    @if (request()->is('admin/*'))
+                                        <div class="form-group mt-3 pilihToko">
+                                            <label class="d-block">Toko</label>
+                                            <select class="selectpicker" name="store_id">
+                                                @foreach ($stores as $store)
+                                                    @if ($product->store->id == $store->id)
+                                                        <option value="{{ $store->id }}" selected >{{ $store->nama_toko .' - '. $store->user->nama_depan .' '. $store->user->nama_belakang }}</option>
+                                                    @else
+                                                        <option value="{{ $store->id }}" >{{ $store->nama_toko .' - '. $store->user->nama_depan .' '. $store->user->nama_belakang }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @endif
+
                                     <div class="form-group">
                                         <input type="text" name="nama_produk" placeholder="Nama Produk" class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') ?? $product->nama_produk }}">
                                         @error('nama_produk')

@@ -150,6 +150,7 @@ class ProductController extends Controller
     public function edit(Product $product) {
         $categories = [];
         $kategoriLainnya;
+        $stores = Store::all();
 
         // Looping semua kategori
         foreach (Category::all() as $category) {
@@ -167,7 +168,7 @@ class ProductController extends Controller
         // Masukkan kategoriLainnya kedalam array categories, supaya kategoriLainnya berada selalu paling terakhir
         $categories[] = $kategoriLainnya;
         
-        return view('dashboard.product.edit', compact('product', 'categories'));
+        return view('dashboard.product.edit', compact('product', 'categories', 'stores'));
     }
 
     public function update(Product $product, Request $request) {
@@ -205,7 +206,7 @@ class ProductController extends Controller
 
 
         Product::find($product->id)->update([
-            'store_id' => $store->id,
+            'store_id' => (request()->is('store/*') ? $store->id : $request->store_id),
             'category_id' => $request->kategori,
             'nama_produk' => $request->nama_produk,
             'slug' => $product->slug,
@@ -235,6 +236,8 @@ class ProductController extends Controller
         
         if (request()->is('store/*')) {
             return redirect('store/products')->with('status', 'Produk berhasil diedit!');
+        } else {
+            return redirect('admin/products')->with('status', 'Produk berhasil diedit!');
         }
 
     }
