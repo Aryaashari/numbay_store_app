@@ -119,7 +119,7 @@
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Edit</button>
-                                        <a href="{{ url('/store/products') }}" class="btn btn-danger">Kembali</a>
+                                        <a href="{{ (request()->is('store/*') ? url('/store/products') : url('/admin/products')) }}" class="btn btn-danger">Kembali</a>
                                     </div>
                                 </form>
                             </div>                                        
