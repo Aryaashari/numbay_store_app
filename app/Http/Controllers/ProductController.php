@@ -150,6 +150,9 @@ class ProductController extends Controller
 
 
     public function edit(Product $product) {
+
+        $this->authorize('edit', $product);
+
         $categories = [];
         $kategoriLainnya;
         $stores = Store::all();
@@ -174,6 +177,9 @@ class ProductController extends Controller
     }
 
     public function update(Product $product, Request $request) {
+
+        $this->authorize('edit', $product);
+        
         $user = auth()->user();
         $store = $user->store;
 

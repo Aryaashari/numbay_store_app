@@ -23,4 +23,8 @@ class ProductPolicy
     public function show(User $user, Product $product) {
         return $user->id == $product->store->user_id;
     }
+
+    public function edit(User $user, Product $product) {
+        return $user->id == $product->store->user_id;
+    }
 }
