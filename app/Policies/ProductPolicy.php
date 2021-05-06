@@ -27,4 +27,8 @@ class ProductPolicy
     public function edit(User $user, Product $product) {
         return $user->id == $product->store->user_id;
     }
+
+    public function destroy(User $user, Product $product) {
+        return $user->id == $product->store->user_id;
+    }
 }

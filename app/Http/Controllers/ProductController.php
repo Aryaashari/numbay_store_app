@@ -179,7 +179,7 @@ class ProductController extends Controller
     public function update(Product $product, Request $request) {
 
         $this->authorize('edit', $product);
-        
+
         $user = auth()->user();
         $store = $user->store;
 
@@ -252,6 +252,9 @@ class ProductController extends Controller
 
 
     public function destroy(Product $product) {
+
+        $this->authorize('destroy', $product);
+
         Product::destroy($product->id);
         Storage::disk('public')->delete('uploads/product/'.$product->foto_produk);
 
