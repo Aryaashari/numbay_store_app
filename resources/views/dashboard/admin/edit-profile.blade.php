@@ -42,7 +42,7 @@
 @section('content')
 <div class="account-settings-container layout-top-spacing">
 
-    <form id="general-info" class="section general-info" action="{{ url('store/profile/edit') }}" method="POST" enctype="multipart/form-data">
+    <form id="general-info" class="section general-info" action="{{ url('admin/profile/edit') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="account-content">
