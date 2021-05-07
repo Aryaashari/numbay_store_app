@@ -16,6 +16,7 @@ use App\Http\Controllers\Store\StoreProductController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProfileController;
 
 
 
@@ -89,6 +90,10 @@ Route::middleware(['auth'])->group(function () {
 
         // Dashboard
         Route::get('/dashboard', [AdminDashboardController::class, 'index']);
+
+
+        // Profile
+        Route::get('/profile/edit', [ProfileController::class, 'edit']);
 
 
         // Product
