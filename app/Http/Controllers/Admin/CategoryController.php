@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Store;
 
 class CategoryController extends Controller
 {
@@ -62,6 +63,13 @@ class CategoryController extends Controller
 
 
     public function destroy($id) {
+
+        $stores = Store::select(['id'])->get();
+
+        foreach($stores as $store) {
+            $store->categories()->detach($id);
+        }
+
         Category::destroy($id);
         
         return redirect('/admin/categories')->with('status', 'Kategori berhasil dihapus!');
