@@ -15,7 +15,9 @@ class ProductController extends Controller
 {
     public function show(Product $product) {
 
-        $this->authorize('show', $product);
+        if (request()->is('store/*')) {
+            $this->authorize('show', $product);
+        }
 
         $isLike = false;
 
