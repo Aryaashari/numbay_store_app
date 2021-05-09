@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
+    public function index() {
+        
+    }
+
+
     public function show(Store $store) {
         if(request()->is('store/*')) {
             $store = auth()->user()->store;

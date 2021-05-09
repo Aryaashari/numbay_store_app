@@ -115,6 +115,10 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/categories/{category}', [CategoryController::class, 'update']);
         Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
 
+
+        // Store
+        Route::get('/stores', [StoreController::class, 'index']);
+
     });
     
 
