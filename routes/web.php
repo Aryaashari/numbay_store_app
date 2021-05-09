@@ -118,6 +118,8 @@ Route::middleware(['auth'])->group(function () {
 
         // Store
         Route::get('/stores', [StoreController::class, 'index']);
+        Route::get('/stores/create', [StoreController::class, 'create']);
+        Route::post('/stores', [StoreController::class, 'store']);
 
     });
     
