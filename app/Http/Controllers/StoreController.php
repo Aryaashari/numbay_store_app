@@ -56,6 +56,10 @@ class StoreController extends Controller
         // Masukkan kategoriLainnya kedalam array categories, supaya kategoriLainnya berada selalu paling terakhir
         $categories[] = $kategoriLainnya;
         
+        if (request()->is('admin/*')) {
+            return view('dashboard.store.create', compact('categories'));
+        }
+
         return view('store.create', compact('categories'));
     }
 
