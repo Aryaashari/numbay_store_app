@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Storage;
 class StoreController extends Controller
 {
     public function index() {
-        
+        $stores = Store::all();
+        return view('dashboard.store.index', compact('stores'));
     }
 
 

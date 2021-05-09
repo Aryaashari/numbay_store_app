@@ -55,7 +55,7 @@
                         <p class="task-left">{{ count($stores) }}</p>
                     </div>
                     <div class="tm-action-btn">
-                        <a href="#" class="btn">Lihat Toko</a>
+                        <a href="{{ url('admin/stores') }}" class="btn">Lihat Toko</a>
                     </div>
                 </div>
             </div>
