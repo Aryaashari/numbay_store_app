@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -57,7 +58,8 @@ class StoreController extends Controller
         $categories[] = $kategoriLainnya;
         
         if (request()->is('admin/*')) {
-            return view('dashboard.store.create', compact('categories'));
+            $users = User::all();
+            return view('dashboard.store.create', compact('categories', 'users'));
         }
 
         return view('store.create', compact('categories'));
