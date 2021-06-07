@@ -62,9 +62,8 @@
 
 <div class="account-settings-container layout-top-spacing">
 
-    <form id="general-info" class="section general-info" action="{{ url('store/profile/edit') }}" method="POST" enctype="multipart/form-data">
+    <form id="general-info" class="section general-info" action="{{ url('admin/stores') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('put')
         <div class="account-content">
             <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
                 <div class="row">
