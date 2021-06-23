@@ -59,7 +59,15 @@ class StoreController extends Controller
         
         if (request()->is('admin/*')) {
             $users = User::all();
-            return view('dashboard.store.create', compact('categories', 'users'));
+            $userNotHaveStore = [];
+
+            foreach ($users as $u) {
+                if ($u->store == null) {
+                    $userNotHaveStore[] = $u;
+                } 
+            }
+
+            return view('dashboard.store.create', compact('categories', 'userNotHaveStore'));
         }
 
         return view('store.create', compact('categories'));
@@ -84,6 +92,9 @@ class StoreController extends Controller
                 'no_telp_toko.digits_between' => 'Anda harus memasukkan 10-12 karakter!',
 
                 'alamat_toko.required' => 'Anda belum memasukkan alamat toko!',
+
+                'foto_profile_toko.mimes' => 'Anda harus memasukkan file berekstensi jpg,jpeg, atau png',
+                'foto_profile_toko.max' => 'Anda harus memasukkan file maksimal 5 MB'
             ]
         );
 
@@ -102,7 +113,7 @@ class StoreController extends Controller
 
 
         $store = Store::create([
-            'user_id' => auth()->user()->id,
+            'user_id' => request()->is('store/create') ? auth()->user()->id : $request->user_id,
             'nama_toko' => $request->nama_toko,
             'slug' => Str::lower(Str::random(10)).'-'.Str::slug($request->nama_toko),
             'no_telp_toko' => $request->no_telp_toko,
@@ -115,10 +126,18 @@ class StoreController extends Controller
 
         $store->categories()->attach($request->categories);
         
-        auth()->user()->removeRole('user');
-        auth()->user()->assignRole('merchant');
 
-        return redirect('/store/dashboard')->with('statusStore', 'Anda telah berhasil membuat toko!');
+        if (request()->is('store/create')) {
+
+            auth()->user()->removeRole('user');
+            auth()->user()->assignRole('merchant');
+
+        } else {
+            User::where('id', $request->user_id)->get()[0]->removeRole('user');
+            User::where('id', $request->user_id)->get()[0]->assignRole('merchant');
+        }
+
+        return request()->is('store/create') ? redirect('/store/dashboard')->with('statusStore', 'Anda telah berhasil membuat toko!') : redirect('/admin/stores')->with('status', 'Toko berhasil ditambahkan!');
         
         
     }

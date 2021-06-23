@@ -103,7 +103,7 @@
                                                             <label>Pemilik Toko</label>
                                                             <select class="form-control select" name="user_id">
                                                                 
-                                                                @foreach ($users as $user)
+                                                                @foreach ($userNotHaveStore as $user)
                                                                         <option value="{{ $user->id }}">{{ $user->id .' - '. $user->nama_depan .' '. $user->nama_belakang }}</option>
                                                                 @endforeach
                                                                 
