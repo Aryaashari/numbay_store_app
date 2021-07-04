@@ -236,4 +236,31 @@ class StoreController extends Controller
         return back()->with('status', 'Profile toko berhasil diedit!');
     }
 
+
+    public function destroy(Store $store) {
+        // dd($store->categories);
+        $user = $store->user;
+
+
+
+        // Ganti role user, dari merchant menjadi user biasa
+        $user->removeRole('merchant');
+        $user->assignRole('user');
+
+        // Hapus kategori yang berkaitan dengan toko
+        $store->categories()->detach();
+
+        // Hapus foto profile toko dari storage kecuali foto profile default
+        if ($store->foto_profile_toko != 'profile_toko.png') {
+            Storage::disk('public')->delete('uploads/store/'.$store->foto_profile_toko);
+        }
+
+        // Hapus data toko
+        Store::destroy($store->id);
+
+
+        // Redirect ke halaman store di admin
+        return redirect('/admin/stores')->with('status', 'Toko berhasil dihapus!');
+    }
+
 }
