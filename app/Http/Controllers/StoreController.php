@@ -32,7 +32,7 @@ class StoreController extends Controller
                 $categoryStores[] = $category->kategori;
             }
 
-            return view('store.profile', compact('store', 'categoryStores'));
+            return view('dashboard.store.profile', compact('store', 'categoryStores'));
         }
     }
 
