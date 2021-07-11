@@ -2,7 +2,7 @@
 
 
 @section('title', 'Numbay Store - Admin | Dashboard')
-@section('title-page', 'Dashboard')
+@section('title-page', 'Dasbor')
 
 
 @push('css')
