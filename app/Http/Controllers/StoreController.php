@@ -143,10 +143,13 @@ class StoreController extends Controller
     }
 
 
-    public function edit() {
-        $store = auth()->user()->store;
-        $storeCategories = [];
+    public function edit(Store $store) {
 
+        // Jika berada pada halaman dashboard toko, maka ambil data toko dari user yang punya toko
+        request()->is('store/*') ? $store = auth()->user()->store : '';
+
+
+        $storeCategories = [];
         $categories = [];
         $kategoriLainnya;
 
@@ -176,9 +179,12 @@ class StoreController extends Controller
     }
 
 
-    public function update(Request $request) {
+    public function update(Request $request, Store $store) {
         $user = auth()->user();
-        $store = $user->store;
+       
+        
+        // Jika berada pada halaman dashboard toko, maka ambil data toko dari user yang punya toko
+        request()->is('store/*') ? $store = auth()->user()->store : '';
 
         $request->validate(
             [
@@ -203,7 +209,6 @@ class StoreController extends Controller
             ]
         );
 
-
         if ($request->file('foto_profile_toko')) {
             if($store->foto_profile_toko != 'profile_toko.png') {
                 Storage::disk('public')->delete('uploads/store/'.$store->foto_profile_toko);
@@ -219,7 +224,7 @@ class StoreController extends Controller
 
 
         Store::find($store->id)->update([
-            'user_id' => $user->id,
+            'user_id' => (request()->is('admin/*') ? $store->user_id : $user->id),
             'nama_toko' => $request->nama_toko,
             'slug' => $store->slug,
             'no_telp_toko' => $request->no_telp_toko,

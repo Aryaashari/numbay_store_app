@@ -49,7 +49,7 @@
 @section('content')
 <div class="account-settings-container layout-top-spacing">
 
-    <form id="general-info" class="section general-info" action="{{ url('store/profile/edit') }}" method="POST" enctype="multipart/form-data">
+    <form id="general-info" class="section general-info" action="{{ (request()->is('admin/*') ? url('admin/stores/'.$store->id) : url('store/profile/edit')) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="account-content">
@@ -168,7 +168,7 @@
             
             <div class="as-footer-container">
 
-                <a href="{{ url('store/dashboard') }}" id="multiple-reset" class="btn btn-warning">Kembali</a>
+                <a href="{{ (request()->is('store/*') ? url('store/dashboard') : url('admin/stores')) }}" id="multiple-reset" class="btn btn-warning">Kembali</a>
                 <button id="multiple-messages" type="submit" class="btn btn-primary">Edit Profile</button>
 
             </div>

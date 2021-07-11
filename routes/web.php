@@ -120,6 +120,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/stores', [StoreController::class, 'index']);
         Route::get('/stores/create', [StoreController::class, 'create']);
         Route::post('/stores', [StoreController::class, 'store']);
+        Route::get('/stores/{store}/edit', [StoreController::class, 'edit']);
+        Route::put('/stores/{store}', [StoreController::class, 'update']);
         Route::delete('/stores/{store}', [StoreController::class, 'destroy']);
         Route::get('/stores/{store}', [StoreController::class, 'show']);
 
