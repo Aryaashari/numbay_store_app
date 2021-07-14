@@ -635,19 +635,19 @@ select.form-control.form-custom {
 /*      Default Buttons       */
 .btn-primary {
   color: #fff !important;
-  background-color: #1b55e2 !important;
-  border-color: #1b55e2; }
+  background-color: #00288F  !important;
+  border-color: #00288F; }
   .btn-primary:hover, .btn-primary:focus {
     color: #fff !important;
-    background-color: #1b55e2;
+    background-color: #00288F;
     box-shadow: none;
-    border-color: #1b55e2; }
+    border-color: #00288F; }
   .btn-primary:active, .btn-primary.active {
-    background-color: #1b55e2;
-    border-top: 1px solid #1b55e2; }
+    background-color: #00288F;
+    border-top: 1px solid #00288F; }
   .btn-primary.disabled, .btn-primary.btn[disabled], .btn-primary:disabled {
-    background-color: #1b55e2;
-    border-color: #1b55e2;
+    background-color: #00288F;
+    border-color: #00288F;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none; }

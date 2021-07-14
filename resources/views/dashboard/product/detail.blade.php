@@ -13,7 +13,7 @@
             content: "";
             height: 2px;
             width: 55px;
-            background: #1b55e2;
+            background: #00288F;
             border-radius: 50%;
             bottom: -5px;
             left: 15px;

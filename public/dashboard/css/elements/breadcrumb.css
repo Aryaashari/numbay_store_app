@@ -213,7 +213,7 @@
       border-radius: 50%;
       height: 4px;
       width: 4px;
-      background: #1b55e2;
+      background: #00288F;
       left: -13px;
       top: 50%; }
     .breadcrumb-five .breadcrumb li a {
@@ -227,7 +227,7 @@
       vertical-align: bottom;
       width: 20px; }
     .breadcrumb-five .breadcrumb li.active a {
-      color: #1b55e2 !important;
+      color: #00288F !important;
       font-weight: 600; }
 
 @media (max-width: 575px) {

@@ -37,7 +37,7 @@
             content: '';
             height: 2px;
             width: 100%;
-            background: #1b55e2;
+            background: #00288F;
             position: absolute;
             border-radius: 50px;
             bottom: -8px;
