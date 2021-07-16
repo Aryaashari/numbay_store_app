@@ -15,7 +15,7 @@ class HomeController extends Controller
                 $query->where('nama_toko', 'LIKE', '%'.$request->search.'%');
             })->orWhere('nama_produk', 'LIKE', '%'.$request->search.'%')->orWhereHas('tags', function(Builder $query) use($request){
                 $query->where('tag', 'LIKE', '%'.$request->search.'%');
-            })->inRandomOrder()->paginate(8);
+            })->with('store')->inRandomOrder()->paginate(8);
             
             $products->appends(['search' => $request->search]);
             
@@ -24,7 +24,7 @@ class HomeController extends Controller
             }
 
         } else {
-            $products = Product::inRandomOrder()->paginate(8);
+            $products = Product::with('store')->select(['nama_produk', 'store_id', 'harga_produk', 'foto_produk'])->inRandomOrder()->paginate(8);
         }
         return view('home.index', compact('products'));
     }
