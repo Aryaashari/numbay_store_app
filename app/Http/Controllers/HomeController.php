@@ -24,7 +24,7 @@ class HomeController extends Controller
             }
 
         } else {
-            $products = Product::with('store')->select(['nama_produk', 'store_id', 'harga_produk', 'foto_produk'])->inRandomOrder()->paginate(8);
+            $products = Product::with('store')->select(['nama_produk', 'store_id', 'harga_produk', 'foto_produk', 'slug'])->inRandomOrder()->paginate(8);
         }
         return view('home.index', compact('products'));
     }

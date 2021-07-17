@@ -9,7 +9,7 @@ use App\Models\Product;
 class AdminProductController extends ProductController
 {
     public function index() {
-        $products = Product::all();
+        $products = Product::with('category', 'tags', 'store')->get();
 
         return view('dashboard.product.index', compact('products'));
     }

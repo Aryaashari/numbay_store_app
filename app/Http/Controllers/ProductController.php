@@ -40,12 +40,17 @@ class ProductController extends Controller
 
 
     public function create() {
-        $stores = Store::all();
+
+        // Jika berada di halaman admin, maka tampilkan data store
+        if (request()->is('admin/*')) {
+            $stores = Store::all();
+        }
+        
         $categories = [];
         $kategoriLainnya;
 
         // Looping semua kategori
-        foreach (Category::all() as $category) {
+        foreach (Category::select('kategori')->get() as $category) {
 
             // Jika kategori merupakan kategori Lainnya, maka masukkan ke variable kategoriLainnya
             if ($category->kategori == 'Lainnya') {
@@ -60,7 +65,12 @@ class ProductController extends Controller
         // Masukkan kategoriLainnya kedalam array categories, supaya kategoriLainnya berada selalu paling terakhir
         $categories[] = $kategoriLainnya;
 
-        return view('dashboard.product.create', compact('categories', 'stores'));
+        // Jika berada di halaman admin
+        if (request()->is('admin/*')) {
+            return view('dashboard.product.create', compact('categories', 'stores'));
+        } else {
+            return view('dashboard.product.create', compact('categories'));
+        }
     }
 
 
