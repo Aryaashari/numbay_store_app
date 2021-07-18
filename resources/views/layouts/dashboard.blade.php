@@ -171,28 +171,22 @@
                             </a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         </li>
+
+                        <li class="menu {{ (request()->is('admin/orders') || request()->is('admin/orders/*')) ? 'active' : '' }}">
+                            <a href="{{ url('/admin/orders') }}" data-active="{{ (request()->is('admin/orders') || request()->is('admin/orders/*')) ? 'true' : 'false' }}" class="menu-toggle">
+                                <div class="base-menu">
+                                    <div class="base-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                    </div>
+                                    <span>Pesanan</span>
+                                </div>
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </li>
                     @endif
 
                 </ul>
             </nav>
-
-            <div id="compact_submenuSidebar" class="submenu-sidebar">
-
-                <div class="submenu show" id="starterKit">
-                    <ul class="submenu-list" data-parent-element="#starterKit">
-                        <li class="active">
-                            <a href="starter_kit_blank_page.html"> Blank Page </a>
-                        </li>
-                        <li>
-                            <a href="starter_kit_breadcrumb.html"> Breadcrumb </a>
-                        </li>
-                        <li>
-                            <a href="starter_kit_boxed.html"> Boxed </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
 
         </div>
         <!--  END SIDEBAR  -->
