@@ -8,6 +8,13 @@ use App\Models\Order;
 
 class OrderController extends Controller
 {
+
+    // Dashboard Admin
+    public function index() {
+        $orders = Order::with('user')->select('user_id', 'product_id', 'nama_penerima', 'no_telp_penerima')->get();
+    }
+
+
     private function sendMessage($no_telp_toko, $request, $namaProduk) {
         $no_wa = '62'.$no_telp_toko;
 
