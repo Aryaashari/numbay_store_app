@@ -190,7 +190,7 @@
     }
 
     .produk .card .text-produk h3 {
-        font-size: 18px;
+        font-size: 15px;
         margin-top: -8px;
     }
     /* End Produk Area */
@@ -284,6 +284,13 @@
         display: none;
     }
     /* End Banner Area */
+
+
+    /* Start Produk Area */
+    .produk .card .text-produk h3 {
+        font-size: 20px;
+    }
+    /* End Produk Area */
 }
 
 
