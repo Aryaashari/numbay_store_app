@@ -84,7 +84,9 @@
 
                             <tr>
                                 <td>{{ $order->user->id }} - {{ $order->user->nama_depan }} {{ $order->user->nama_belakang }}</td>
-                                <td>{{ $order->product->id }} - {{ $order->product->nama_produk }}</td>
+                                <td>
+                                    <a href="{{ url('/admin/products/'.$order->product_id) }}">{{ $order->product->id }} - {{ $order->product->nama_produk }}</a>
+                                </td>
                                 <td>{{ $order->nama_penerima }}</td>
                                 <td>{{ $order->no_telp_penerima }}</td>
                                 <td class="text-center">
