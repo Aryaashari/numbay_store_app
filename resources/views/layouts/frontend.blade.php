@@ -59,9 +59,9 @@
                         <div class="row align-items-center justify-content-center">
                             <a href="#" class="btn">Feedback</a>
                             <div class="contact d-flex align-items-center">
-                                <a href="#"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
-                                <a href="#"><img src="{{ asset('frontend/img/icon/mail.png') }}" alt="mail"></a>
-                                <a href="#"><img src="{{ asset('frontend/img/icon/ig.png') }}" alt="instagram"></a>
+                                <a href="https://wa.me/6281215750405" target="_blank"><img src="{{ asset('frontend/img/icon/wa.png') }}" alt="whatsapp"></a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=numbaystore@gmail.com" target="_blank"><img src="{{ asset('frontend/img/icon/mail.png') }}" alt="mail"></a>
+                                <a href="https://www.instagram.com/numbay.store/" target="_blank"><img src="{{ asset('frontend/img/icon/ig.png') }}" alt="instagram"></a>
                             </div>
                         </div>
                     </div>
