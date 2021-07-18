@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-12">
-                    <h2>Lokal</h2>
+                    <h2>Platform Penjualan Produk Lokal</h2>
                     <h4>Pertama di Jayapura</h4>
                 </div>
                 <div class="col-xl-6 col-12">
