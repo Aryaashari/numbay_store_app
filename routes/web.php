@@ -125,6 +125,10 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/stores/{store}', [StoreController::class, 'destroy']);
         Route::get('/stores/{store}', [StoreController::class, 'show']);
 
+
+        // Order
+        Route::get('/orders', [OrderController::class, 'index']);
+
     });
     
 
