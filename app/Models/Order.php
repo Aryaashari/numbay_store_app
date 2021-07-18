@@ -20,6 +20,6 @@ class Order extends Model
 
     // Relasi ke Product
     public function product() {
-        return $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

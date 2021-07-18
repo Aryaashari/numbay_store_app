@@ -11,7 +11,9 @@ class OrderController extends Controller
 
     // Dashboard Admin
     public function index() {
-        $orders = Order::with('user')->select('user_id', 'product_id', 'nama_penerima', 'no_telp_penerima')->get();
+        $orders = Order::with('user', 'product')->select('user_id', 'product_id', 'nama_penerima', 'no_telp_penerima')->get();
+
+        return view('dashboard.order.index', compact('orders'));
     }
 
 
