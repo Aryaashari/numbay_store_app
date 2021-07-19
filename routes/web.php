@@ -130,6 +130,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/orders', [OrderController::class, 'index']);
         Route::get('/orders/{order}', [OrderController::class, 'show']);
 
+
+        // Users
+        Route::get('/users', [AdminUserController::class, 'index']);
+
     });
     
 
