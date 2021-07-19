@@ -184,8 +184,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
                         </li>
 
-                        <li class="menu {{ (request()->is('admin/orders') || request()->is('admin/orders/*')) ? 'active' : '' }}">
-                            <a href="{{ url('/admin/orders') }}" data-active="{{ (request()->is('admin/orders') || request()->is('admin/orders/*')) ? 'true' : 'false' }}" class="menu-toggle">
+                        <li class="menu {{ (request()->is('admin/users') || request()->is('admin/users/*')) ? 'active' : '' }}">
+                            <a href="{{ url('/admin/users') }}" data-active="{{ (request()->is('admin/users') || request()->is('admin/users/*')) ? 'true' : 'false' }}" class="menu-toggle">
                                 <div class="base-menu">
                                     <div class="base-icons">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -198,6 +198,25 @@
                     @endif
 
                 </ul>
+
+                <div id="compact_submenuSidebar" class="submenu-sidebar">
+
+                    <div class="submenu show" id="starterKit">
+                        <ul class="submenu-list" data-parent-element="#starterKit">
+                            <li class="active">
+                                <a href="starter_kit_blank_page.html"> Blank Page </a>
+                            </li>
+                            <li>
+                                <a href="starter_kit_breadcrumb.html"> Breadcrumb </a>
+                            </li>
+                            <li>
+                                <a href="starter_kit_boxed.html"> Boxed </a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                </div>
+
             </nav>
 
         </div>
