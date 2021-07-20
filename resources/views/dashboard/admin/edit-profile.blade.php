@@ -81,7 +81,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="namaBelakang">Nama Depan</label>
+                                                            <label for="namaBelakang">Nama Belakang</label>
                                                             <input type="text" class="form-control mb-4 @error('nama_belakang') is-invalid @enderror" id="namaBelakang" name="nama_belakang" placeholder="Masukkan nama toko" value="{{ old('nama_belakang') ?? $user->nama_belakang }}">
                                                             @error('nama_belakang')
                                                                 <div class="invalid-feedback">

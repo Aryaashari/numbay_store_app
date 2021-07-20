@@ -137,6 +137,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users/create', [AdminUserController::class, 'create']);
         Route::post('/users', [AdminUserController::class, 'store']);
         Route::get('/users/{user}/edit', [AdminUserController::class, 'edit']);
+        Route::put('/users/{user}', [AdminUserController::class, 'update']);
         Route::delete('/users/{id}', [AdminUserController::class, 'destroy']);
         Route::get('/users/{user}', [AdminUserController::class, 'show']);
 
