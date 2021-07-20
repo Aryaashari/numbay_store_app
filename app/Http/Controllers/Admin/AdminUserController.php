@@ -19,6 +19,10 @@ class AdminUserController extends Controller
         return view('dashboard.user.profile', compact('user'));
     }
 
+    public function create() {
+        
+    }
+
     public function destroy($id) {
         User::destroy($id);
 
