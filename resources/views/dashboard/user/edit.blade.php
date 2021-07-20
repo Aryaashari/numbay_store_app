@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Numbay Store - Admin | Tambah Pengguna')
-@section('title-page', 'Tambah Pengguna')
+@section('title', 'Numbay Store - Admin | Edit Pengguna')
+@section('title-page', 'Edit Pengguna')
 
 
 @push('css')
@@ -48,7 +48,7 @@
             <ul class="breadcrumb">
                 <li class="mb-2"><a href="{{ url('/admin/users') }}">Pengguna</a>
                 </li>
-                <li class="active mb-2"><a href="javscript:void(0);">Tambah Pengguna</a></li>
+                <li class="active mb-2"><a href="javscript:void(0);">Edit Pengguna</a></li>
             </ul>
         </div>
     </div>
@@ -184,7 +184,7 @@
             <div class="as-footer-container">
 
                 <a href="{{ url('admin/users') }}" id="multiple-reset" class="btn btn-warning">Kembali</a>
-                <button id="multiple-messages" type="submit" class="btn btn-primary">Tambah</button>
+                <button id="multiple-messages" type="submit" class="btn btn-primary">Edit</button>
 
             </div>
 

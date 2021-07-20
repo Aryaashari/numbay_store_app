@@ -103,6 +103,12 @@ class AdminUserController extends Controller
         return redirect('/admin/users')->with('status', 'Pengguna berhasil ditambahkan!');
     }
 
+
+    public function edit(User $user) {
+        return view('dashboard.user.edit', compact('user'));
+    }
+
+
     public function destroy($id) {
         User::destroy($id);
 

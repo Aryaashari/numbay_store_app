@@ -23,7 +23,7 @@ class UserController extends Controller
                 Storage::disk('public')->delete('uploads/user/'.$user->foto_profile_user);
             }
             $file = $request->file('img_user');
-            $fileName = time(). '-' .$user->nama_depan.$user->nama_belakang. '-'. $user->id .'.'. $file->getClientOriginalExtension();
+            $fileName = time(). '-' .$user->nama_depan.$user->nama_belakang.'.'. $file->getClientOriginalExtension();
             $path = storage_path('app/public/uploads/user');
             $file->move($path, $fileName);
         } else {
