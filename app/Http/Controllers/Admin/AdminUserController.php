@@ -18,4 +18,10 @@ class AdminUserController extends Controller
     public function show(User $user) {
         return view('dashboard.user.profile', compact('user'));
     }
+
+    public function destroy($id) {
+        User::destroy($id);
+
+        return redirect('/admin/users')->with('status', 'Pengguna berhasil dihapus!');
+    }
 }
