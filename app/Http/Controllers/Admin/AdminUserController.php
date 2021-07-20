@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -24,7 +25,6 @@ class AdminUserController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request->request);
     
         $request->validate(
             [
@@ -64,6 +64,43 @@ class AdminUserController extends Controller
                 'foto_profile_user.mimes' => 'Anda harus memasukkan file berekstensi jpg,jpeg, atau png',
             ]
         );
+
+
+        
+        // Upload File Profile
+        if($request->file('foto_profile_user')) {
+            $file = $request->file('foto_profile_user');
+            $fileName = time(). '-' .$request->nama_depan.$request->nama_belakang.'.'. $file->getClientOriginalExtension();
+            $path = storage_path('app/public/uploads/user');
+            $file->move($path, $fileName);
+        } else {
+            $fileName = 'user.png';
+        }
+        
+
+
+        // Masukkan data ke database
+        $user = User::create([
+            'nama_depan' => $request->nama_depan,
+            'nama_belakang' => $request->nama_belakang,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'no_telp' => $request->no_telp,
+            'alamat_rumah' => $request->alamat_rumah,
+            'foto_profile_user' => $fileName
+        ]);
+
+
+        // Tambahkan Role Pada User
+        $user->assignRole('user');
+
+        // Jika isAdmin on, maka tambahkan role admin pada user
+        if($request->isAdmin) {
+            $user->assignRole('admin');
+        }
+
+
+        return redirect('/admin/users')->with('status', 'Pengguna berhasil ditambahkan!');
     }
 
     public function destroy($id) {
