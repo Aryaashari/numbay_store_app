@@ -56,7 +56,7 @@
 
 <div class="account-settings-container layout-top-spacing">
 
-    <form id="general-info" class="section general-info" action="{{ url('admin/stores') }}" method="POST" enctype="multipart/form-data">
+    <form id="general-info" class="section general-info" action="{{ url('admin/users') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="account-content">
             <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
@@ -71,7 +71,7 @@
                                             <div class="upload mt-4 pr-md-4">
                                                 <input type="file" id="input-file-max-fs" class="dropify is-invalid" data-default-file="{{ asset('storage/uploads/user/user.png') }}" name="foto_profile_user" accept=".jpg, .jpeg, .png" data-max-file-size="5M" />
                                                 <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Upload Profile</p>
-                                                @error('foto_profile_toko')
+                                                @error('foto_profile_user')
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
                                                     </div>
@@ -116,7 +116,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="no_telp">No Telp</label>
+                                                            <label for="no_telp">No Whatsapp</label>
                                                             <input type="text" class="form-control mb-4 @error('no_telp') is-invalid @enderror" id="no_telp" name="no_telp" value="{{ old('no_telp') }}">
                                                             @error('no_telp')
                                                                 <div class="invalid-feedback">
@@ -128,7 +128,7 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="password">Password</label>
-                                                            <input type="text" class="form-control mb-4 @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}">
+                                                            <input type="password" class="form-control mb-4 @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}">
                                                             @error('password')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
@@ -139,7 +139,7 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="konfirmasiPassword">Konfirmasi Password</label>
-                                                            <input type="text" class="form-control mb-4 @error('password_confirmation') is-invalid @enderror" id="konfirmasiPassword" name="password_confirmation" value="{{ old('password_confirmation') }}">
+                                                            <input type="password" class="form-control mb-4 @error('password_confirmation') is-invalid @enderror" id="konfirmasiPassword" name="password_confirmation" value="{{ old('password_confirmation') }}">
                                                             @error('password_confirmation')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
@@ -161,7 +161,7 @@
                                                     <div class="col-12 mb-3">
                                                         <label>Admin</label><br>
                                                         <label class="switch s-icons s-outline s-outline-primary mr-2">
-                                                            <input type="checkbox">
+                                                            <input type="checkbox" name="isAdmin">
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </div>
@@ -183,7 +183,7 @@
             
             <div class="as-footer-container">
 
-                <a href="{{ url('admin/stores') }}" id="multiple-reset" class="btn btn-warning">Kembali</a>
+                <a href="{{ url('admin/users') }}" id="multiple-reset" class="btn btn-warning">Kembali</a>
                 <button id="multiple-messages" type="submit" class="btn btn-primary">Tambah</button>
 
             </div>
