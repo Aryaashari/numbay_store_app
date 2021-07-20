@@ -134,6 +134,7 @@ Route::middleware(['auth'])->group(function () {
 
         // Users
         Route::get('/users', [AdminUserController::class, 'index']);
+        Route::get('/users/{user}', [AdminUserController::class, 'show']);
 
     });
     

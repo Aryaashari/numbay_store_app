@@ -87,7 +87,7 @@
                 
     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
         <div class="widget-content widget-content-area br-6">
-            <a href="{{ url('admin/users/create') }}" class="btn btn-primary">Tambah Pnegguna</a>
+            <a href="{{ url('admin/users/create') }}" class="btn btn-primary">Tambah Pengguna</a>
             <div class="table-responsive mb-4 mt-4">
                 <table id="zero-config" class="table table-hover" style="width:100%">
                     <thead>
@@ -123,7 +123,7 @@
                                 </td>
                                 <td class="text-center">
                                     <ul class="table-controls">
-                                        <li class="mr-0 mr-md-3"><a href="{{ url('admin/users/'.$user->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat Toko"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a> </li>
+                                        <li class="mr-0 mr-md-3"><a href="{{ url('admin/users/'.$user->id) }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat Profile"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a> </li>
 
                                         <li class="mr-0 mr-md-3"><a href="{{ url('admin/users/'.$user->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 text-success"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a></li>
 

@@ -14,4 +14,8 @@ class AdminUserController extends Controller
         
         return view('dashboard.user.index', compact('users'));
     }
+
+    public function show(User $user) {
+        return view('dashboard.user.profile', compact('user'));
+    }
 }
