@@ -20,7 +20,7 @@ class AdminUserController extends Controller
     }
 
     public function create() {
-        
+        return view('dashboard.user.create');
     }
 
     public function destroy($id) {

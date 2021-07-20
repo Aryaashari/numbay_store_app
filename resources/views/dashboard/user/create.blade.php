@@ -1,15 +1,15 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Numbay Store - Admin | Tamabh Toko')
-@section('title-page', 'Tambah Toko')
+@section('title', 'Numbay Store - Admin | Tamabh Pengguna')
+@section('title-page', 'Tambah Pengguna')
 
 
 @push('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/dropify/dropify.min.css') }}">
     <link href="{{ asset('dashboard/css/users/account-setting.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}">
     <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('dashboard/css/elements/breadcrumb.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/css/forms/switches.css') }}">
     @error('foto_profile_toko')
         <style>
             .general-info .info .dropify-wrapper {
@@ -22,13 +22,7 @@
     <script src="{{ asset('plugins/dropify/dropify.min.js') }}"></script>
     <script src="{{ asset('plugins/blockui/jquery.blockUI.min.js') }}"></script>
     <script src="{{ asset('dashboard/js/users/account-settings.js') }}"></script>
-    <script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
     <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
-    <script>
-        $(".select").select2({
-            tags: false
-        });
-    </script>
     @if (session('status'))
     <script>
         Snackbar.show({
@@ -52,9 +46,9 @@
     <div class="col-12 mt-2">
         <div class="breadcrumb-five">
             <ul class="breadcrumb">
-                <li class="mb-2"><a href="{{ url('/admin/stores') }}">Toko</a>
+                <li class="mb-2"><a href="{{ url('/admin/users') }}">Pengguna</a>
                 </li>
-                <li class="active mb-2"><a href="javscript:void(0);">Tambah Toko</a></li>
+                <li class="active mb-2"><a href="javscript:void(0);">Tambah Pengguna</a></li>
             </ul>
         </div>
     </div>
@@ -75,8 +69,8 @@
                                     <div class="row">
                                         <div class="col-xl-2 col-lg-12 col-md-4">
                                             <div class="upload mt-4 pr-md-4">
-                                                <input type="file" id="input-file-max-fs" class="dropify is-invalid" data-default-file="{{ asset('storage/uploads/store/profile_toko.png') }}" name="foto_profile_toko" accept=".jpg, .jpeg, .png" data-max-file-size="5M" />
-                                                <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Upload Picture</p>
+                                                <input type="file" id="input-file-max-fs" class="dropify is-invalid" data-default-file="{{ asset('storage/uploads/user/user.png') }}" name="foto_profile_user" accept=".jpg, .jpeg, .png" data-max-file-size="5M" />
+                                                <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Upload Profile</p>
                                                 @error('foto_profile_toko')
                                                     <div class="invalid-feedback d-block">
                                                         {{ $message }}
@@ -89,56 +83,64 @@
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="namaToko">Nama Toko</label>
-                                                            <input type="text" class="form-control mb-4 @error('nama_toko') is-invalid @enderror" id="namaToko" name="nama_toko" value="{{ old('nama_toko') }}">
-                                                            @error('nama_toko')
+                                                            <label for="namaDepan">Nama Depan</label>
+                                                            <input type="text" class="form-control mb-4 @error('nama_depan') is-invalid @enderror" id="namaDepan" name="nama_depan" value="{{ old('nama_depan') }}">
+                                                            @error('nama_depan')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                 </div>
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label>Pemilik Toko</label>
-                                                            <select class="form-control select" name="user_id">
-                                                                
-                                                                @foreach ($userNotHaveStore as $user)
-                                                                        <option value="{{ $user->id }}">{{ $user->id .' - '. $user->nama_depan .' '. $user->nama_belakang }}</option>
-                                                                @endforeach
-                                                                
-                                                            </select>
+                                                            <label for="namaBelakang">Nama Belakang</label>
+                                                            <input type="text" class="form-control mb-4 @error('nama_belakang') is-invalid @enderror" id="namaBelakang" name="nama_belakang" value="{{ old('nama_belakang') }}">
+                                                            @error('nama_belakang')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="akunIg">Akun Instagram</label>
-                                                            <input type="text" class="form-control mb-4" id="akunIg" name="akun_ig" value="{{ old('akun_ig') }}">
+                                                            <label for="email">Email</label>
+                                                            <input type="email" class="form-control mb-4 @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                                                            @error('email')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="akunFb">Akun Facebook</label>
-                                                            <input type="text" class="form-control mb-4" id="akunFb" name="akun_fb" value="{{ old('akun_fb') }}">
+                                                            <label for="no_telp">No Telp</label>
+                                                            <input type="text" class="form-control mb-4 @error('no_telp') is-invalid @enderror" id="no_telp" name="no_telp" value="{{ old('no_telp') }}">
+                                                            @error('no_telp')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label>Kategori</label>
-                                                            <select class="form-control select" name="categories[]" multiple="multiple">
-                                                                
-                                                                @foreach ($categories as $category)
-                                                                        <option value="{{ $category->id }}">{{ $category->kategori }}</option>
-                                                                @endforeach
-                                                                
-                                                            </select>
+                                                            <label for="password">Password</label>
+                                                            <input type="text" class="form-control mb-4 @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}">
+                                                            @error('password')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                            @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="noTelp">No Whatsapp</label>
-                                                            <input type="text" class="form-control mb-4 @error('no_telp_toko') is-invalid @enderror" id="noTelp" name="no_telp_toko" value="{{ old('no_telp_toko') }}">
-                                                            @error('no_telp_toko')
+                                                            <label for="konfirmasiPassword">Konfirmasi Password</label>
+                                                            <input type="text" class="form-control mb-4 @error('password_confirmation') is-invalid @enderror" id="konfirmasiPassword" name="password_confirmation" value="{{ old('password_confirmation') }}">
+                                                            @error('password_confirmation')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                 </div>
@@ -147,20 +149,21 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <label for="alamat_toko">Alamat Toko</label>
-                                                            <textarea name="alamat_toko" id="alamat_toko" rows="3" class="form-control @error('alamat_toko') is-invalid @enderror">{{ old('alamat_toko') }}</textarea>
-                                                            @error('alamat_toko')
+                                                            <label for="alamat_rumah">Alamat Rumah</label>
+                                                            <textarea name="alamat_rumah" id="alamat_rumah" rows="3" class="form-control @error('alamat_rumah') is-invalid @enderror">{{ old('alamat_rumah') }}</textarea>
+                                                            @error('alamat_rumah')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                 </div>
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 mb-5">
-                                                        <div class="form-group">
-                                                            <label for="deskripsi_toko">Deskripsi Toko</label>
-                                                            <textarea name="deskripsi_toko" id="deskripsi_toko" rows="5" class="form-control">{{ old('deskripsi_toko') }}</textarea>
-                                                        </div>
+                                                    <div class="col-12 mb-3">
+                                                        <label>Admin</label><br>
+                                                        <label class="switch s-icons s-outline s-outline-primary mr-2">
+                                                            <input type="checkbox">
+                                                            <span class="slider round"></span>
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
