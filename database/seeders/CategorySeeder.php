@@ -27,6 +27,10 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::create([
+            'kategori' => 'Olahraga'
+        ]);
+
+        Category::create([
             'kategori' => 'Lainnya'
         ]);
     }

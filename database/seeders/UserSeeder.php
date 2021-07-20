@@ -16,41 +16,11 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'nama_depan' => 'Arya',
-            'nama_belakang' => 'Ashari',
-            'email' => 'arya@gmail.com',
-            'password' => Hash::make('password'),
+            'nama_depan' => 'Numbay',
+            'nama_belakang' => 'Store',
+            'email' => 'numbaystore@gmail.com',
+            'password' => Hash::make('UMKMJAYAPURA2021'),
             'no_telp' => '081215750405',
-            'alamat_rumah' => 'Doyo baru',
-            'foto_profile_user' => 'user.png'
-        ]);
-
-        User::create([
-            'nama_depan' => 'Vicky',
-            'nama_belakang' => 'Irmanto',
-            'email' => 'vickyirmanto@gmail.com',
-            'password' => Hash::make('password'),
-            'no_telp' => '08123456788',
-            'alamat_rumah' => 'Doyo baru',
-            'foto_profile_user' => 'user.png'
-        ]);
-
-        User::create([
-            'nama_depan' => 'Vicky',
-            'nama_belakang' => 'Irmanto',
-            'email' => 'vicky@gmail.com',
-            'password' => Hash::make('password'),
-            'no_telp' => '08123456789',
-            'alamat_rumah' => 'Doyo baru',
-            'foto_profile_user' => 'user.png'
-        ]);
-
-        User::create([
-            'nama_depan' => 'Safira',
-            'nama_belakang' => 'Rahmadani',
-            'email' => 'fira@gmail.com',
-            'password' => Hash::make('password'),
-            'no_telp' => '08123456780',
             'alamat_rumah' => 'Doyo baru',
             'foto_profile_user' => 'user.png'
         ]);
