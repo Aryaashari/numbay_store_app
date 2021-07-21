@@ -24,7 +24,7 @@
 
                 <div class="header align-items-center">
                     <div class="header-body">
-                        <h6>Total User</h6>
+                        <h6>Total Pengguna</h6>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                         <p class="task-left">{{ count($users) }}</p>
                     </div>
                     <div class="tm-action-btn">
-                        <a href="#" class="btn">Lihat User</a>
+                        <a href="{{ url('/admin/users') }}" class="btn">Lihat Pengguna</a>
                     </div>
                 </div>
             </div>
