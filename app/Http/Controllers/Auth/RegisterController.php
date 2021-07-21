@@ -114,6 +114,6 @@ class RegisterController extends Controller
     protected function registered()
     {
         $this->guard()->logout();
-        return redirect('/login')->with('status', 'Selamat anda telah berhasil daftar, silahkan verifikasi email anda segera!');
+        return redirect('/login')->with('status', 'Selamat akun telah berhasil terdaftar!');
     }
 }

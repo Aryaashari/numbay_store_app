@@ -123,7 +123,7 @@
 
     @if (session('status'))
         <script>
-            swal("Selamat!", "Anda telah terdaftar \n silahkan verifikasi email anda!", "success");
+            swal("Selamat!", "Akun telah terdaftar, \n silahkan login!", "success");
         </script>
     @endif
     
