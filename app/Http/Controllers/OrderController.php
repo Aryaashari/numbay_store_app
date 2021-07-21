@@ -24,7 +24,7 @@ class OrderController extends Controller
     private function sendMessage($no_telp_toko, $request, $namaProduk) {
         $no_wa = '62'.$no_telp_toko;
 
-        $pesan = 'https://api.whatsapp.com/send?phone='. $no_wa .'&text=Permisi, saya ingin memesan '. $namaProduk .':%0ANama penerima: '. $request->nama_penerima .'%0ANo telepon penerima: '. $request->no_telp_penerima .'%0AAlamat pengantaran: '. $request->alamat_pengantaran .'%0AKeterangan tambahan: '.$request->keterangan_tambahan.'%0A%0ATerima Kasih';
+        $pesan = 'https://api.whatsapp.com/send?phone='. $no_wa .'&text=Hallo, saya ingin memesan '. $namaProduk .' via Numbay Store.%0ANama penerima: '. $request->nama_penerima .'%0ANo telepon penerima: '. $request->no_telp_penerima .'%0AAlamat pengantaran: '. $request->alamat_pengantaran .'%0AKeterangan tambahan: '.$request->keterangan_tambahan.'%0A%0ATerima Kasih';
 
         return redirect($pesan);
     }
