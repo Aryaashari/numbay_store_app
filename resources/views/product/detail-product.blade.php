@@ -53,7 +53,11 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="img-card">
-                        <div class="img" style="background-image: url({{ asset('storage/uploads/product/'.$product->foto_produk) }});"></div>
+                        <div class="img" style="background-image: url({{ asset('storage/uploads/product/'.$product->foto_produk) }});">
+                            <div class="img-overlay">
+                                <p>Lihat gambar...</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
