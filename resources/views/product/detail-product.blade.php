@@ -119,4 +119,9 @@
             });
         </script>
     @endif
+
+    <script>
+        $('.img-overlay').click(function (_) { 
+        });
+    </script>
 @endpush
