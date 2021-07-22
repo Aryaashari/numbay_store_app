@@ -229,6 +229,7 @@ body {
     background-size: cover;
     height: 200px;
     border-radius: 18px 18px 0 0;
+    background-position: center top;
 }
 
 .produk .card .text-produk {
