@@ -118,17 +118,6 @@
 
     <script>
         $(document).ready(function () {
-            
-            $('.img-overlay').click(function (_) { 
-                $('#detail-produk .popup-produk-img').css('display', 'flex').hide().fadeIn();
-            });
-
-            $('.close-popup-img').click(function (_) {  
-                $('#detail-produk .popup-produk-img').css('display', 'none').hide().fadeOut();
-            });
-
-
-
             // #### Atur width dan height sesuai orientasi gambar produk ###
             
             // Abmil element gambar dari background image
