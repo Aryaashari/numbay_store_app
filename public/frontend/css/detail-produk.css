@@ -47,36 +47,6 @@
 
 
 
-/* Start Popup Produk Img */
-#detail-produk .popup-produk-img {
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.767);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    display: none;
-}
-
-#detail-produk .popup-produk-img .feather-x {
-    color: white;
-    position: absolute;
-    top: -35px;
-    right: -35px;
-}
-
-#detail-produk .popup-produk-img .feather-x:hover {
-    cursor: pointer;
-}
-
-
-
-
 /* Start Card Produk */
 #detail-produk .card {
     border: none;

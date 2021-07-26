@@ -25,18 +25,6 @@
 
 @section('id', 'detail-produk')
 @section('content')
-
-
-    <!-- Popup gambar produk -->
-    <div class="popup-produk-img">
-        <div style="position: relative;">
-            <img src="{{ asset('storage/uploads/product/'.$product->foto_produk) }}" alt="foto-produk" width="325">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x close-popup-img"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </div>
-    </div>
-
-
-
     <!-- Modal Deskripsi Produk -->
     <div class="modal deskripsi-produk fade" id="modalDeskripsi" tabindex="-1" role="dialog" aria-labelledby="modalDeskripsiTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
