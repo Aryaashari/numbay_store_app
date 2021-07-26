@@ -5,6 +5,7 @@
 
 @push('css')
     <link rel="stylesheet" href="{{ asset('frontend/css/detail-produk.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
 @endpush
 
 @push('js')
