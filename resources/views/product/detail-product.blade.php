@@ -143,6 +143,62 @@
                 $('#detail-produk .popup-produk-img').css('display', 'none').hide().fadeOut();
             });
 
+
+
+            // #### Atur width dan height sesuai orientasi gambar produk ###
+            
+            // Abmil element gambar dari background image
+            let gambarProduk = $('.img').css('backgroundImage').replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
+
+            // Buat object Image baru, dan masukkan gambarProduk sebagai src
+            let image = new Image();
+            image.src = gambarProduk;
+
+            // Responsive breakpoints
+            let mobile = window.matchMedia("(max-width: 767px)");
+            let tablet = window.matchMedia("(min-width: 768px) and (max-width: 991px)");
+
+            // Check jika gambar berorientasi potrait, landscape, atau kotak
+            if (image.width > image.height) {
+                // Landscape
+                if (mobile.matches) {
+                    $('.img-card').css('width', '100%');
+                    $('.img').css('height', '260px');
+                } else {
+                    $('.img-card').css('width', '95%');
+                    $('.img').css('height', '375px');
+                }
+
+
+
+            } else if (image.width < image.height) {
+                // Potrait
+                if (mobile.matches) {
+                    $('.img-card').css('width', '320px');
+                    $('.img').css('height', '450px');
+                } else if (tablet.matches) {
+                    $('.img-card').css('width', '55%');
+                    $('.img').css('height', '500px');
+                } else {
+                    $('.img-card').css('width', '75%');
+                    $('.img').css('height', '500px');
+                }
+
+
+            } else {
+                // Kotak
+
+                if (mobile.matches) {
+                    $('.img-card').css('width', '300px', '!important');
+                    $('.img').css('height', '300px');
+                } else {
+                    $('.img-card').css('width', '450px');
+                    $('.img').css('height', '450px');
+                }
+                
+
+            }
+
         });
     </script>
 @endpush
