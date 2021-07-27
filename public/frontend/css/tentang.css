@@ -1,0 +1,110 @@
+/* Start Bio Area */
+
+#tentang .bio {
+    margin-top: 30px;
+    align-items: center;
+    margin-bottom: 130px;
+}
+
+#tentang .bio img {
+    width: 600px;
+}
+
+#tentang .bio .text h3 {
+    font-weight: bold;
+    font-size: 43px;
+    margin-bottom: 18px;
+}
+
+#tentang .bio .text p {
+    font-size: 20px;
+}
+
+/* End Bio Area */
+
+
+
+/* Start Tim Area */
+
+#tentang .tim  {
+    margin-bottom: 50px;
+}
+
+#tentang .tim .judul {
+    margin-bottom: 25px;
+}
+
+#tentang .tim .judul h3 {
+    font-weight: bold;
+    font-size: 42px;
+    text-align: center;
+}
+
+#tentang .tim .judul .garis {
+    width: 52px;
+    height: 8px;
+    background-color: #FFDA00;
+    margin: auto;
+    margin-top: 13px;
+}
+
+#tentang .tim .profil-tim {
+    text-align: center;
+}
+
+#tentang .tim .profil-tim h5 {
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+
+/* End Tim Area */
+
+
+
+
+
+/* Mobile Device SM (Small) */
+@media only screen and (max-width: 767px) {
+
+    /* Start Bio Area */
+
+        #tentang .bio {
+            margin-bottom: 100px;
+        }
+
+        #tentang .bio img {
+            width: 320px;
+            display: block;
+            margin: auto;
+        }
+
+        #tentang .bio .text h3 {
+            font-size: 40px;
+            margin-bottom: 18px;
+        }
+
+        #tentang .bio .text p {
+            font-size: 18px;
+        }
+
+    /* End Bio Area */
+
+
+
+    /* Start Tim Area */
+
+        #tentang .tim .judul h3 {
+            font-size: 40px;
+        }
+
+        #tentang .tim .profil-tim {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+
+    /* End Tim Area */
+
+}

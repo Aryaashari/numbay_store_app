@@ -25,6 +25,10 @@ use App\Http\Controllers\Admin\AdminUserController;
 Route::get('/', [HomeController::class, 'index']);
 
 
+// About
+Route::view('/about', 'about.about');
+
+
 // Detail Produk
 Route::get('/detail/product/{product:slug}', [ProductController::class, 'show']);
 
