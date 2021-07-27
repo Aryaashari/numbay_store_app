@@ -21,10 +21,10 @@ class OrderController extends Controller
     }
 
 
-    private function sendMessage($no_telp_toko, $request, $namaProduk) {
+    private function sendMessage($no_telp_toko, $request, $produk) {
         $no_wa = '62'.$no_telp_toko;
 
-        $pesan = 'https://api.whatsapp.com/send?phone='. $no_wa .'&text=Hallo, saya ingin memesan '. $namaProduk .' via Numbay Store.%0A%0ANama penerima: '. $request->nama_penerima .'%0ANo telepon penerima: '. $request->no_telp_penerima .'%0AAlamat pengantaran: '. $request->alamat_pengantaran .'%0AKeterangan tambahan: '.$request->keterangan_tambahan.'%0A%0ATerima Kasih';
+        $pesan = 'https://api.whatsapp.com/send?phone='. $no_wa .'&text=Hallo, saya ingin memesan produk via Numbay Store.%0A%0ANama produk: '. $produk->nama_produk .'%0AHarga produk: Rp '. number_format($produk->harga_produk, 0, '.', '.') .' %0A%0A==========================%0A%0ANama penerima: '. $request->nama_penerima .'%0ANo telepon penerima: '. $request->no_telp_penerima .'%0AAlamat pengantaran: '. $request->alamat_pengantaran .'%0AKeterangan tambahan: '.($request->keterangan_tambahan ? $request->keterangan_tambahan : "-").'%0AJumlah pesanan: '. $request->jumlah_pesanan .'%0ATotal harga: Rp '. number_format($request->jumlah_pesanan*$produk->harga_produk, 0, '.', '.') .' %0A%0ATerima Kasih.';
 
         return redirect($pesan);
     }
@@ -62,11 +62,13 @@ class OrderController extends Controller
             'nama_penerima' => $request->nama_penerima,
             'no_telp_penerima' => $request->no_telp_penerima,
             'alamat_pengantaran' => $request->alamat_pengantaran,
-            'keterangan_tambahan' => $request->keterangan_tambahan
+            'keterangan_tambahan' => $request->keterangan_tambahan,
+            'jumlah_pesanan' => $request->jumlah_pesanan,
+            'total_harga' => $request->total_harga
         ]);
 
 
-        return $this->sendMessage($product->store->no_telp_toko, $request, $product->nama_produk);
+        return $this->sendMessage($product->store->no_telp_toko, $request, $product);
 
     }
 }

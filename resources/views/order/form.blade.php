@@ -91,6 +91,9 @@
                             </div>
                         </div>
                     </div>
+
+                    {{-- Total harga --}}
+                    <input type="hidden" name="total_harga" value="{{ $jumlahPesanan*$product->harga_produk }}">
                 </form>
             </div>
         </div>
