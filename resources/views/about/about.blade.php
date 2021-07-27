@@ -34,6 +34,24 @@
         </div>
         <!-- End About Area -->
 
+    </div>
+
+
+    <div class="container-fluid">
+
+        <!-- Start Quote Area  -->
+        <div class="row quote">
+            <div class="col-12 col-md-7 col-lg-5 col-xl-4 text-center">
+                <h4 class="judul">Kami percaya kepada para UMKM</h4>
+                <p class="text">Kami Percaya bahwa UMKM yang maju & berdaya akan memberi andil bagi tingkat kesejahteraan masyarakat Jayapura</p>
+            </div>
+        </div>
+        <!-- End Quote Area  -->
+
+    </div>
+
+
+    <div class="container">
 
         <!-- Start Tim Area -->
         <div class="row tim justify-content-center">
