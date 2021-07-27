@@ -32,6 +32,7 @@
                     <div class="col-12 text-center">
                         <h1 class="title">Form Pemesanan Produk</h1>
                         <p class="nama-produk">{{ $product->nama_produk }}</p>
+                        <p class="harga-produk">Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</p>
                     </div>
                 </div>
                 <form action="{{ url('/product/'.$product->slug.'/order') }}" method="POST">
@@ -57,17 +58,12 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- <div class="col-12">
+                        <div class="col-12">
                             <div class="form">
-                                <input type="text" name="jumlah_pesanan" id="jumlah-pesanan" class="form-control @error('jumlah_pesanan') is-invalid @enderror" value="{{ old('jumlah_pesanan') ?? 1 }}" data-harga="{{ $product->harga_produk }}" placeholder="Jumlah Pesanan (minimal 1)">
-                                
-                                @error('jumlah_pesanan')
-                                    <div class="invalid-feedback d-block">
-                                        <b>{{ $message }}</b>
-                                    </div>
-                                @enderror
+                                <input type="text" class="form-control" disabled value="Jumlah pesanan: {{ $jumlahPesanan }}">
+                                <input type="hidden" name="jumlah_pesanan" class="form-control" value="{{ $jumlahPesanan }}">
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="col-12">
                             <div class="form">
                                 <textarea name="alamat_pengantaran" placeholder="Alamat Lengkap Pengantaran" class="form-control @error('alamat_pengantaran') is-invalid @enderror" rows="3">{{ old('alamat_pengantaran') }}</textarea>
@@ -85,8 +81,8 @@
                         </div>
                         <div class="col-md-6 col-12 text-md-left text-center">
                             <div class="detail-pemesanan">
-                                <h5>Harga produk</h5>
-                                <h3>Rp {{ number_format($product->harga_produk, 0, '.', '.') }}</h3>
+                                <h5>Total harga</h5>
+                                <h3>Rp {{ number_format($product->harga_produk*$jumlahPesanan, 0, '.', '.') }}</h3>
                             </div>
                         </div>
                         <div class="col-md-6 col-12 text-md-right text-center">
@@ -100,24 +96,3 @@
         </div>
     </div>
 @endsection
-
-@push('js')
-    {{-- <script>
-        $(document).ready(function () {
-            const valueJumlahPesanan = $('#jumlah-pesanan').val();
-            const formJumlahPesanan = $('#jumlah-pesanan');
-            const totalHarga = $('.detail-pemesanan h3');
-
-            formJumlahPesanan.keyup(function (e) { 
-                let jumlahPesanan = formJumlahPesanan.data('harga')*formJumlahPesanan.text(this).val();
-                if (jumlahPesanan < 10000) {
-                    totalHarga.text('Rp '+formJumlahPesanan.data('harga'));
-                } else if(jumlahPesanan >= 1000000) {
-                    totalHarga.text('Rp '+(jumlahPesanan/1000000).toFixed(3)+'.000');
-                } else {
-                    totalHarga.text('Rp '+(jumlahPesanan/1000).toFixed(3));
-                }
-            });
-        });
-    </script> --}}
-@endpush

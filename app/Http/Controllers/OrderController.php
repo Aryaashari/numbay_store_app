@@ -29,8 +29,10 @@ class OrderController extends Controller
         return redirect($pesan);
     }
 
-    public function orderView(Product $product) {
-        return view('order.form', compact('product'));
+    public function orderView(Request $request) {
+        $product = Product::where('slug', $request->produk)->select(['nama_produk', 'slug', 'harga_produk'])->get()[0];
+        $jumlahPesanan = $request->jumlah_pesanan;
+        return view('order.form', compact('product', 'jumlahPesanan'));
     }
 
     public function orderProduct(Product  $product, Request $request) {

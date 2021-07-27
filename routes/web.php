@@ -150,7 +150,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Order Produk
-    Route::get('/product/{product:slug}/order', [OrderController::class, 'orderView']);
+    Route::get('/product/order', [OrderController::class, 'orderView']);
     Route::post('/product/{product:slug}/order', [OrderController::class, 'orderProduct']);
 
 

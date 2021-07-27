@@ -13,6 +13,14 @@
     margin-bottom: 29px;
 }
 
+#form-pemesanan .harga-produk {
+    font-weight: bold;
+    margin-top: -30px;
+    color: #FFB800;
+    font-size: 23px;
+    margin-bottom: 40px;
+}
+
 #form-pemesanan .form .btn {
     color: white;
     border-radius: 13px;
