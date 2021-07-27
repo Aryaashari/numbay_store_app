@@ -64,7 +64,7 @@
     background-size: cover;
     width: 100%;
     border-radius: 19px;
-    background-position: center;
+    background-position: center top;
 }
 
 #detail-produk .card .text-produk .title {
