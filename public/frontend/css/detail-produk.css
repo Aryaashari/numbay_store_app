@@ -92,6 +92,51 @@
     border-radius: 13px;
 }
 
+#detail-produk .card .jumlah-pesanan {
+    display: flex;
+    align-items: center;
+    margin-left: 13px;
+}
+
+#detail-produk .card .jumlah-pesanan .tambah {
+    background-color: #FFB800;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#detail-produk .card .jumlah-pesanan .kurang {
+    background-color: #C4C4C4;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#detail-produk .card .jumlah-pesanan .tambah svg, #detail-produk .card .jumlah-pesanan .kurang svg {
+    color: white;
+    font-weight: bold;
+}
+
+#detail-produk .card .jumlah-pesanan .angka  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #999999;
+    width: 55px;
+    height: 55px;
+}
+
+#detail-produk .card .jumlah-pesanan .angka p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 #detail-produk .card .btn.whislist {
     width: 65px;
     padding-top: 13px;
