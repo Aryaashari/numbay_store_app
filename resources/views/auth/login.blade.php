@@ -51,7 +51,7 @@
                     <div class="col-md-6 col-12">
                         <img src="{{ asset('frontend/img/icon/il_ecommerce.png') }}" alt="illustration-ecommerce">
                     </div>
-                    <div class="col-md-6 col-12 text-center">
+                    <div class="col-md-6 col-12">
                         <h3>Login</h3>
                         <form action="" method="post">
                             @csrf
@@ -63,16 +63,19 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form">
+                            <div class="form text-right">
                                 <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
                                 @error('password')
                                     <div class="invalid-feedback d-block">
                                         <b>{{ $message }}</b>
                                     </div>
                                 @enderror
+                                <a href="{{ url('forgot-password') }}" style="font-size: 12px;">Lupa Password?</a>
                             </div>
-                            <button type="submit" class="btn btn-warning">Login</button>
-                            <p>Belum punya akun? <span><a href="{{ url('/register') }}">Daftar</a></span></p>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-warning">Login</button>
+                                <p>Belum punya akun? <span><a href="{{ url('/register') }}">Daftar</a></span></p>
+                            </div>
                         </form>
                     </div>
                 </div>
