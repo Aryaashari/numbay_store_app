@@ -89,3 +89,16 @@
         </script>
     @endpush
 @endif
+
+@if (session('statusReset'))
+    @push('js')
+        <script>
+            swal({
+                text: 'Password anda berhail direset!',
+                icon: 'success'
+            }).then((_) => {
+                location.reload();
+            })
+        </script>
+    @endpush
+@endif
