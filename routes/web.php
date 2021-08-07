@@ -52,6 +52,9 @@ Route::middleware(['auth'])->group(function () {
     // User
     Route::get('/user/profile/edit', [UserController::class, 'editUser']);
     Route::post('/user/profile/edit', [UserController::class, 'updateUser']);
+    Route::get('/forgot-password', function() {
+        return view('auth.passwords.email');
+    });
 
 
     // Permission create store
