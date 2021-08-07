@@ -55,13 +55,13 @@
                                 <div class="col-10">
                                     <div class="form">
                                         
-                                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="E-mail" value="{{ old('email') }}">
+                                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Masukkan email anda!" value="{{ old('email') }}">
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 <b>{{ $message }}</b>
                                             </div>
                                         @else
-                                            <p class="text-left text-pemberitahuan"><i>*Masukkan email yang anda daftarkan!</i></p>
+                                            <p class="text-left text-pemberitahuan"><i>*Masukkan email yang anda daftarkan, pastikan email anda aktif dan valid!</i></p>
                                         @enderror
                                     </div>
                                 </div>
@@ -114,6 +114,13 @@
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    @if (session('status'))
+        <script>
+            swal("Berhasil!", "Link reset password telah dikirim ke email anda, \n Silahkan cek email anda!");
+        // </script>
+    @endif
     
 </body>
 </html>
