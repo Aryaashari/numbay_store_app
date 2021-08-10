@@ -100,7 +100,7 @@ return [
     */
 
     'markdown' => [
-        'theme' => 'default',
+        'theme' => 'numbay_mail',
 
         'paths' => [
             resource_path('views/vendor/mail'),
