@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numbay Store - Login</title>
+    <title>Numbay Store - Ubah Password</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/login.css') }}">
-
-    <!-- Utilities CSS -->
-    <link rel="stylesheet" href="{{ asset('frontend/css/form.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/daftar.css') }}">
 
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
 
+    <!-- Utilities CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/form.css') }}">
+
     <!-- Google Fonts (Noto Sans) -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
-<body id="login">
+<body id="daftar">
 
     <!-- Start Main Area -->
     <main>
@@ -32,7 +31,7 @@
 
         <!-- Start Arrow Area -->
         <div class="arrow-back">
-            <a href="{{ url('/') }}"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="arrow-back"></a>
+            <a href="#" onclick="window.history.back()"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="arrow-back"></a>
         </div>
         <!-- End Arrow Area -->
 
@@ -48,33 +47,41 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="row justify-content-center">
-                    <div class="col-md-6 col-12">
-                        <img src="{{ asset('frontend/img/icon/il_ecommerce.png') }}" alt="illustration-ecommerce">
+                    <div class="col-12 text-center">
+                        <h3>Ubah Password</h3>
                     </div>
-                    <div class="col-md-6 col-12">
-                        <h3>Login</h3>
-                        <form action="" method="post">
+                    <div class="col-10">
+                        <form action="{{ route('password.update') }}" method="POST">
                             @csrf
+    
+                            {{-- <input type="hidden" name="token" value="{{ $token }}"> --}}
+                                    
                             <div class="form">
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" value="{{ old('email') }}">
-                                @error('email')
-                                    <div class="invalid-feedback d-block">
+                                <input class="form-control @error('old_password') is-invalid @enderror mb-2" type="old_password" name="old_password" placeholder="Masukkan password anda saat ini!" value="{{ old('old_password') }}">
+                                @error('old_password')
+                                    <div class="invalid-feedback">
                                         <b>{{ $message }}</b>
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form text-right">
-                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
+
+                            <div class="form">
+                                <input class="form-control @error('password') is-invalid @enderror mb-2" type="password" name="password" placeholder="Masukkan password baru anda!" value="{{ old('password') }}">
                                 @error('password')
-                                    <div class="invalid-feedback d-block">
+                                    <div class="invalid-feedback">
                                         <b>{{ $message }}</b>
                                     </div>
                                 @enderror
-                                <a href="{{ url('forgot-password') }}" style="font-size: 14px;">Lupa Password?</a>
                             </div>
+
+                            <div class="form">
+                                <input class="form-control" type="password" name="password_confirmation" placeholder="Masukkan konfirmasi password baru anda!">
+                            </div>
+
+                            <a href="{{ url('forgot-password') }}" class="text-left mt-0 d-block" style="font-size: 14px;">Lupa Password?</a>
+                            
                             <div class="text-center">
-                                <button type="submit" class="btn btn-warning">Login</button>
-                                <p>Belum punya akun? <span><a href="{{ url('/register') }}">Daftar</a></span></p>
+                                <button type="submit" class="btn btn-warning">Ubah Password</button>
                             </div>
                         </form>
                     </div>
@@ -119,15 +126,15 @@
 
 
 
-    <script src="{{ asset('js/jquery-3.6.0.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     @if (session('status'))
         <script>
-            swal("Selamat!", "Akun telah terdaftar, \n silahkan login!", "success");
-        </script>
+            swal("Berhasil!", "Link reset password telah dikirim ke email anda, \n Silahkan cek email anda!");
+        // </script>
     @endif
     
 </body>

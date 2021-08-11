@@ -31,7 +31,7 @@
 
         <!-- Start Arrow Area -->
         <div class="arrow-back">
-            <a href="{{ url('/') }}"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="arrow-back"></a>
+            <a href="#" onclick="window.history.back()"><img src="{{ asset('frontend/img/icon/arrow_back_white.png') }}" alt="arrow-back"></a>
         </div>
         <!-- End Arrow Area -->
 
