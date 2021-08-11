@@ -45,7 +45,7 @@ class MailResetPasswordToken extends Notification
         return (new MailMessage)
                     ->subject('Reset Password')
                     ->line('Silahkan klik tombol dibawah ini untuk melakukan reset password.')
-                    ->action('Reset Password', url('/password/reset/'.$this->token))
+                    ->action('Reset Password', url('/password/reset/'.$this->token.'?email='.request('email')))
                     ->line('Link reset password berlaku selama 60 menit!')
                     ->line('Jika anda tidak melakukan permintaan reset password, silahkan diabaikan!')
                     ->salutation("Salam hormat, \n Numbay Store");
