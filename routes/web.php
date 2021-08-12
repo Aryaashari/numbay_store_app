@@ -19,7 +19,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\AdminUserController;
 
-
+Route::get('/maintanace', function() {
+    return view('maintanace.maintanace');
+});
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
