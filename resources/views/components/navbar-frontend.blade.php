@@ -28,7 +28,7 @@
                         <a class="nav-link {{ (request()->is('/') ? 'aktif' : '') }}" href="{{ url('/') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang</a>
+                        <a class="nav-link {{ (request()->is('about') ? 'aktif' : '') }}" href="{{ url('/about') }}">Tentang</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link kontak" href="#">Kontak</a>
