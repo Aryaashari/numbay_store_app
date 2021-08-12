@@ -78,6 +78,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-12">
+                            <a href="{{ url('/change-password') }}">Ubah Password?</a>
+                        </div>
                         <div class="col-12 text-center">
                             <div class="form">
                                 <button type="submit" class="btn btn-warning">Selesai</button>
@@ -137,6 +140,13 @@
             swal({
                 icon: 'success',
                 title: 'Profile berhasil diubah!',
+            });
+        </script>
+    @elseif (session('successChangePassword'))
+        <script>
+            swal({
+                icon: 'success',
+                title: 'Password berhasil diubah!',
             });
         </script>
     @endif

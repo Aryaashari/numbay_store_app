@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -66,6 +67,42 @@ class UserController extends Controller
         ]);
 
         return back()->with('status', 'Profile user berhasil diubah!');
+
+    }
+
+
+    public function editPassword() {
+        return view('auth.passwords.change');
+    }
+
+    public function updatePassword(Request $request) {
+        // dd($request->request);
+    
+        $request->validate(
+            [
+                'old_password' => 'required',
+                'password' => 'required|string|min:8|confirmed'
+            ],
+            [
+                'old_password.required' => 'Anda belum memasukkan password saat ini!',
+
+                'password.required' => 'Anda belum memasukkan password baru!',
+                'password.min' => 'Anda harus memasukkan minimal 8 karakter!',
+                'password.confirmed' => 'Konfirmasi password tidak sesuai!',
+            ]
+        );
+
+
+        // Cek apakah password yang dimasukkan sama dengan password yang dimiliki saat ini
+        if (Hash::check($request->old_password, auth()->user()->password)) {
+            $user = auth()->user();
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect('/user/profile/edit')->with('successChangePassword', 'asdasd');
+        } else {
+            return back()->withErrors(['old_password' => 'Password salah. Silahkan coba lagi atau klik lupa password!']);
+        }
+
 
     }
 }

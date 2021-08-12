@@ -57,9 +57,8 @@ Route::middleware(['auth'])->group(function () {
     // User
     Route::get('/user/profile/edit', [UserController::class, 'editUser']);
     Route::post('/user/profile/edit', [UserController::class, 'updateUser']);
-    Route::get('/change-password', function() {
-        return view('auth.passwords.change');
-    });
+    Route::get('/change-password', [UserController::class, 'editPassword']);
+    Route::post('/change-password', [UserController::class, 'updatePassword']);
 
 
     // Permission create store

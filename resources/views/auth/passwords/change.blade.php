@@ -46,18 +46,17 @@
         <!-- Start Card Area -->
         <div class="container-fluid">
             <div class="card">
+                
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <h3>Ubah Password</h3>
                     </div>
                     <div class="col-10">
-                        <form action="{{ route('password.update') }}" method="POST">
+                        <form action="{{ url('/change-password') }}" method="POST">
                             @csrf
-    
-                            {{-- <input type="hidden" name="token" value="{{ $token }}"> --}}
                                     
                             <div class="form">
-                                <input class="form-control @error('old_password') is-invalid @enderror mb-2" type="old_password" name="old_password" placeholder="Masukkan password anda saat ini!" value="{{ old('old_password') }}">
+                                <input class="form-control @error('old_password') is-invalid @enderror mb-2" type="password" name="old_password" placeholder="Masukkan password anda!" value="{{ old('old_password') }}">
                                 @error('old_password')
                                     <div class="invalid-feedback">
                                         <b>{{ $message }}</b>
