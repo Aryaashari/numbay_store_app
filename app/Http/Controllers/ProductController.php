@@ -81,7 +81,7 @@ class ProductController extends Controller
                 [
                     'store_id' => 'required',
                     'nama_produk' => 'required|string',
-                    'harga_produk' => 'required|numeric',
+                    'harga_produk' => 'required|numeric|not_regex:[\.]',
                     'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
                 ],
                 [
@@ -91,6 +91,7 @@ class ProductController extends Controller
     
                     'harga_produk.required' => 'Anda belum memasukkan harga produk!',
                     'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+                    'harga_produk.not_regex' => 'Anda tidak boleh menambahkan titik!',
     
                     'foto_produk.required' => 'Anda belum memasukkan foto produk!',
                     'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',
@@ -101,7 +102,7 @@ class ProductController extends Controller
             $request->validate(
                 [
                     'nama_produk' => 'required|string',
-                    'harga_produk' => 'required|numeric',
+                    'harga_produk' => 'required|numeric|not_regex:[\.]',
                     'foto_produk' => 'required|mimes:jpg,jpeg,png|file|max:5000'
                 ],
                 [
@@ -109,6 +110,7 @@ class ProductController extends Controller
     
                     'harga_produk.required' => 'Anda belum memasukkan harga produk!',
                     'harga_produk.numeric' => 'Anda harus memasukkan angka!',
+                    'harga_produk.not_regex' => 'Anda tidak boleh menambahkan titik!',
     
                     'foto_produk.required' => 'Anda belum memasukkan foto produk!',
                     'foto_produk.mimes' => 'Anda harus mengupload file berekstensi jpg, jpeg, atau png!',

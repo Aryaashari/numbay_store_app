@@ -75,7 +75,7 @@
                                             </div>
                                         @enderror
 
-                                        <input type="text" name="harga_produk" placeholder="Harga Produk" class="form-control mt-3 @error('harga_produk') is-invalid @enderror" value="{{ old('harga_produk') }}">
+                                        <input type="text" name="harga_produk" placeholder="Harga Produk cth: 10000" class="form-control mt-3 @error('harga_produk') is-invalid @enderror" value="{{ old('harga_produk') }}">
                                         @error('harga_produk')
                                             <div class="invalid-feedback d-block">
                                                 {{ $message }}
